@@ -1,24 +1,60 @@
-# Web institucional · Hermandad de la Lealtad
+# Web de la Hermandad de la Lealtad
 
-Web estática y adaptable de la Hermandad de Jesús de la Lealtad Despojado y María Santísima de la Pureza de Cáceres.
+Esta es una web estática: no necesita base de datos ni un programa especial para
+editarla. Los textos se cambian directamente en los archivos `.html`.
 
-## Mantenimiento
+## Quiero cambiar algo
 
-- `index.html`: textos, agenda, noticias, enlaces y formularios.
-- `assets/styles.css`: colores, tipografías y diseño.
-- `assets/script.js`: menú móvil.
-- Las cajas marcadas como fotografía son provisionales. Sustituirlas por `<img>` con archivos optimizados en `assets/images/`.
+Empieza por **[GUIA-EDICION.md](GUIA-EDICION.md)**. La guía explica, paso a paso y
+sin asumir conocimientos web, cómo cambiar textos, fechas, enlaces, fotografías,
+datos de contacto y miembros de la Junta de Gobierno.
+
+## Mapa rápido del proyecto
+
+| Archivo | Qué contiene |
+| --- | --- |
+| `index.html` | Portada y próximo encuentro |
+| `hermandad.html` | Historia, Junta, reglas y hábito |
+| `titulares.html` | Información de los Titulares |
+| `agenda.html` | Cultos, actos y calendario |
+| `hazte-hermano.html` | Información y formulario de alta |
+| `contacto.html` | Datos, formulario y mapa |
+| `assets/escudo-aprobado.png` | Escudo oficial que aparece en la cabecera y la portada |
+| `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
+| `assets/script.js` | Menú para móviles; normalmente no hay que tocarlo |
+| `assets/header.js` | Cabecera y menú compartidos por todas las páginas |
+
+## Ver la web
+
+Abre `index.html` con doble clic. Después de cada cambio, guarda el archivo y
+recarga la página en el navegador (tecla `F5`).
+
+Dentro de cada HTML busca `ZONA EDITABLE`. Esos comentarios señalan directamente
+los bloques pensados para modificar. Todo el código está separado en líneas y con
+sangría para que sea fácil reconocer dónde empieza y termina cada apartado.
+
+Si alguna vez el HTML vuelve a aparecer comprimido, ejecuta desde esta carpeta:
+
+```text
+python scripts/format_html.py
+```
+
+## Cabecera compartida
+
+La cabecera no está repetida. Se escribe una sola vez en `assets/header.js`.
+Cada página incluye únicamente una etiqueta corta como esta:
+
+```html
+<site-header active="agenda"></site-header>
+```
+
+El valor `active` marca la opción actual del menú. Los valores disponibles están
+escritos en `assets/header.js`; normalmente no hace falta modificarlos.
 
 ## Publicación
 
-1. En **Settings → Pages → Build and deployment**, seleccionar **GitHub Actions**.
-2. Al integrar esta rama en `main`, el flujo publicará `https://kojieko.github.io/web-lealtad/`.
+La publicación está configurada con GitHub Pages. Al integrar los cambios en la
+rama `main`, GitHub publicará la web automáticamente.
 
-## Dominio propio
-
-1. En **Settings → Pages → Custom domain**, indicar `www.lealtaddespojado.es`.
-2. En el proveedor del dominio, crear un registro `CNAME`: nombre `www`, destino `kojieko.github.io`.
-3. Para el dominio sin `www`, añadir los cuatro registros `A` oficiales indicados por GitHub Pages.
-4. Activar **Enforce HTTPS** cuando el certificado esté disponible.
-
-No se incluye `CNAME` todavía para no afectar al dominio actual antes del cambio de DNS.
+> Importante: prueba siempre los cambios antes de publicarlos y conserva una
+> copia del archivo que vayas a editar.
