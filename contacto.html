@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Contacto y sede de la Hermandad.">
+    <title>
+      Contacto | Jesús de la Lealtad Despojado
+    </title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/header.js"></script>
+  </head>
+  <body>
+    <!-- ZONAS EDITABLES: datos, correo de destino y mapa.
+         Si cambias el correo visible, cambia también formsubmit.co más abajo. -->
+    <site-header active="contacto"></site-header>
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow light">
+          Estamos cerca
+        </p>
+        <h1>
+          Contacto
+        </h1>
+        <p>
+          Escríbenos o visítanos en nuestra sede parroquial.
+        </p>
+      </section>
+      <!-- ZONA EDITABLE 1: DIRECCIÓN, TELÉFONO, CORREO Y FORMULARIO -->
+      <section class="contact-layout">
+        <div>
+          <p class="eyebrow">
+            Datos de contacto
+          </p>
+          <h2>
+            Hablemos
+          </h2>
+          <address>
+            <div>
+              <span>
+                Dirección
+              </span>
+              <p>
+                Parroquia de Nuestra Señora del Rosario de Fátima
+                <br>
+                Cáceres
+              </p>
+            </div>
+            <div>
+              <span>
+                Teléfono
+              </span>
+              <p>
+                Dato pendiente de confirmar
+              </p>
+            </div>
+            <div>
+              <span>
+                Correo
+              </span>
+              <p>
+                <a href="mailto:contacto@lealtaddespojado.es">
+                  contacto@lealtaddespojado.es
+                </a>
+              </p>
+            </div>
+          </address>
+        </div>
+        <form action="https://formsubmit.co/contacto@lealtaddespojado.es" method="POST">
+          <input type="hidden" name="_subject" value="Contacto desde la web">
+          <label>
+            Nombre
+            <input name="nombre" required>
+          </label>
+          <label>
+            Correo electrónico
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            Asunto
+            <input name="asunto" required>
+          </label>
+          <label>
+            Mensaje
+            <textarea name="mensaje" rows="5" required>
+            </textarea>
+          </label>
+          <label class="check">
+            <input type="checkbox" required>
+            Acepto la política de privacidad.
+          </label>
+          <button type="submit">
+            Enviar mensaje →
+          </button>
+        </form>
+      </section>
+      <!-- ZONA EDITABLE 2: MAPA DE LA SEDE -->
+      <section class="map-section">
+        <div>
+          <p class="eyebrow light">
+            Nuestra sede
+          </p>
+          <h2>
+            Cómo llegar
+          </h2>
+        </div>
+        <div class="map-placeholder">
+          Mapa de Google pendiente de configurar
+        </div>
+      </section>
+    </main>
+    <footer class="simple-footer">
+      <p>
+        Hermandad de Jesús de la Lealtad
+        <strong>
+          Despojado
+        </strong>
+      </p>
+      <a href="index.html">
+        Inicio
+      </a>
+      <small>
+        © 2026
+      </small>
+    </footer>
+    <script src="assets/script.js">
+    </script>
+  </body>
+</html>
