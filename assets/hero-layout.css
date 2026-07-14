@@ -1,4 +1,4 @@
-/* Portada: la fotografía de los Titulares aparece debajo del texto. */
+/* Portada: texto y fotografía en una sola columna. */
 .hero {
   grid-template-columns: 1fr;
 }
@@ -13,7 +13,7 @@
   aspect-ratio: 3 / 2;
   min-height: 0;
   background-image:
-    linear-gradient(180deg, rgba(34,55,32,.04), rgba(34,55,32,.18)),
+    linear-gradient(180deg, rgba(34,55,32,.02), rgba(34,55,32,.12)),
     url("titulares-portada.jpg");
   background-size: cover;
   background-position: center;
@@ -26,26 +26,31 @@
 
 @media (max-width: 720px) {
   .hero-copy {
-    padding: 2.75rem 1.3rem 2.5rem;
+    padding: 1.5rem 1.3rem 1.75rem;
+  }
+
+  .hero .eyebrow {
+    margin-bottom: .8rem;
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 14vw, 3.45rem);
-    margin-bottom: 1.35rem;
+    font-size: clamp(2.8rem, 13vw, 3.35rem);
+    margin: 0 0 1rem;
   }
 
   .hero-lead {
-    font-size: 1rem;
-    line-height: 1.55;
+    font-size: .98rem;
+    line-height: 1.5;
+    margin-bottom: 0;
   }
 
   .actions {
-    gap: .75rem;
-    margin-top: 1.75rem;
+    gap: .6rem;
+    margin-top: 1.15rem;
   }
 
   .button {
-    padding: .85rem 1rem;
+    padding: .78rem .95rem;
   }
 
   .hero-art {
