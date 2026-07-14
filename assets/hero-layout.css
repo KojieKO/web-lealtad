@@ -1,0 +1,24 @@
+/* Portada: la fotografía de los Titulares aparece debajo del texto. */
+.hero {
+  grid-template-columns: 1fr;
+}
+
+.hero-copy {
+  width: min(100%, 980px);
+  padding-right: max(1.3rem, 8vw);
+}
+
+.hero-art {
+  width: 100%;
+  min-height: clamp(430px, 62vw, 780px);
+}
+
+@media (max-width: 720px) {
+  .hero-copy {
+    padding: 5rem 1.3rem 3.5rem;
+  }
+
+  .hero-art {
+    min-height: 430px;
+  }
+}
