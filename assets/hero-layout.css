@@ -62,22 +62,26 @@
 
 @media (max-width: 720px) {
   .hero {
-    min-height: 650px;
-    align-items: flex-end;
-    background:var(--green-dark);
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background:var(--green);
   }
 
   .hero-copy {
-    padding: 6.5rem 1.3rem 1.8rem;
-    background:linear-gradient(180deg,transparent,rgba(34,55,32,.78) 28%,var(--green) 62%);
+    order: 2;
+    width: 100%;
+    margin: calc(-7rem - 5px) 0 0;
+    padding: 8rem 1.3rem 2rem;
+    background:linear-gradient(180deg,transparent 0,rgba(34,55,32,.5) 32%,rgba(34,55,32,.9) 58%,var(--green) 76%);
   }
 
   .hero .eyebrow {
-    margin-bottom: .8rem;
+    margin-bottom: .55rem;
   }
 
   .hero-title h1 {
-    font-size: clamp(1.85rem, 8vw, 2.65rem);
+    font-size: clamp(1.7rem, 6.8vw, 2.2rem);
     line-height: .96;
     letter-spacing: -.01em;
     margin: 0;
@@ -91,7 +95,7 @@
 
   .actions {
     gap: .6rem;
-    margin-top: 1.15rem;
+    margin-top: .95rem;
   }
 
   .button {
@@ -99,19 +103,28 @@
   }
 
   .hero-art {
-    min-height: 100%;
-    background-position:center,center top;
-    background-size:100% 100%,100% auto;
+    position: relative;
+    inset: auto;
+    order: 1;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    background-position:center;
+    background-size:cover;
     background-repeat:no-repeat;
     background-color:var(--green-dark);
     background-image:
       linear-gradient(180deg,
-        rgba(16,19,16,.08) 0,
-        rgba(16,19,16,.02) 34%,
-        rgba(34,55,32,.5) 56%,
-        rgba(34,55,32,.96) 78%,
-        var(--green) 100%),
+        rgba(16,19,16,.02),
+        rgba(16,19,16,.06) 62%,
+        rgba(34,55,32,.24)),
       url("images/titulares-portada.jpg");
+  }
+
+  .hero-art::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,transparent 58%,rgba(34,55,32,.38) 78%,var(--green) 100%);
   }
 
   .hero::after {
