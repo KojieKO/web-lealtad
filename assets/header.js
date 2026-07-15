@@ -68,7 +68,7 @@ class CabeceraWeb extends HTMLElement {
     this.innerHTML = `
       <header class="top">
         <a class="brand" href="index.html" aria-label="Ir al inicio">
-          <img src="assets/escudo-aprobado.png" alt="" width="64" height="72">
+          <img src="assets/images/escudo-aprobado.png" alt="" width="64" height="72">
           <span>
             <b>Hermandad de Jesús de la Lealtad</b>
             <strong>Despojado</strong>

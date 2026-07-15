@@ -20,7 +20,7 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `procesion.html` | Estación de penitencia, cortejo, hábito e itinerario histórico |
 | `agenda.html` | Cultos, actos y calendario |
 | `contacto.html` | Datos, formulario y mapa |
-| `assets/escudo-aprobado.png` | Escudo oficial que aparece en la cabecera y la portada |
+| `assets/images/` | Imágenes, escudo e iconos de la web |
 | `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
 | `assets/script.js` | Menú para móviles; normalmente no hay que tocarlo |
 | `assets/header.js` | Cabecera y menú compartidos por todas las páginas |

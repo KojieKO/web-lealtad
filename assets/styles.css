@@ -3,7 +3,8 @@
  * Cambia solo el código que empieza por # y conserva el punto y coma.
  * Consulta GUIA-EDICION.md antes de modificar el resto de este archivo.
  */
-@font-face{font-family:Capellina;src:local("Capellina");font-display:swap}
+@font-face{font-family:Capellina;src:local("Capellina Caps"),local("CapellinaCaps"),url("fonts/CapellinaCaps.woff2") format("woff2"),url("fonts/CapellinaCaps.woff") format("woff");font-style:normal;font-weight:400;font-display:swap;size-adjust:107.5%}
+@font-face{font-family:Capellina;src:local("Capellina Caps Bold"),local("CapellinaCaps-Bold"),url("fonts/CapellinaCaps-Bold.woff2") format("woff2"),url("fonts/CapellinaCaps-Bold.woff") format("woff");font-style:normal;font-weight:700;font-display:swap;size-adjust:107.5%}
 :root{
   --green:#2e482b;       /* Verde principal */
   --green-dark:#223720;  /* Verde oscuro del pie */
@@ -23,11 +24,12 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* Composición de la denominación corporativa */
-.brand b{font-size:.59rem;letter-spacing:.035em;white-space:nowrap}
-.brand strong{font-size:1.55rem;margin-top:.08rem}
+.brand span{min-height:70px;align-content:center;line-height:.92;transform:translateY(5px)}
+.brand b{font-size:.82rem;letter-spacing:.03em;white-space:nowrap}
+.brand strong{font-size:2.1rem;font-weight:700;margin-top:.12rem}
 .footer-brand{align-content:start}
-.footer-brand small{font:400 clamp(.65rem,1vw,.85rem) var(--display);letter-spacing:.06em}
-.footer-brand strong{font-size:clamp(2.8rem,5vw,5rem);margin-top:.2rem}
+.footer-brand small{font:400 clamp(.78rem,1.15vw,1rem) var(--display);letter-spacing:.055em}
+.footer-brand strong{font-size:clamp(3.2rem,5.5vw,5.4rem);font-weight:700;margin-top:.25rem}
 .footer-contact p{margin:0 0:.75rem}
 .footer-links{justify-self:end;padding-top:2rem}
 .footer-copyright{line-height:1.45}
@@ -39,7 +41,7 @@
     row-gap:2rem;
     padding:3rem clamp(1.5rem,5vw,4rem) 1.5rem;
   }
-  site-footer .footer-brand strong{font-size:clamp(2.8rem,5vw,4.4rem)}
+  site-footer .footer-brand strong{font-size:clamp(3.2rem,5.5vw,4.8rem)}
 }
 
 @media(max-width:720px){
@@ -47,7 +49,7 @@
   site-footer .footer-links{justify-self:start;padding-top:0}
   site-footer .footer-copyright{margin-top:.25rem}
 }
-@media(max-width:720px){.brand img{width:42px;height:56px}.brand strong{font-size:1.12rem}.brand b{font-size:.43rem}.brand small{font-size:.5rem}}
+@media(max-width:720px){.brand img{width:42px;height:56px}.brand span{min-height:56px;transform:translateY(3px)}.brand strong{font-size:1.38rem}.brand b{font-size:.56rem}.brand small{font-size:.58rem}}
 
 /* Estructura multipágina */
 nav a.active{border-color:var(--gold);color:var(--green)}
@@ -92,8 +94,11 @@ site-header{display:block}
 .source-note{padding:1.2rem max(1.3rem,8vw);background:#ece9df;color:var(--muted);font-size:.78rem}.source-note a{font-weight:700;color:var(--green)}
 .timeline{list-style:none;padding:0;margin:3rem 0 0;border-top:1px solid var(--line)}.timeline li{display:grid;grid-template-columns:140px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}.timeline time{font:400 1.8rem var(--display);color:var(--gold)}.timeline h3{font:400 1.5rem var(--display);text-transform:uppercase;color:var(--green);margin:0}.timeline p{margin:.25rem 0;color:var(--muted)}
 .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:3rem 0}.fact-grid article{display:grid;padding:2rem;background:var(--white);border-top:2px solid var(--gold)}.fact-grid strong{font:400 4rem/1 var(--display);color:var(--green)}.fact-grid span{color:var(--muted)}.route{max-width:850px}.notice{padding:1rem;border-left:3px solid var(--gold);background:var(--paper);font-size:.88rem}
+.procession-page .content-section{padding-top:5.5rem;padding-bottom:5.5rem}.itinerary-section{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:clamp(2.5rem,5vw,5rem);align-items:start}.itinerary-section .itinerary-heading{min-width:0}.itinerary-section .itinerary-heading h2{font-size:clamp(3rem,4.4vw,4.5rem);overflow-wrap:normal}.itinerary-content{display:contents}.itinerary-section .route{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2rem,5vw,5rem);max-width:none;margin-top:.5rem}.itinerary-section .route p{margin:0;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.28);color:#e2e7df}.itinerary-section .route b{display:block;margin-bottom:.65rem;color:#d8c25d;font-size:.62rem;text-transform:uppercase;letter-spacing:.14em}.itinerary-times{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:0;background:rgba(255,255,255,.2)}.itinerary-times article{min-width:0;padding:1.5rem;background:var(--green)}.itinerary-times span{display:block;min-height:2.7em;color:#d8c25d;font-size:.62rem;font-weight:700;line-height:1.35;text-transform:uppercase;letter-spacing:.12em}.itinerary-times strong{display:block;margin:.65rem 0;font:400 clamp(2.2rem,3.5vw,3.6rem)/1 var(--display);color:var(--white)}.itinerary-times p{margin:0;color:#d5ddd3;font-size:.78rem;line-height:1.5}
 .collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}.collection-grid article{padding:1.5rem;border:1px solid var(--line)}.collection-grid h3{font:400 1.5rem var(--display);text-transform:uppercase;color:var(--green);margin:0 0 .8rem}.collection-grid h3 small{display:block;font:700 .65rem var(--body);color:var(--gold);letter-spacing:.1em;margin-top:.35rem}.collection-grid p{color:var(--muted)}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;margin-top:2rem}th,td{text-align:left;padding:1rem;border-bottom:1px solid var(--line)}th{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
 @media(max-width:720px){.timeline li{grid-template-columns:1fr;gap:.25rem}.fact-grid,.collection-grid{grid-template-columns:1fr}.subnav{display:flex}}
+@media(max-width:1050px){.itinerary-section{grid-template-columns:1fr}.itinerary-times{grid-template-columns:1fr}.itinerary-times span{min-height:0}.itinerary-section .route{grid-column:auto}}
+@media(max-width:720px){.procession-page .content-section{padding-top:4rem;padding-bottom:4rem}.itinerary-section .route{grid-template-columns:1fr;gap:2rem}}
 
 /* Alinea la fecha y la información de cada acto desde el borde superior. */
 .calendar-list article{align-items:start}
@@ -255,6 +260,13 @@ site-footer{display:block;box-shadow:0 18px 34px rgba(16,19,16,.1)}
 .page-hero.contact-hero h1{
   font-size:clamp(2.8rem,3.8vw,4rem);
 }
+@media(min-width:721px){
+  .hero h1,
+  .page-hero h1,
+  .page-hero.contact-hero h1{
+    font-size:5.5814rem;
+  }
+}
 @media(max-width:720px){
   .page-hero,
   .page-hero.contact-hero{
@@ -263,5 +275,120 @@ site-footer{display:block;box-shadow:0 18px 34px rgba(16,19,16,.1)}
   .page-hero h1,
   .page-hero.contact-hero h1{
     font-size:2.6rem;
+  }
+}
+
+/* El título debe ajustarse a la columna estrecha de datos de contacto. */
+.contact-details h2{
+  max-width:100%;
+  font-size:clamp(1.65rem,1.8vw,1.8rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+  overflow-wrap:normal;
+}
+
+.contact-heading h2{
+  font-size:clamp(2rem,2.5vw,2.8rem);
+  line-height:.95;
+  max-width:none;
+  white-space:nowrap;
+}
+@media(max-width:600px){
+  .contact-details h2{
+    font-size:2.15rem;
+  }
+}
+
+/* Contacto: aprovechar el ancho y equilibrar ambas columnas. */
+@media(min-width:901px){
+  .contact-page{
+    grid-template-columns:minmax(0,1fr) minmax(320px,.55fr);
+    gap:clamp(2.5rem,4vw,4rem);
+    padding-right:max(1.3rem,5vw);
+    padding-left:max(1.3rem,5vw);
+    align-items:start;
+  }
+  .contact-details{
+    display:block;
+    height:auto;
+  }
+  .contact-details address{
+    display:block;
+  }
+}
+
+@media(max-width:600px){
+  .contact-heading h2{
+    font-size:2.35rem;
+    white-space:normal;
+  }
+}
+
+/* Localización: el mapa es el elemento principal. */
+@media(min-width:901px){
+  .contact-map{
+    grid-template-columns:minmax(240px,.38fr) minmax(0,1fr);
+    min-height:520px;
+  }
+  .contact-map-copy{
+    padding:4rem clamp(2.5rem,4vw,4.5rem);
+  }
+  .contact-map h2{
+    font-size:clamp(2.4rem,3vw,3.3rem);
+    line-height:.92;
+    margin-top:0;
+  }
+  .contact-map iframe{
+    min-height:520px;
+  }
+}
+
+@media(max-width:900px){
+  .contact-map-copy{
+    padding:2.5rem 1.3rem;
+  }
+  .contact-map h2{
+    margin:0;
+    font-size:2.2rem;
+    line-height:1;
+  }
+}
+
+@media(max-width:600px){
+  .contact-map-copy{
+    padding:2rem 1.3rem;
+  }
+  .contact-map h2{
+    font-size:2rem;
+  }
+}
+
+/* Cabecera compacta sobre el mapa. */
+.contact-map{
+  display:block;
+  min-height:0;
+}
+.contact-map-copy{
+  padding:1.5rem max(1.3rem,5vw);
+}
+.contact-map h2{
+  margin:0;
+  font-size:2.2rem;
+  line-height:1;
+}
+.contact-map iframe{
+  display:block;
+  height:520px;
+  min-height:0;
+}
+@media(max-width:600px){
+  .contact-map-copy{
+    padding:1.25rem 1.3rem;
+  }
+  .contact-map h2{
+    font-size:1.8rem;
+  }
+  .contact-map iframe{
+    height:400px;
   }
 }
