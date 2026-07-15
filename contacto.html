@@ -19,7 +19,7 @@
     <site-header active="contacto">
     </site-header>
     <main>
-      <section class="page-hero">
+      <section class="page-hero contact-hero">
         <p class="eyebrow light">
           Estamos cerca
         </p>
@@ -30,87 +30,137 @@
           Escríbenos o visítanos en nuestra sede parroquial.
         </p>
       </section>
-      <!-- ZONA EDITABLE 1: DIRECCIÓN, TELÉFONO, CORREO Y FORMULARIO -->
-      <section class="contact-layout">
-        <div>
+      <!-- ZONA EDITABLE 1: FORMULARIO Y DATOS DE INTERÉS -->
+      <section class="contact-page">
+        <div class="contact-online">
+          <header class="contact-heading">
+            <p class="eyebrow">
+              Contacto online
+            </p>
+            <h2>
+              Envíanos tu consulta
+            </h2>
+            <p>
+              Completa el formulario y nos pondremos en contacto contigo.
+            </p>
+          </header>
+          <form action="https://formsubmit.co/contacto@lealtaddespojado.es" method="POST">
+            <input type="hidden" name="_subject" value="Contacto desde la web">
+            <div class="form-row">
+              <label>
+                Nombre
+                <input name="nombre" autocomplete="given-name" required>
+              </label>
+              <label>
+                Apellidos
+                <input name="apellidos" autocomplete="family-name" required>
+              </label>
+            </div>
+            <label>
+              Dirección de correo electrónico
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>
+              Asunto
+              <input name="asunto" required>
+            </label>
+            <label>
+              Explícanos brevemente tu consulta
+              <textarea name="mensaje" rows="6" required>
+              </textarea>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="privacidad" required>
+              <span>
+                Acepto la
+                <a href="#">
+                  política de privacidad
+                </a>
+                .
+              </span>
+            </label>
+            <button type="submit">
+              Enviar consulta
+              <span aria-hidden="true">
+                →
+              </span>
+            </button>
+            <p class="form-privacy">
+              Tus datos se utilizarán exclusivamente para responder a esta consulta y no se cederán a terceros.
+            </p>
+          </form>
+        </div>
+        <aside class="contact-details">
           <p class="eyebrow">
-            Datos de contacto
+            Datos de interés
           </p>
           <h2>
-            Hablemos
+            Encuéntranos
           </h2>
           <address>
-            <div>
+            <section>
               <span>
-                Dirección
+                Sede social
               </span>
+              <h3>
+                Casa de Hermandad
+              </h3>
               <p>
-                Parroquia de Nuestra Señora del Rosario de Fátima
+                Calle Sanguino Michel 7–9
                 <br>
                 Cáceres
               </p>
-            </div>
-            <div>
+            </section>
+            <section>
               <span>
-                Teléfono
+                Correo electrónico
               </span>
-              <p>
-                Dato pendiente de confirmar
-              </p>
-            </div>
-            <div>
-              <span>
-                Correo
-              </span>
+              <h3>
+                Secretaría y contacto
+              </h3>
               <p>
                 <a href="mailto:contacto@lealtaddespojado.es">
                   contacto@lealtaddespojado.es
                 </a>
               </p>
-            </div>
+            </section>
+            <section>
+              <span>
+                Atención
+              </span>
+              <h3>
+                Visitas y consultas
+              </h3>
+              <p>
+                Para asegurar una correcta atención, contacta previamente por correo electrónico.
+              </p>
+            </section>
           </address>
-        </div>
-        <form action="https://formsubmit.co/contacto@lealtaddespojado.es" method="POST">
-          <input type="hidden" name="_subject" value="Contacto desde la web">
-          <label>
-            Nombre
-            <input name="nombre" required>
-          </label>
-          <label>
-            Correo electrónico
-            <input type="email" name="email" required>
-          </label>
-          <label>
-            Asunto
-            <input name="asunto" required>
-          </label>
-          <label>
-            Mensaje
-            <textarea name="mensaje" rows="5" required>
-            </textarea>
-          </label>
-          <label class="check">
-            <input type="checkbox" required>
-            Acepto la política de privacidad.
-          </label>
-          <button type="submit">
-            Enviar mensaje →
-          </button>
-        </form>
+        </aside>
       </section>
       <!-- ZONA EDITABLE 2: MAPA DE LA SEDE -->
-      <section class="map-section">
-        <div>
+      <section class="contact-map">
+        <div class="contact-map-copy">
           <p class="eyebrow light">
-            Nuestra sede
+            ¿Dónde estamos?
           </p>
           <h2>
             Cómo llegar
           </h2>
+          <p>
+            Casa de Hermandad, Calle Sanguino Michel 7–9, Cáceres.
+          </p>
+          <a class="button primary" href="https://maps.app.goo.gl/uT7u8Uwhu4hh3aBv6" target="_blank" rel="noopener">
+            Abrir en Google Maps
+          </a>
         </div>
-        <div class="map-placeholder">
-          Mapa de Google pendiente de configurar
-        </div>
+        <iframe
+          title="Mapa de la Casa de Hermandad de Jesús de la Lealtad Despojado"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12320.021559700992!2d-6.381022881646933!3d39.46920694461393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd15dfc3db29177d%3A0x2b8eb53f7fd6b103!2sHermandad%20Jes%C3%BAs%20de%20la%20Lealtad%20Despojado%20de%20C%C3%A1ceres!5e0!3m2!1ses!2ses!4v1784137501038!5m2!1ses!2ses"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
       </section>
     </main>
     <site-footer>

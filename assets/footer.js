@@ -13,16 +13,16 @@ class PieWeb extends HTMLElement {
           <small>Hermandad de Jesús de la Lealtad</small>
           <strong>Despojado</strong>
         </div>
-        <div>
-          <p>Parroquia de Nuestra Señora<br>del Rosario de Fátima · Cáceres</p>
+        <div class="footer-contact">
+          <p>Casa de Hermandad<br>Calle Sanguino Michel 7–9<br>Cáceres</p>
           <a href="mailto:contacto@lealtaddespojado.es">contacto@lealtaddespojado.es</a>
         </div>
-        <div>
+        <div class="footer-links">
           <a href="contacto.html">Contacto</a><br>
           <a href="#">Privacidad</a>
         </div>
-        <small>
-          © 2026 Hermandad de Nuestra Señora del Rosario de Fátima y Penitencial Cofradía de Nuestro Padre Jesús de la Lealtad Despojado de sus vestiduras, María Santísima de la Pureza y San Juan Evangelista
+        <small class="footer-copyright">
+          © 2026 Hermandad de Nuestra Señora del Rosario de Fátima y Penitencial Cofradía de Nazarenos de Nuestro Padre Jesús de la Lealtad Despojado, María Santísima de la Pureza y San Juan Evangelista
         </small>
       </footer>
     `;
