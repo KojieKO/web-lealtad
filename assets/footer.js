@@ -18,8 +18,17 @@ class PieWeb extends HTMLElement {
           <a href="mailto:contacto@lealtaddespojado.es">contacto@lealtaddespojado.es</a>
         </div>
         <div class="footer-links">
-          <a href="contacto.html">Contacto</a><br>
-          <a href="#">Privacidad</a>
+          <div class="footer-social" aria-label="Redes sociales">
+            <span>Síguenos</span>
+            <div class="footer-social-icons">
+              <img src="assets/images/facebook.png" alt="Facebook" width="36" height="36">
+              <img src="assets/images/instagram.png" alt="Instagram" width="36" height="36">
+            </div>
+          </div>
+          <div class="footer-nav">
+            <a href="contacto.html">Contacto</a>
+            <a href="#">Privacidad</a>
+          </div>
         </div>
         <small class="footer-copyright">
           © 2026 Hermandad de Nuestra Señora del Rosario de Fátima y Penitencial Cofradía de Nazarenos de Nuestro Padre Jesús de la Lealtad Despojado, María Santísima de la Pureza y San Juan Evangelista

@@ -31,7 +31,12 @@
 .footer-brand small{font:400 clamp(.78rem,1.15vw,1rem) var(--display);letter-spacing:.055em}
 .footer-brand strong{font-size:clamp(3.2rem,5.5vw,5.4rem);font-weight:700;margin-top:.25rem}
 .footer-contact p{margin:0 0:.75rem}
-.footer-links{justify-self:end;padding-top:2rem}
+.footer-links{justify-self:end;padding-top:.25rem;display:grid;gap:1.15rem}
+.footer-social>span{display:block;margin-bottom:.55rem;color:#d8c25d;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.footer-social-icons{display:flex;align-items:center;gap:.7rem}
+.footer-social-icons img{display:block;width:36px;height:36px;object-fit:contain;filter:invert(1);opacity:.88}
+.footer-nav{display:flex;gap:1rem;flex-wrap:wrap}
+.footer-nav a{font-size:.76rem}
 .footer-copyright{line-height:1.45}
 
 @media(min-width:721px){
