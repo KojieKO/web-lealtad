@@ -7,6 +7,7 @@
 
 const botonMenu = document.querySelector(".menu");
 const navegacion = document.querySelector("#nav");
+const botonesSubmenu = document.querySelectorAll(".submenu-toggle");
 
 // Algunas páginas futuras podrían no tener menú. Esta comprobación evita errores.
 if (botonMenu && navegacion) {
@@ -23,3 +24,19 @@ if (botonMenu && navegacion) {
     navegacion.classList.remove("open");
   });
 }
+
+botonesSubmenu.forEach((boton) => {
+  boton.addEventListener("click", (evento) => {
+    evento.stopPropagation();
+    const grupo = boton.closest(".nav-group");
+    const seAbre = !grupo.classList.contains("submenu-open");
+
+    document.querySelectorAll(".nav-group.submenu-open").forEach((otroGrupo) => {
+      otroGrupo.classList.remove("submenu-open");
+      otroGrupo.querySelector(".submenu-toggle").setAttribute("aria-expanded", "false");
+    });
+
+    grupo.classList.toggle("submenu-open", seAbre);
+    boton.setAttribute("aria-expanded", String(seAbre));
+  });
+});

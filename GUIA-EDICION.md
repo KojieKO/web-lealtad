@@ -90,8 +90,8 @@ también el texto y el valor que empieza por `mailto:`:
 <a href="mailto:nuevo@correo.es">nuevo@correo.es</a>
 ```
 
-El correo de destino de los formularios aparece después de `formsubmit.co/` en
-`contacto.html` y `hazte-hermano.html`. Debe actualizarse en ambos archivos.
+El correo de destino del formulario aparece después de `formsubmit.co/` en
+`contacto.html`.
 
 ### Enlaces pendientes
 

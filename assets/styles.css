@@ -82,3 +82,36 @@ site-header{display:block}
 .brand img{width:64px;height:72px}
 .home-crest{display:block;width:clamp(110px,12vw,170px);height:auto;margin:0 0 2.2rem;filter:drop-shadow(0 12px 18px rgba(34,55,32,.12))}
 @media(max-width:720px){.brand img{width:48px;height:58px}.home-crest{width:120px;margin-bottom:1.8rem}}
+
+/* Menús desplegables de la navegación principal */
+.nav-group{position:relative;align-self:stretch;display:flex;align-items:center}
+.nav-parent{display:flex;align-items:center}
+.nav-parent>a{white-space:nowrap}
+.submenu-toggle{width:1.4rem;height:2.5rem;padding:0;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;color:var(--green)}
+.submenu-toggle span{width:.42rem;height:.42rem;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+.nav-group.active>.nav-parent>a{border-color:var(--gold);color:var(--green)}
+.submenu{position:absolute;top:calc(100% + 1px);left:-1.5rem;width:max-content;min-width:240px;padding:.65rem 0;background:var(--paper);border-top:3px solid var(--gold);box-shadow:0 18px 36px rgba(16,19,16,.16);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:30}
+.submenu a{display:block;padding:.75rem 1.5rem;border:0;text-transform:none;font-size:.78rem;font-weight:600;letter-spacing:.01em;color:var(--green)}
+.submenu a:hover,.submenu a:focus{border:0;background:var(--white);color:var(--gold)}
+.nav-group:hover .submenu,.nav-group:focus-within .submenu,.nav-group.submenu-open .submenu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-group:hover .submenu-toggle span,.nav-group:focus-within .submenu-toggle span,.nav-group.submenu-open .submenu-toggle span{transform:translateY(2px) rotate(225deg)}
+@media(max-width:1050px){
+  .nav-group{display:block;width:100%}
+  .nav-parent{justify-content:space-between}
+  .nav-parent>a{flex:1}
+  .submenu-toggle{width:2.75rem}
+  .submenu{position:static;width:auto;min-width:0;padding:0 0 0 .9rem;border-top:0;border-left:2px solid var(--gold);box-shadow:none;display:none;opacity:1;visibility:visible;transform:none;transition:none}
+  .submenu a{padding:.65rem 1rem}
+  .nav-group:hover .submenu:not(:focus-within){display:none}
+  .nav-group.submenu-open .submenu,.nav-group:focus-within.submenu-open .submenu{display:block}
+}
+
+/* Página enmarcada: composición más recogida en monitores grandes */
+body{background:#ebeae4}
+site-header,body>main,body>footer{width:min(100%,1320px);margin-inline:auto}
+site-header{position:relative;z-index:20;box-shadow:0 0 34px rgba(16,19,16,.1)}
+body>main{background:var(--white);box-shadow:0 18px 34px rgba(16,19,16,.1)}
+body>footer{box-shadow:0 18px 34px rgba(16,19,16,.1)}
+@media(max-width:1320px){
+  site-header,body>main,body>footer{box-shadow:none}
+}

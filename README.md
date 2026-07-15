@@ -19,7 +19,6 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `patrimonio.html` | Enseres, orfebrería, música y cartelería |
 | `procesion.html` | Estación de penitencia, cortejo, hábito e itinerario histórico |
 | `agenda.html` | Cultos, actos y calendario |
-| `hazte-hermano.html` | Información y formulario de alta |
 | `contacto.html` | Datos, formulario y mapa |
 | `assets/escudo-aprobado.png` | Escudo oficial que aparece en la cabecera y la portada |
 | `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
