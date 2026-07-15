@@ -8,20 +8,24 @@
       Inicio | Hermandad de Jesús de la Lealtad Despojado
     </title>
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/hero-layout.css?v=7">
-    <script src="assets/header.js"></script>
+    <link rel="stylesheet" href="assets/hero-layout.css?v=8">
+    <script src="assets/header.js">
+    </script>
+    <script src="assets/footer.js">
+    </script>
   </head>
   <body>
     <!-- ============================================================
-         ZONAS EDITABLES DE ESTA PÁGINA
-         1. PORTADA: título y presentación
-         2. PRÓXIMO ENCUENTRO: fecha, nombre y descripción
-         Cambia solo los textos entre etiquetas. No cambies class ni href.
-         ============================================================ -->
+    ZONAS EDITABLES DE ESTA PÁGINA
+    1. PORTADA: título y presentación
+    2. PRÓXIMO ENCUENTRO: fecha, nombre y descripción
+    Cambia solo los textos entre etiquetas. No cambies class ni href.
+    ============================================================ -->
     <a class="skip" href="#contenido">
       Saltar al contenido
     </a>
-    <site-header active="inicio"></site-header>
+    <site-header active="inicio">
+    </site-header>
     <main id="contenido">
       <!-- ZONA EDITABLE 1: PORTADA -->
       <section class="hero">
@@ -38,13 +42,10 @@
             </h1>
           </div>
           <div class="hero-info">
-            <p class="hero-lead">
-              Culto, formación y caridad desde la Parroquia de Nuestra Señora del Rosario de Fátima.
-            </p>
             <div class="actions">
-              <a class="button primary" href="hermandad.html">
-                Conoce la Hermandad
-              </a>
+              <button class="button primary" type="button">
+                Hazte Hermano
+              </button>
             </div>
           </div>
         </div>
@@ -84,38 +85,8 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="footer-brand">
-        <small>
-          Hermandad de Jesús de la Lealtad
-        </small>
-        <strong>
-          Despojado
-        </strong>
-      </div>
-      <div>
-        <p>
-          Parroquia de Nuestra Señora
-          <br>
-          del Rosario de Fátima · Cáceres
-        </p>
-        <a href="mailto:contacto@lealtaddespojado.es">
-          contacto@lealtaddespojado.es
-        </a>
-      </div>
-      <div>
-        <a href="contacto.html">
-          Contacto
-        </a>
-        <br>
-        <a href="#">
-          Privacidad
-        </a>
-      </div>
-      <small>
-        © 2026 Hermandad de Jesús de la Lealtad Despojado
-      </small>
-    </footer>
+    <site-footer>
+    </site-footer>
     <script src="assets/script.js">
     </script>
   </body>
