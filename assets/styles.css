@@ -58,6 +58,26 @@ site-header{display:block}
 .content-section,.titular-detail{scroll-margin-top:96px}
 @media(max-width:720px){.content-section,.titular-detail{scroll-margin-top:78px}}
 
+/* Contenido histórico, procesional y patrimonial */
+.source-note{padding:1.2rem max(1.3rem,8vw);background:#ece9df;color:var(--muted);font-size:.78rem}.source-note a{font-weight:700;color:var(--green)}
+.timeline{list-style:none;padding:0;margin:3rem 0 0;border-top:1px solid var(--line)}.timeline li{display:grid;grid-template-columns:140px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--line)}.timeline time{font:400 1.8rem var(--display);color:var(--gold)}.timeline h3{font:400 1.5rem var(--display);text-transform:uppercase;color:var(--green);margin:0}.timeline p{margin:.25rem 0;color:var(--muted)}
+.fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:3rem 0}.fact-grid article{display:grid;padding:2rem;background:var(--white);border-top:2px solid var(--gold)}.fact-grid strong{font:400 4rem/1 var(--display);color:var(--green)}.fact-grid span{color:var(--muted)}.route{max-width:850px}.notice{padding:1rem;border-left:3px solid var(--gold);background:var(--paper);font-size:.88rem}
+.collection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}.collection-grid article{padding:1.5rem;border:1px solid var(--line)}.collection-grid h3{font:400 1.5rem var(--display);text-transform:uppercase;color:var(--green);margin:0 0 .8rem}.collection-grid h3 small{display:block;font:700 .65rem var(--body);color:var(--gold);letter-spacing:.1em;margin-top:.35rem}.collection-grid p{color:var(--muted)}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;margin-top:2rem}th,td{text-align:left;padding:1rem;border-bottom:1px solid var(--line)}th{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green)}
+@media(max-width:720px){.timeline li{grid-template-columns:1fr;gap:.25rem}.fact-grid,.collection-grid{grid-template-columns:1fr}.subnav{display:flex}}
+
+/* Alinea la fecha y la información de cada acto desde el borde superior. */
+.calendar-list article{align-items:start}
+.calendar-list time{align-content:start;padding-top:1.4rem}
+.calendar-list .tag{margin:0 0 .35rem}
+
+@media(max-width:720px){.calendar-list time{padding-top:0}}
+
+/* En escritorio, las cabeceras interiores aprovechan todo el ancho disponible. */
+@media(min-width:901px){
+  .page-hero h1{max-width:none}
+  .page-hero>p:last-child{max-width:1000px}
+}
+
 /* Escudo institucional aprobado */
 .brand img{width:64px;height:72px}
 .home-crest{display:block;width:clamp(110px,12vw,170px);height:auto;margin:0 0 2.2rem;filter:drop-shadow(0 12px 18px rgba(34,55,32,.12))}

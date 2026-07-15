@@ -14,6 +14,8 @@ class CabeceraWeb extends HTMLElement {
       ["inicio", "index.html", "Inicio"],
       ["hermandad", "hermandad.html", "Hermandad"],
       ["titulares", "titulares.html", "Titulares"],
+      ["patrimonio", "patrimonio.html", "Patrimonio"],
+      ["procesion", "procesion.html", "Procesión"],
       ["agenda", "agenda.html", "Cultos y agenda"],
       ["alta", "hazte-hermano.html", "Hazte hermano"],
       ["contacto", "contacto.html", "Contacto"],

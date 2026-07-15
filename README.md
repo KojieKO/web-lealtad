@@ -16,6 +16,8 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `index.html` | Portada y próximo encuentro |
 | `hermandad.html` | Historia, Junta, reglas y hábito |
 | `titulares.html` | Información de los Titulares |
+| `patrimonio.html` | Enseres, orfebrería, música y cartelería |
+| `procesion.html` | Estación de penitencia, cortejo, hábito e itinerario histórico |
 | `agenda.html` | Cultos, actos y calendario |
 | `hazte-hermano.html` | Información y formulario de alta |
 | `contacto.html` | Datos, formulario y mapa |
@@ -23,6 +25,14 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
 | `assets/script.js` | Menú para móviles; normalmente no hay que tocarlo |
 | `assets/header.js` | Cabecera y menú compartidos por todas las páginas |
+
+## Procedencia de contenidos
+
+Parte del contenido histórico y descriptivo se ha adaptado de la página
+«Hermandad de Jesús de la Lealtad Despojado» de Wikipedia en español, consultada
+el 15 de julio de 2026. Se mantiene atribución y enlace en las páginas afectadas,
+conforme a la licencia CC BY-SA. Los datos de años concretos deben contrastarse
+con los canales oficiales antes de reutilizarlos como información vigente.
 
 ## Ver la web
 
