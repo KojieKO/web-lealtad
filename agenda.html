@@ -17,8 +17,7 @@
     </script>
   </head>
   <body>
-    <!-- ZONAS EDITABLES: los actos están dentro de bloques <article>.
-    Copia un <article> completo para añadir un acto nuevo. -->
+    <!-- Los actos se editan únicamente en agenda.md, una fila por evento. -->
     <site-header active="agenda">
     </site-header>
     <main>
@@ -27,222 +26,30 @@
           Vida de Hermandad
         </p>
         <h1>
-          Cultos y agenda
+          Agenda
         </h1>
-        <p>
-          Celebramos la fe juntos durante todo el año.
-        </p>
       </section>
-      <!-- ZONA EDITABLE 1: CULTOS Y PRÓXIMAS CITAS -->
       <section class="content-section">
         <div class="section-head">
           <div>
-            <p class="eyebrow">
-              Calendario anual
+            <p class="eyebrow" data-agenda-years>
+              Agenda de cultos
             </p>
             <h2>
               Ciclo de cultos
             </h2>
           </div>
-          <p>
-            Las fechas definitivas se actualizarán conforme sean aprobadas y anunciadas por la Hermandad.
+        </div>
+        <div class="calendar-list" data-agenda-list>
+          <p data-agenda-status>
+            Cargando agenda…
           </p>
         </div>
-        <div class="calendar-list">
-          <article>
-            <time>
-              <b>
-                CUARESMA
-              </b>
-              <span>
-                Segunda semana
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Culto
-              </p>
-              <h3>
-                Triduo al Señor
-              </h3>
-              <p>
-                Tres días de culto; el viernes se celebra la misa por el rito hispano-mozárabe. El sábado tiene lugar el vía crucis por la feligresía.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                CUARESMA
-              </b>
-              <span>
-                Tercera semana
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Culto solemne
-              </p>
-              <h3>
-                Besapié y vigilia
-              </h3>
-              <p>
-                Vigilia el viernes y solemne besapié durante el sábado y el domingo.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                MARTES SANTO
-              </b>
-              <span>
-                Semana Santa
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Penitencia
-              </p>
-              <h3>
-                Estación de penitencia
-              </h3>
-              <p>
-                Salida penitencial desde la Parroquia de Fátima y estación ante el Santísimo en Santo Domingo.
-                <a href="martes-santo.html">
-                  Conocer la procesión
-                </a>
-                .
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                4–13 MAY
-              </b>
-              <span>
-                Novena de Fátima
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Gloria
-              </p>
-              <h3>
-                Novena, antorchas y besamanos
-              </h3>
-              <p>
-                Novena del 4 al 12, tradicional procesión de las antorchas el día 12 y besamanos durante la festividad del 13 de mayo.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                MAY
-              </b>
-              <span>
-                Fecha variable
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Grupo Joven
-              </p>
-              <h3>
-                Cruz de Mayo
-              </h3>
-              <p>
-                Cruz de flores naturales y romería en el patio de la parroquia.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                13 OCT
-              </b>
-              <span>
-                Milagro del Sol
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Culto
-              </p>
-              <h3>
-                Misa conmemorativa
-              </h3>
-              <p>
-                Celebración organizada junto al Grupo Joven y la parroquia.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                OCT
-              </b>
-              <span>
-                En torno al día 16
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Pureza de María
-              </p>
-              <h3>
-                Quinario y besamanos
-              </h3>
-              <p>
-                Cultos en honor de María Santísima de la Pureza y solemne besamanos.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                27 DIC
-              </b>
-              <span>
-                San Juan Evangelista
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Grupo Joven
-              </p>
-              <h3>
-                Fiesta de San Juan
-              </h3>
-              <p>
-                Eucaristía en honor del cotitular y patrón de la juventud cofrade.
-              </p>
-            </div>
-          </article>
-          <article>
-            <time>
-              <b>
-                NAVIDAD
-              </b>
-              <span>
-                Fecha por anunciar
-              </span>
-            </time>
-            <div>
-              <p class="tag">
-                Infancia
-              </p>
-              <h3>
-                Heralda Real
-              </h3>
-              <p>
-                Recepción de cartas, concierto infantil de villancicos, chocolatada y mesa de ofrendas.
-              </p>
-            </div>
-          </article>
-        </div>
+        <noscript>
+          <p>
+            Activa JavaScript para consultar la agenda de cultos.
+          </p>
+        </noscript>
       </section>
       <section class="content-section dark split">
         <div>
@@ -266,7 +73,6 @@
           </p>
         </div>
       </section>
-      <!-- ZONA EDITABLE 2: ENLACE Y CALENDARIO DE GOOGLE -->
       <section class="content-section tinted split">
         <div>
           <p class="eyebrow">
@@ -289,6 +95,10 @@
     </main>
     <site-footer>
     </site-footer>
+    <script src="assets/agenda-datos.js">
+    </script>
+    <script src="assets/agenda.js">
+    </script>
     <script src="assets/script.js">
     </script>
   </body>

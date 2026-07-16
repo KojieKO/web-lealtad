@@ -60,9 +60,11 @@ Abre `index.html` y busca `Próximo encuentro`. Cerca encontrarás:
 
 ### Agenda y cultos
 
-Abre `agenda.html` y busca el nombre del acto que quieras cambiar, por ejemplo
-`Función principal`. Cada acto está dentro de un bloque `<article>...</article>`.
-Para añadir otro, copia un bloque completo, pégalo después y cambia sus textos.
+Abre `agenda.md`. Los actos están en una tabla y cada fila es un evento. Para
+añadir otro, copia una fila completa, pégala en orden cronológico y cambia sus
+datos. Las fechas de `Inicio` y `Fin` usan el formato `AAAA-MM-DD`; si el acto
+dura un solo día, puedes dejar `Fin` vacío. Al publicar en GitHub, la web se
+actualiza automáticamente sin tocar `agenda.html` ni ningún archivo JavaScript.
 
 ### Junta de Gobierno
 

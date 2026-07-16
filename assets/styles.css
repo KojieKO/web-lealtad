@@ -178,6 +178,9 @@ site-header{display:block}
 .calendar-list article{align-items:start}
 .calendar-list time{align-content:start;padding-top:1.4rem}
 .calendar-list .tag{margin:0 0 .35rem}
+.event-details-list{display:grid;gap:1rem}
+.event-details+.event-details{border-top:1px solid var(--line);padding-top:1rem}
+.event-details h2:last-child{margin-bottom:0}
 
 @media(max-width:720px){.calendar-list time{padding-top:0}}
 

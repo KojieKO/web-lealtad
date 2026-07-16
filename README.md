@@ -18,7 +18,8 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `titulares.html` | Información de los Titulares |
 | `patrimonio.html` | Enseres, orfebrería, música y cartelería |
 | `procesion.html` | Estación de penitencia, cortejo, hábito e itinerario histórico |
-| `agenda.html` | Cultos, actos y calendario |
+| `agenda.md` | Tabla editable de cultos y actos |
+| `agenda.html` | Presentación automática de la agenda |
 | `contacto.html` | Datos, formulario y mapa |
 | `assets/images/` | Imágenes, escudo e iconos de la web |
 | `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
@@ -63,7 +64,9 @@ escritos en `assets/header.js`; normalmente no hace falta modificarlos.
 ## Publicación
 
 La publicación está configurada con GitHub Pages. Al integrar los cambios en la
-rama `main`, GitHub publicará la web automáticamente.
+rama `main`, GitHub convertirá `agenda.md` en los datos que utiliza la web y la
+publicará automáticamente. No hay que ejecutar ningún programa local para
+actualizar la agenda publicada.
 
 > Importante: prueba siempre los cambios antes de publicarlos y conserva una
 > copia del archivo que vayas a editar.
