@@ -18,15 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Generar agenda desde Markdown
-        run: python scripts/generar_agenda.py
-      - name: Guardar la copia generada
+      - name: Generar contenidos desde Markdown
         run: |
-          if ! git diff --quiet -- assets/agenda-datos.js; then
+          python scripts/generar_agenda.py
+          python scripts/generar_obras_pictoricas.py
+      - name: Guardar las copias generadas
+        run: |
+          if ! git diff --quiet -- assets/agenda-datos.js assets/obras-pictoricas-datos.js; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add assets/agenda-datos.js
-            git commit -m "chore: actualizar agenda generada [skip ci]"
+            git add assets/agenda-datos.js assets/obras-pictoricas-datos.js
+            git commit -m "chore: actualizar contenidos generados [skip ci]"
             git push
           fi
       - uses: actions/configure-pages@v5

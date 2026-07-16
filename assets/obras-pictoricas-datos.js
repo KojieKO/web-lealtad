@@ -1,0 +1,30 @@
+/* Archivo generado automáticamente desde obras-pictoricas.md. No editar. */
+
+window.OBRAS_PICTORICAS = [
+    "# Obras pictóricas",
+    "",
+    "Este es el único archivo que hay que modificar para añadir, quitar o cambiar obras pictóricas.",
+    "",
+    "- Añade cada obra como una fila de su tabla.",
+    "- Conserva los títulos y las tres columnas de cada tabla.",
+    "- Al subir el cambio a GitHub, la web se actualiza automáticamente.",
+    "",
+    "## Carteles de Martes Santo",
+    "",
+    "| Año | Técnica | Autor/a |",
+    "| --- | --- | --- |",
+    "| 2022 | Fotografía | Alejandro Palencia |",
+    "| 2023 | Montaje fotográfico | Sergio Blanco Gómez |",
+    "| 2024 | Acrílico y tinta sobre lienzo | José Carlos Torres |",
+    "| 2025 | Ilustración digital | Jaime J. Sánchez |",
+    "| 2026 | Acrílico, spray, acuarela y lápiz de color | Juan Ramón León |",
+    "",
+    "## Otras obras",
+    "",
+    "| Motivo | Técnica | Autor/a |",
+    "| --- | --- | --- |",
+    "| Bendición Pureza | Óleo sobre tabla | Rebeca Bravo López |",
+    "| Papeleta Magna Mariana | Técnica mixta | Rebeca Bravo López |",
+    "| Pregón 2025 | Tiza | ReysPeru |",
+    ""
+].join("\n");

@@ -45,9 +45,21 @@ def main():
     markdown = ORIGEN.read_text(encoding="utf-8")
     validar_tabla(markdown)
 
+    # Guardamos cada línea por separado para que agenda-datos.js sea fácil de leer.
+    # La cadena vacía final conserva el salto de línea con el que termina agenda.md.
+    lineas = markdown.splitlines()
+    if markdown.endswith("\n"):
+        lineas.append("")
+
+    lineas_javascript = ",\n".join(
+        f"    {json.dumps(linea, ensure_ascii=False)}" for linea in lineas
+    )
+
     contenido = (
         "/* Archivo generado automáticamente desde agenda.md. No editar. */\n\n"
-        f"window.AGENDA_CULTOS = {json.dumps(markdown, ensure_ascii=False)};\n"
+        "window.AGENDA_CULTOS = [\n"
+        f"{lineas_javascript}\n"
+        '].join("\\n");\n'
     )
     DESTINO.write_text(contenido, encoding="utf-8", newline="\n")
     print(f"Agenda generada: {DESTINO.relative_to(RAIZ)}")

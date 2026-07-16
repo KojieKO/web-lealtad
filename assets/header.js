@@ -26,10 +26,11 @@ class CabeceraWeb extends HTMLElement {
       ]],
       ["patrimonio", "patrimonio.html", "Patrimonio", [
         ["patrimonio.html#insignias", "Insignias"],
-        ["patrimonio.html#fatima", "Patrimonio de Fátima"],
-        ["patrimonio.html#pureza", "Patrimonio de la Pureza"],
-        ["patrimonio.html#musica", "Música y letras"],
-        ["patrimonio.html#carteles", "Cartelería"],
+        ["patrimonio.html#patrimonio-fatima", "Patrimonio de Fátima"],
+        ["patrimonio.html#ajuar-pureza", "Ajuar de Pureza"],
+        ["patrimonio.html#musica", "Patrimonio musical"],
+        ["patrimonio.html#literatura", "Producción literaria"],
+        ["patrimonio.html#carteles", "Obras pictóricas"],
       ]],
       ["cofradia", null, "Cofradía", [
         ["martes-santo.html", "Estación de penitencia"],

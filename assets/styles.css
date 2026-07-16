@@ -182,7 +182,43 @@ site-header{display:block}
 .event-details+.event-details{border-top:1px solid var(--line);padding-top:1rem}
 .event-details h2:last-child{margin-bottom:0}
 
-@media(max-width:720px){.calendar-list time{padding-top:0}}
+@media(min-width:721px){
+  .calendar-list time{
+    padding-top:0;
+  }
+  .calendar-list time b{
+    font-size:3.25rem;
+    line-height:1;
+  }
+  .calendar-list time span{
+    margin-top:.45rem;
+    color:var(--gold);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .calendar-list article>div>p:not(.tag){
+    margin:.15rem 0 0;
+  }
+}
+
+@media(max-width:720px){
+  .calendar-list time{
+    display:flex;
+    align-items:baseline;
+    gap:.45rem;
+    padding-top:0;
+    white-space:nowrap;
+  }
+  .calendar-list time span{
+    font:400 2rem var(--display);
+    color:var(--green);
+  }
+  .calendar-list time span::before{
+    content:"de ";
+  }
+}
 
 /* Escudo institucional aprobado */
 .brand img{width:64px;height:72px}
@@ -244,7 +280,7 @@ site-footer{display:block}
   site-header,body>main,site-footer{box-shadow:none}
 }
 /* Retrato principal del Despojado */
-#despojado{
+.titular-detail#despojado{
   grid-template-columns:1fr 1fr;
   gap:0;
   align-items:stretch;
@@ -252,12 +288,12 @@ site-footer{display:block}
   background:#000000;
   color:var(--white);
 }
-#despojado .photo{
+.titular-detail#despojado .photo{
   min-height:760px;
   overflow:hidden;
   background:#000;
 }
-#despojado .photo img{
+.titular-detail#despojado .photo img{
   display:block;
   width:100%;
   height:100%;
@@ -265,43 +301,43 @@ site-footer{display:block}
   object-fit:cover;
   object-position:center top;
 }
-#despojado>div:last-child{
+.titular-detail#despojado>div:last-child{
   align-self:center;
   padding:clamp(4rem,7vw,7rem) clamp(2.5rem,5vw,5rem);
 }
-#despojado h2,
-#despojado .lead{color:var(--white)}
-#despojado .eyebrow{color:#d8c25d}
-#despojado dl{border-color:rgba(255,255,255,.28)}
-#despojado dl div{border-color:rgba(255,255,255,.2)}
-#despojado dt{color:#d8c25d}
-#despojado dd{color:#e2e7df}
-#despojado>div:last-child>p:last-child{color:#eef1ec}
+.titular-detail#despojado h2,
+.titular-detail#despojado .lead{color:var(--white)}
+.titular-detail#despojado .eyebrow{color:#d8c25d}
+.titular-detail#despojado dl{border-color:rgba(255,255,255,.28)}
+.titular-detail#despojado dl div{border-color:rgba(255,255,255,.2)}
+.titular-detail#despojado dt{color:#d8c25d}
+.titular-detail#despojado dd{color:#e2e7df}
+.titular-detail#despojado>div:last-child>p:last-child{color:#eef1ec}
 @media(max-width:900px){
-  #despojado{grid-template-columns:1fr}
-  #despojado .photo{width:100%;min-height:720px}
-  #despojado>div:last-child{padding:5rem max(1.3rem,8vw)}
+  .titular-detail#despojado{grid-template-columns:1fr}
+  .titular-detail#despojado .photo{width:100%;min-height:720px}
+  .titular-detail#despojado>div:last-child{padding:5rem max(1.3rem,8vw)}
 }
 @media(max-width:720px){
-  #despojado .photo{min-height:620px}
-  #despojado>div:last-child{padding:4rem 1.3rem 5rem}
+  .titular-detail#despojado .photo{min-height:620px}
+  .titular-detail#despojado>div:last-child{padding:4rem 1.3rem 5rem}
 }
 
 /* Retrato principal de María Santísima de la Pureza */
-#pureza{
+.titular-detail#pureza{
   grid-template-columns:1fr 1fr;
   gap:0;
   align-items:stretch;
   padding:0;
   background:#fefefe;
 }
-#pureza .photo{
+.titular-detail#pureza .photo{
   position:relative;
   min-height:760px;
   overflow:hidden;
   background:#fefefe;
 }
-#pureza .photo::after{
+.titular-detail#pureza .photo::after{
   content:"";
   position:absolute;
   inset:0 auto 0 0;
@@ -309,7 +345,7 @@ site-footer{display:block}
   background:linear-gradient(90deg,#fefefe 0%,rgba(254,254,254,.82) 22%,rgba(254,254,254,0) 100%);
   pointer-events:none;
 }
-#pureza .photo img{
+.titular-detail#pureza .photo img{
   display:block;
   width:100%;
   height:100%;
@@ -317,23 +353,23 @@ site-footer{display:block}
   object-fit:cover;
   object-position:center;
 }
-#pureza>div:last-child{
+.titular-detail#pureza>div:last-child{
   align-self:center;
   padding:clamp(4rem,7vw,7rem) clamp(2.5rem,5vw,5rem);
 }
 @media(max-width:900px){
-  #pureza{grid-template-columns:1fr}
-  #pureza .photo{width:100%;min-height:720px}
-  #pureza .photo::after{display:none}
-  #pureza>div:last-child{padding:5rem max(1.3rem,8vw)}
+  .titular-detail#pureza{grid-template-columns:1fr}
+  .titular-detail#pureza .photo{width:100%;min-height:720px}
+  .titular-detail#pureza .photo::after{display:none}
+  .titular-detail#pureza>div:last-child{padding:5rem max(1.3rem,8vw)}
 }
 @media(max-width:720px){
-  #pureza .photo{min-height:620px}
-  #pureza>div:last-child{padding:4rem 1.3rem 5rem}
+  .titular-detail#pureza .photo{min-height:620px}
+  .titular-detail#pureza>div:last-child{padding:4rem 1.3rem 5rem}
 }
 
 /* Retrato principal de Nuestra Señora del Rosario de Fátima */
-#fatima{
+.titular-detail#fatima{
   grid-template-columns:1fr 1fr;
   gap:0;
   align-items:stretch;
@@ -343,13 +379,13 @@ site-footer{display:block}
   background:#000000;
   color:var(--white);
 }
-#fatima .photo{
+.titular-detail#fatima .photo{
   height:100%;
   min-height:0;
   overflow:hidden;
   background:#000000;
 }
-#fatima .photo img{
+.titular-detail#fatima .photo img{
   display:block;
   width:100%;
   height:100%;
@@ -357,28 +393,28 @@ site-footer{display:block}
   object-fit:contain;
   object-position:center;
 }
-#fatima>div:last-child{
+.titular-detail#fatima>div:last-child{
   align-self:center;
   padding:clamp(3rem,5vw,5rem) clamp(2.5rem,5vw,5rem);
 }
-#fatima h2,
-#fatima .lead{color:var(--white)}
-#fatima .eyebrow{color:#d8c25d}
-#fatima dl{border-color:rgba(255,255,255,.28)}
-#fatima dl div{border-color:rgba(255,255,255,.2)}
-#fatima dt{color:#d8c25d}
-#fatima dd{color:#e2e7df}
-#fatima>div:last-child>p:last-child{color:#eef1ec}
+.titular-detail#fatima h2,
+.titular-detail#fatima .lead{color:var(--white)}
+.titular-detail#fatima .eyebrow{color:#d8c25d}
+.titular-detail#fatima dl{border-color:rgba(255,255,255,.28)}
+.titular-detail#fatima dl div{border-color:rgba(255,255,255,.2)}
+.titular-detail#fatima dt{color:#d8c25d}
+.titular-detail#fatima dd{color:#e2e7df}
+.titular-detail#fatima>div:last-child>p:last-child{color:#eef1ec}
 @media(max-width:900px){
-  #fatima{grid-template-columns:1fr;height:auto;max-height:none}
-  #fatima .photo{width:100%;min-height:600px}
-  #fatima .photo img{height:600px}
-  #fatima>div:last-child{padding:4rem max(1.3rem,8vw)}
+  .titular-detail#fatima{grid-template-columns:1fr;height:auto;max-height:none}
+  .titular-detail#fatima .photo{width:100%;min-height:600px}
+  .titular-detail#fatima .photo img{height:600px}
+  .titular-detail#fatima>div:last-child{padding:4rem max(1.3rem,8vw)}
 }
 @media(max-width:720px){
-  #fatima .photo{min-height:520px}
-  #fatima .photo img{height:520px}
-  #fatima>div:last-child{padding:4rem 1.3rem 5rem}
+  .titular-detail#fatima .photo{min-height:520px}
+  .titular-detail#fatima .photo img{height:520px}
+  .titular-detail#fatima>div:last-child{padding:4rem 1.3rem 5rem}
 }
 
 /* Cabeceras interiores: escala compacta */
@@ -582,5 +618,39 @@ site-footer{display:block}
 
   #habito{
     gap:clamp(2.5rem,4vw,4rem);
+  }
+}
+
+/* Cabecera siempre visible y espaciado vertical compacto en títulos interiores. */
+site-header{
+  position:fixed;
+  top:0;
+  left:50%;
+  width:min(100%,1320px);
+  transform:translateX(-50%);
+  z-index:20;
+}
+body>main{
+  margin-top:96px;
+}
+.page-hero,
+.page-hero.contact-hero{
+  padding-top:10mm;
+  padding-bottom:1mm;
+}
+.content-section:has(> .section-head){
+  padding-top:5mm;
+}
+.section-head{
+  margin-top:0;
+  margin-bottom:1mm;
+}
+.section-head + .calendar-list,
+.section-head + .agenda-list{
+  margin-top:1mm;
+}
+@media(max-width:720px){
+  body>main{
+    margin-top:78px;
   }
 }
