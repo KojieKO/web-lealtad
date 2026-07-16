@@ -26,5 +26,6 @@ window.OBRAS_PICTORICAS = [
     "| Bendición Pureza | Óleo sobre tabla | Rebeca Bravo López |",
     "| Papeleta Magna Mariana | Técnica mixta | Rebeca Bravo López |",
     "| Pregón 2025 | Tiza | ReysPeru |",
+    "| Donación | Bolígrafo bic verde | Andrés Torrejón |",
     ""
 ].join("\n");
