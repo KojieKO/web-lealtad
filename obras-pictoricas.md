@@ -23,3 +23,4 @@ Este es el único archivo que hay que modificar para añadir, quitar o cambiar o
 | Bendición Pureza | Óleo sobre tabla | Rebeca Bravo López |
 | Papeleta Magna Mariana | Técnica mixta | Rebeca Bravo López |
 | Pregón 2025 | Tiza | ReysPeru |
+| Donación | Bolígrafo bic verde | Andrés Torrejón |
