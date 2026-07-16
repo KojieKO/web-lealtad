@@ -40,3 +40,24 @@ botonesSubmenu.forEach((boton) => {
     boton.setAttribute("aria-expanded", String(seAbre));
   });
 });
+
+/*
+ * OPACIDAD DEL FONDO SEGÚN EL ZOOM
+ * ---------------------------------
+ * La relación entre el ancho exterior e interior permite estimar el zoom.
+ * Restamos 35 puntos y limitamos el resultado para que nunca sea negativo.
+ */
+function actualizarOpacidadFondo() {
+  const zoomEstimado = window.outerWidth > 0
+    ? (window.outerWidth / window.innerWidth) * 100
+    : 100;
+  const opacidad = Math.max(0, Math.min(1, (zoomEstimado - 25) / 100));
+
+  document.documentElement.style.setProperty(
+    "--background-opacity",
+    opacidad.toFixed(3),
+  );
+}
+
+actualizarOpacidadFondo();
+window.addEventListener("resize", actualizarOpacidadFondo, { passive: true });

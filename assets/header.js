@@ -31,11 +31,10 @@ class CabeceraWeb extends HTMLElement {
         ["patrimonio.html#musica", "Música y letras"],
         ["patrimonio.html#carteles", "Cartelería"],
       ]],
-      ["procesion", "procesion.html", "Procesión", [
-        ["procesion.html#estacion", "La estación"],
-        ["procesion.html#cortejo", "Cortejo y paso"],
-        ["procesion.html#habito", "Hábito nazareno"],
-        ["procesion.html#recorrido", "Recorrido"],
+      ["cofradia", null, "Cofradía", [
+        ["martes-santo.html", "Estación de penitencia"],
+        ["antorchas.html", "Procesión de antorchas"],
+        ["salidas.html", "Salidas devocionales"],
       ]],
       ["agenda", "agenda.html", "Cultos y agenda"],
       ["contacto", "contacto.html", "Contacto"],
@@ -52,13 +51,19 @@ class CabeceraWeb extends HTMLElement {
           .map(([destino, rotulo]) => `<a href="${destino}">${rotulo}</a>`)
           .join("");
 
+        const padre = archivo
+          ? `<a href="${archivo}">${texto}</a>
+              <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Mostrar opciones de ${texto}">
+                <span aria-hidden="true"></span>
+              </button>`
+          : `<button class="nav-section-toggle submenu-toggle" type="button" aria-expanded="false" aria-label="Mostrar opciones de ${texto}">
+              ${texto}<span aria-hidden="true"></span>
+            </button>`;
+
         return `
           <div class="nav-group${activa}">
             <div class="nav-parent">
-              <a href="${archivo}">${texto}</a>
-              <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Mostrar opciones de ${texto}">
-                <span aria-hidden="true"></span>
-              </button>
+              ${padre}
             </div>
             <div class="submenu">${submenu}</div>
           </div>`;
