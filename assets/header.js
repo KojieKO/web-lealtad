@@ -37,7 +37,7 @@ class CabeceraWeb extends HTMLElement {
         ["antorchas.html", "Procesión de antorchas"],
         ["salidas.html", "Salidas devocionales"],
       ]],
-      ["agenda", "agenda.html", "Cultos y agenda"],
+      ["agenda", "agenda.html", "Agenda"],
       ["contacto", "contacto.html", "Contacto"],
     ];
 

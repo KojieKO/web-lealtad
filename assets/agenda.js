@@ -165,11 +165,65 @@ function pintarProximoEncuentro(eventos) {
   }));
 }
 
+function pintarFechaViacrucis(eventos) {
+  const bloque = document.querySelector("[data-viacrucis-date]");
+  if (!bloque) return;
+
+  const evento = eventos.find((candidato) =>
+    candidato.evento.toLocaleLowerCase("es").includes("vía crucis por la feligresía")
+  );
+  if (!evento) return;
+
+  const fecha = fechaLocal(evento.inicio);
+  const fechaCompleta = new Intl.DateTimeFormat("es-ES", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(fecha);
+
+  bloque.replaceChildren();
+  const etiqueta = document.createElement("span");
+  const valor = document.createElement("time");
+  etiqueta.textContent = "Próximo viacrucis";
+  valor.dateTime = evento.inicio;
+  valor.textContent = fechaCompleta.charAt(0).toUpperCase() + fechaCompleta.slice(1);
+  bloque.append(etiqueta, valor);
+}
+
+function pintarFechaRosario(eventos) {
+  const bloque = document.querySelector("[data-rosario-date]");
+  if (!bloque) return;
+
+  const evento = eventos.find((candidato) =>
+    candidato.evento.toLocaleLowerCase("es").includes("rosario matutino")
+  );
+  if (!evento) return;
+
+  const fecha = fechaLocal(evento.inicio);
+  const fechaCompleta = new Intl.DateTimeFormat("es-ES", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(fecha);
+
+  bloque.replaceChildren();
+  const etiqueta = document.createElement("span");
+  const valor = document.createElement("time");
+  etiqueta.textContent = "Próximo rosario matutino";
+  valor.dateTime = evento.inicio;
+  valor.textContent = fechaCompleta.charAt(0).toUpperCase() + fechaCompleta.slice(1);
+  bloque.append(etiqueta, valor);
+}
+
 async function cargarAgenda() {
   const eventos = leerAgendaMarkdown(window.AGENDA_CULTOS || "");
   if (!eventos.length) throw new Error("agenda-datos.js no contiene eventos válidos");
   pintarAgenda(eventos);
   pintarProximoEncuentro(eventos);
+  pintarFechaViacrucis(eventos);
+  pintarFechaRosario(eventos);
 }
 
 cargarAgenda().catch((error) => {
