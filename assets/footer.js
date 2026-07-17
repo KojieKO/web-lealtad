@@ -14,7 +14,7 @@ class PieWeb extends HTMLElement {
           <strong>Despojado</strong>
         </div>
         <div class="footer-contact">
-          <p>Casa de Hermandad<br>Calle Sanguino Michel 7–9<br>Cáceres</p>
+          <p>Casa de Hermandad<br>Calle Sanguino Michel 7–9<br>10001. Cáceres</p>
           <a href="mailto:contacto@lealtaddespojado.es">contacto@lealtaddespojado.es</a>
         </div>
         <div class="footer-links">

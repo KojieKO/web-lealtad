@@ -1,4 +1,4 @@
-/* Archivo generado automáticamente desde agenda.md. No editar. */
+/* Archivo generado automáticamente desde editable/agenda.md. No editar. */
 
 window.AGENDA_CULTOS = [
     "# Agenda de cultos",

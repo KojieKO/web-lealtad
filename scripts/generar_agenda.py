@@ -1,4 +1,4 @@
-"""Convierte agenda.md en datos JavaScript y HTML rastreable."""
+"""Convierte editable/agenda.md en datos JavaScript y HTML rastreable."""
 
 import html
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 RAIZ = Path(__file__).resolve().parent.parent
-ORIGEN = RAIZ / "agenda.md"
+ORIGEN = RAIZ / "editable" / "agenda.md"
 DESTINO = RAIZ / "assets" / "agenda-datos.js"
 PAGINA = RAIZ / "agenda.html"
 MARCA_INICIO = "          <!-- AGENDA-ESTATICA-INICIO -->"
@@ -21,12 +21,12 @@ def validar_tabla(markdown):
         if linea.strip().startswith("|")
     ]
     if len(filas) < 3 or "| Inicio | Fin | Fecha |" not in filas[0][1]:
-        raise SystemExit("agenda.md no contiene la tabla de eventos esperada")
+        raise SystemExit("editable/agenda.md no contiene la tabla de eventos esperada")
 
     for numero, fila in filas[2:]:
         celdas = [celda.strip() for celda in fila.strip().strip("|").split("|")]
         if len(celdas) != 9:
-            raise SystemExit(f"agenda.md, línea {numero}: la fila debe tener 9 columnas")
+            raise SystemExit(f"editable/agenda.md, línea {numero}: la fila debe tener 9 columnas")
 
         inicio, fin, fecha_visible, mes, _, evento, *_ = celdas
         try:
@@ -34,14 +34,14 @@ def validar_tabla(markdown):
             fin_real = date.fromisoformat(fin or inicio)
         except ValueError:
             raise SystemExit(
-                f"agenda.md, línea {numero}: Inicio y Fin deben usar AAAA-MM-DD"
+                f"editable/agenda.md, línea {numero}: Inicio y Fin deben usar AAAA-MM-DD"
             ) from None
 
         if fin_real < inicio_real:
-            raise SystemExit(f"agenda.md, línea {numero}: Fin no puede ser anterior a Inicio")
+            raise SystemExit(f"editable/agenda.md, línea {numero}: Fin no puede ser anterior a Inicio")
         if not fecha_visible or not mes or not evento:
             raise SystemExit(
-                f"agenda.md, línea {numero}: Fecha, Mes y Evento son obligatorios"
+                f"editable/agenda.md, línea {numero}: Fecha, Mes y Evento son obligatorios"
             )
 
 
@@ -120,7 +120,7 @@ def main():
     eventos = leer_eventos(markdown)
 
     # Guardamos cada línea por separado para que agenda-datos.js sea fácil de leer.
-    # La cadena vacía final conserva el salto de línea con el que termina agenda.md.
+    # La cadena vacía final conserva el salto de línea del Markdown de origen.
     lineas = markdown.splitlines()
     if markdown.endswith("\n"):
         lineas.append("")
@@ -130,7 +130,7 @@ def main():
     )
 
     contenido = (
-        "/* Archivo generado automáticamente desde agenda.md. No editar. */\n\n"
+        "/* Archivo generado automáticamente desde editable/agenda.md. No editar. */\n\n"
         "window.AGENDA_CULTOS = [\n"
         f"{lineas_javascript}\n"
         '].join("\\n");\n'

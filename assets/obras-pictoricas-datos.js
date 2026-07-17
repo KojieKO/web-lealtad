@@ -1,4 +1,4 @@
-/* Archivo generado automáticamente desde obras-pictoricas.md. No editar. */
+/* Archivo generado automáticamente desde editable/obras-pictoricas.md. No editar. */
 
 window.OBRAS_PICTORICAS = [
     "# Obras pictóricas",

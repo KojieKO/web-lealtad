@@ -1,11 +1,11 @@
-"""Convierte obras-pictoricas.md en los datos que consume la web."""
+"""Convierte editable/obras-pictoricas.md en los datos que consume la web."""
 
 import json
 from pathlib import Path
 
 
 RAIZ = Path(__file__).resolve().parent.parent
-ORIGEN = RAIZ / "obras-pictoricas.md"
+ORIGEN = RAIZ / "editable" / "obras-pictoricas.md"
 DESTINO = RAIZ / "assets" / "obras-pictoricas-datos.js"
 
 CABECERAS_ESPERADAS = {
@@ -32,13 +32,13 @@ def validar(markdown):
         if seccion not in cabeceras_encontradas:
             if celdas != CABECERAS_ESPERADAS[seccion]:
                 raise SystemExit(
-                    f"obras-pictoricas.md, línea {numero}: columnas incorrectas en {seccion}"
+                    f"editable/obras-pictoricas.md, línea {numero}: columnas incorrectas en {seccion}"
                 )
             cabeceras_encontradas[seccion] = True
         elif not all(celda.replace("-", "").replace(":", "") == "" for celda in celdas):
             if len(celdas) != 3 or not all(celdas):
                 raise SystemExit(
-                    f"obras-pictoricas.md, línea {numero}: la fila debe tener 3 datos"
+                    f"editable/obras-pictoricas.md, línea {numero}: la fila debe tener 3 datos"
                 )
 
     faltan = set(CABECERAS_ESPERADAS) - set(cabeceras_encontradas)
@@ -54,7 +54,7 @@ def main():
         lineas.append("")
 
     contenido = (
-        "/* Archivo generado automáticamente desde obras-pictoricas.md. No editar. */\n\n"
+        "/* Archivo generado automáticamente desde editable/obras-pictoricas.md. No editar. */\n\n"
         "window.OBRAS_PICTORICAS = [\n"
         + ",\n".join(
             f"    {json.dumps(linea, ensure_ascii=False)}" for linea in lineas

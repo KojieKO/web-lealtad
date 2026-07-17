@@ -1,7 +1,7 @@
 /*
  * OBRAS PICTÓRICAS AUTOMÁTICAS
  * ----------------------------
- * Lee los datos generados desde obras-pictoricas.md y actualiza las dos tablas.
+ * Lee los datos generados desde editable/obras-pictoricas.md y actualiza las dos tablas.
  */
 
 function separarFilaObras(fila) {

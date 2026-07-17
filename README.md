@@ -5,7 +5,7 @@ editarla. Los textos se cambian directamente en los archivos `.html`.
 
 ## Quiero cambiar algo
 
-Empieza por **[GUIA-EDICION.md](GUIA-EDICION.md)**. La guía explica, paso a paso y
+Empieza por **[editable/GUIA-EDICION.md](editable/GUIA-EDICION.md)**. La guía explica, paso a paso y
 sin asumir conocimientos web, cómo cambiar textos, fechas, enlaces, fotografías,
 datos de contacto y miembros de la Junta de Gobierno.
 
@@ -20,7 +20,9 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `martes-santo.html` | Estación de penitencia e itinerario del Martes Santo |
 | `antorchas.html` | Procesión de las antorchas de la Virgen de Fátima |
 | `salidas.html` | Vía crucis y rosario matutino |
-| `agenda.md` | Tabla editable de cultos y actos |
+| `editable/` | Contenidos variables que se pueden modificar |
+| `editable/agenda.md` | Tabla editable de cultos y actos |
+| `editable/obras-pictoricas.md` | Tablas editables de obras pictóricas |
 | `agenda.html` | Presentación automática de la agenda |
 | `contacto.html` | Datos, formulario y mapa |
 | `assets/images/` | Imágenes, escudo e iconos de la web |
@@ -68,7 +70,7 @@ escritos en `assets/header.js`; normalmente no hace falta modificarlos.
 ## Publicación
 
 La publicación está configurada con GitHub Pages. Al integrar los cambios en la
-rama `main`, GitHub convertirá `agenda.md` en los datos que utiliza la web y la
+rama `main`, GitHub convertirá `editable/agenda.md` en los datos que utiliza la web y la
 publicará automáticamente. No hay que ejecutar ningún programa local para
 actualizar la agenda publicada.
 

@@ -1,7 +1,7 @@
 /*
  * COLORES FÁCILES DE CAMBIAR
  * Cambia solo el código que empieza por # y conserva el punto y coma.
- * Consulta GUIA-EDICION.md antes de modificar el resto de este archivo.
+ * Consulta editable/GUIA-EDICION.md antes de modificar el resto de este archivo.
  */
 @font-face{font-family:Capellina;src:local("Capellina Caps"),local("CapellinaCaps"),url("fonts/CapellinaCaps.woff2") format("woff2"),url("fonts/CapellinaCaps.woff") format("woff");font-style:normal;font-weight:400;font-display:swap;size-adjust:107.5%}
 @font-face{font-family:Capellina;src:local("Capellina Caps Bold"),local("CapellinaCaps-Bold"),url("fonts/CapellinaCaps-Bold.woff2") format("woff2"),url("fonts/CapellinaCaps-Bold.woff") format("woff");font-style:normal;font-weight:700;font-display:swap;size-adjust:107.5%}
@@ -85,7 +85,7 @@ nav a.active{border-color:var(--gold);color:var(--green)}
 .government-list p{margin:0;color:var(--muted)}
 @media(max-width:720px){.government-list article{grid-template-columns:1fr;gap:.25rem;padding:1.1rem 0}.government-list p{grid-column:auto}}
 
-/* Las fotografías añadidas siguiendo GUIA-EDICION.md llenan su recuadro. */
+/* Las fotografías añadidas siguiendo editable/GUIA-EDICION.md llenan su recuadro. */
 site-header{display:block}
 .photo{overflow:hidden}
 .photo img{width:100%;height:100%;min-height:inherit;object-fit:cover}
@@ -118,7 +118,7 @@ site-header{display:block}
 
 /* SALIDAS · VIACRUCIS
    La fecha se toma automáticamente de la entrada "Vía Crucis por la feligresía"
-   de agenda.md. */
+   de editable/agenda.md. */
 .devotional-outing{
   display:grid;
   grid-template-columns:1fr 1fr;
