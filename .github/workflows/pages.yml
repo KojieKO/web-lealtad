@@ -17,24 +17,24 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Generar contenidos desde Markdown
         run: |
           python scripts/generar_agenda.py
           python scripts/generar_obras_pictoricas.py
       - name: Guardar las copias generadas
         run: |
-          if ! git diff --quiet -- assets/agenda-datos.js assets/obras-pictoricas-datos.js; then
+          if ! git diff --quiet -- agenda.html assets/agenda-datos.js assets/obras-pictoricas-datos.js; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add assets/agenda-datos.js assets/obras-pictoricas-datos.js
+            git add agenda.html assets/agenda-datos.js assets/obras-pictoricas-datos.js
             git commit -m "chore: actualizar contenidos generados [skip ci]"
             git push
           fi
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: .
       - name: Publicar
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

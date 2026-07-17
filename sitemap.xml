@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://lealtaddespojado.es/</loc>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/titulares-portada.jpg</image:loc>
+      <image:title>Titulares de la Hermandad del Despojado de Cáceres</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/hermandad.html</loc>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/habito-nazareno.png</image:loc>
+      <image:title>Hábito nazareno de la Hermandad del Despojado de Cáceres</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/titulares.html</loc>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/jesus-lealtad-despojado-1200.webp</image:loc>
+      <image:title>Nuestro Padre Jesús de la Lealtad Despojado</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/maria-santisima-pureza-1200.webp</image:loc>
+      <image:title>María Santísima de la Pureza</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/fatima.jpg</image:loc>
+      <image:title>Nuestra Señora del Rosario de Fátima</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/patrimonio.html</loc>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/martes-santo.html</loc>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/martes-santo-jesus-despojado.webp</image:loc>
+      <image:title>Jesús de la Lealtad Despojado en la Semana Santa de Cáceres</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/antorchas.html</loc>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/salidas.html</loc>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/viacrucis-senor.webp</image:loc>
+      <image:title>Vía Crucis de Jesús de la Lealtad Despojado por el barrio de Fátima</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://lealtaddespojado.es/assets/images/rosario-matutino-pureza-616.webp</image:loc>
+      <image:title>Rosario matutino de María Santísima de la Pureza</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/agenda.html</loc>
+  </url>
+  <url>
+    <loc>https://lealtaddespojado.es/contacto.html</loc>
+  </url>
+</urlset>

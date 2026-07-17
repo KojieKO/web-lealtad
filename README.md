@@ -17,7 +17,9 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `hermandad.html` | Historia, Junta, reglas y hábito |
 | `titulares.html` | Información de los Titulares |
 | `patrimonio.html` | Enseres, orfebrería, música y cartelería |
-| `procesion.html` | Estación de penitencia, cortejo, hábito e itinerario histórico |
+| `martes-santo.html` | Estación de penitencia e itinerario del Martes Santo |
+| `antorchas.html` | Procesión de las antorchas de la Virgen de Fátima |
+| `salidas.html` | Vía crucis y rosario matutino |
 | `agenda.md` | Tabla editable de cultos y actos |
 | `agenda.html` | Presentación automática de la agenda |
 | `contacto.html` | Datos, formulario y mapa |
@@ -25,6 +27,8 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
 | `assets/script.js` | Menú para móviles; normalmente no hay que tocarlo |
 | `assets/header.js` | Cabecera y menú compartidos por todas las páginas |
+| `SEO-AUDIT.md` | Auditoría, códigos de cambio y estrategia de contenidos |
+| `robots.txt` y `sitemap.xml` | Instrucciones de rastreo y mapa de URL para buscadores |
 
 ## Procedencia de contenidos
 

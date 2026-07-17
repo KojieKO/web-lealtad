@@ -83,6 +83,7 @@ function crearArticulo(evento) {
 
   articulo.dataset.eventStart = evento.inicio;
   articulo.dataset.eventEnd = evento.fin;
+  fecha.dateTime = evento.inicio;
   fechaVisible.textContent = evento.fecha;
   mes.textContent = evento.mes;
   titulo.textContent = evento.evento;

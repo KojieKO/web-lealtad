@@ -21,8 +21,12 @@ class PieWeb extends HTMLElement {
           <div class="footer-social" aria-label="Redes sociales">
             <span>Síguenos</span>
             <div class="footer-social-icons">
-              <img src="assets/images/facebook.png" alt="Facebook" width="36" height="36">
-              <img src="assets/images/instagram.png" alt="Instagram" width="36" height="36">
+              <a href="https://www.facebook.com/lealtaddespojado/" aria-label="Hermandad del Despojado en Facebook" rel="me noopener">
+                <img src="assets/images/facebook.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+              </a>
+              <a href="https://www.instagram.com/lealtaddespojado/" aria-label="Hermandad del Despojado en Instagram" rel="me noopener">
+                <img src="assets/images/instagram.png" alt="" width="36" height="36" loading="lazy" decoding="async">
+              </a>
             </div>
           </div>
           <div class="footer-nav">
