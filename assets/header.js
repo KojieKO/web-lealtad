@@ -13,7 +13,7 @@ class CabeceraWeb extends HTMLElement {
     const enlaces = [
       ["inicio", "index.html", "Inicio"],
       ["hermandad", "hermandad.html", "Hermandad", [
-        ["hermandad.html#historia", "Historia y fundación"],
+        ["hermandad.html#saluda", "Saluda del Hno. Mayor"],
         ["hermandad.html#cronologia", "Cronología"],
         ["hermandad.html#junta", "Junta de Gobierno"],
         ["hermandad.html#reglas", "Reglas y fines"],
