@@ -9,6 +9,7 @@ class CabeceraWeb extends HTMLElement {
   connectedCallback() {
     // Cada página indica su nombre con active="..." para marcarla en el menú.
     const paginaActiva = this.getAttribute("active") || "";
+    const archivoActual = window.location.pathname.split("/").pop() || "index.html";
 
     const enlaces = [
       ["inicio", "index.html", "Inicio"],
@@ -45,15 +46,19 @@ class CabeceraWeb extends HTMLElement {
       .map(([nombre, archivo, texto, subenlaces]) => {
         const activa = nombre === paginaActiva ? " active" : "";
         if (!subenlaces) {
-          return `<a class="nav-link${activa}" href="${archivo}">${texto}</a>`;
+          const actual = nombre === paginaActiva ? ' aria-current="page"' : "";
+          return `<a class="nav-link${activa}" href="${archivo}"${actual}>${texto}</a>`;
         }
 
         const submenu = subenlaces
-          .map(([destino, rotulo]) => `<a href="${destino}">${rotulo}</a>`)
+          .map(([destino, rotulo]) => {
+            const actual = !archivo && destino === archivoActual ? ' aria-current="page"' : "";
+            return `<a href="${destino}"${actual}>${rotulo}</a>`;
+          })
           .join("");
 
         const padre = archivo
-          ? `<a href="${archivo}">${texto}</a>
+          ? `<a href="${archivo}"${nombre === paginaActiva ? ' aria-current="page"' : ""}>${texto}</a>
               <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Mostrar opciones de ${texto}">
                 <span aria-hidden="true"></span>
               </button>`
@@ -73,8 +78,9 @@ class CabeceraWeb extends HTMLElement {
 
     this.innerHTML = `
       <header class="top">
-        <a class="brand" href="index.html" aria-label="Ir al inicio">
-          <img src="assets/images/escudo-aprobado.png" alt="" width="64" height="72">
+        <a class="brand" href="index.html" aria-label="Ir al inicio de la Hermandad del Despojado de Cáceres">
+          <!-- SEO-PERF-01: versión ligera del escudo para la cabecera. -->
+          <img src="assets/images/escudo-header.webp" alt="" width="64" height="72" decoding="async">
           <span>
             <b>Hermandad de Jesús de la Lealtad</b>
             <strong>Despojado</strong>
