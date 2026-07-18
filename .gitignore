@@ -1,0 +1,8 @@
+# Archivos internos de Codex: se usan solo en local y nunca se publican.
+.codex/
+.codex-remote-attachments/
+.codex*
+.agents/
+AGENTS.md
+CODEX.md
+codex-clipboard-*
