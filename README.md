@@ -29,7 +29,7 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
 | `assets/script.js` | Menú para móviles; normalmente no hay que tocarlo |
 | `assets/header.js` | Cabecera y menú compartidos por todas las páginas |
-| `SEO-AUDIT.md` | Auditoría, códigos de cambio y estrategia de contenidos |
+| `editable/SEO-AUDIT.md` | Auditoría, códigos de cambio y estrategia de contenidos |
 | `robots.txt` y `sitemap.xml` | Instrucciones de rastreo y mapa de URL para buscadores |
 
 ## Procedencia de contenidos
