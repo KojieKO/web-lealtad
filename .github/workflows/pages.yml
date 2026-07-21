@@ -22,12 +22,13 @@ jobs:
         run: |
           python scripts/generar_agenda.py
           python scripts/generar_obras_pictoricas.py
+          python scripts/generar_hermandad.py
       - name: Guardar las copias generadas
         run: |
-          if ! git diff --quiet -- agenda.html assets/agenda-datos.js assets/obras-pictoricas-datos.js; then
+          if ! git diff --quiet -- agenda.html hermandad.html assets/agenda-datos.js assets/obras-pictoricas-datos.js; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add agenda.html assets/agenda-datos.js assets/obras-pictoricas-datos.js
+            git add agenda.html hermandad.html assets/agenda-datos.js assets/obras-pictoricas-datos.js
             git commit -m "chore: actualizar contenidos generados [skip ci]"
             git push
           fi

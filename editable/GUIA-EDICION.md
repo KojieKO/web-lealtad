@@ -68,14 +68,18 @@ actualiza automáticamente sin tocar `agenda.html` ni ningún archivo JavaScript
 
 ### Junta de Gobierno
 
-Abre `hermandad.html` y busca `government-list`. Cada cargo tiene esta forma:
+Abre `editable/junta.md`. Cada fila de la tabla contiene un cargo y el nombre de
+la persona que lo ocupa. Para añadir otra persona, copia una fila completa y
+cambia sus dos datos; para quitarla, borra su fila. Al publicar en GitHub,
+`hermandad.html` se actualiza automáticamente.
 
-```html
-<article><h3>Hermano Mayor</h3><p>Nombre y apellidos</p></article>
-```
+### Cronología de la Hermandad
 
-Cambia el cargo dentro de `<h3>` y el nombre dentro de `<p>`. Puedes copiar o
-borrar un bloque `<article>...</article>` completo para añadir o quitar personas.
+Abre `editable/crono.md`. Cada fila es un hito y contiene el año, el título y la
+descripción. Puedes añadir, cambiar, reordenar o borrar filas. Conserva siempre
+las tres columnas y las barras verticales `|` que las separan. Para enlazar una
+página escribe `[texto visible](pagina.html)`. La web se actualiza automáticamente
+al publicar en GitHub.
 
 ### Datos de los Titulares
 

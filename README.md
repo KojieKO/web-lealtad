@@ -14,7 +14,7 @@ datos de contacto y miembros de la Junta de Gobierno.
 | Archivo | Qué contiene |
 | --- | --- |
 | `index.html` | Portada y próximo encuentro |
-| `hermandad.html` | Historia, Junta, reglas y hábito |
+| `hermandad.html` | Presentación automática de la cronología y la Junta, además del resto de la historia y el hábito |
 | `titulares.html` | Información de los Titulares |
 | `patrimonio.html` | Enseres, orfebrería, música y cartelería |
 | `martes-santo.html` | Estación de penitencia e itinerario del Martes Santo |
@@ -23,6 +23,8 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `editable/` | Contenidos variables que se pueden modificar |
 | `editable/agenda.md` | Tabla editable de cultos y actos |
 | `editable/obras-pictoricas.md` | Tablas editables de obras pictóricas |
+| `editable/crono.md` | Cronología editable de la Hermandad |
+| `editable/junta.md` | Cargos y miembros editables de la Junta de Gobierno |
 | `agenda.html` | Presentación automática de la agenda |
 | `contacto.html` | Datos, formulario y mapa |
 | `assets/images/` | Imágenes, escudo e iconos de la web |
@@ -70,9 +72,10 @@ escritos en `assets/header.js`; normalmente no hace falta modificarlos.
 ## Publicación
 
 La publicación está configurada con GitHub Pages. Al integrar los cambios en la
-rama `main`, GitHub convertirá `editable/agenda.md` en los datos que utiliza la web y la
-publicará automáticamente. No hay que ejecutar ningún programa local para
-actualizar la agenda publicada.
+rama `main`, GitHub convertirá los archivos Markdown de `editable/` en el contenido
+que utiliza la web y la publicará automáticamente. No hay que ejecutar ningún
+programa local para actualizar la agenda, la cronología, la Junta ni las obras
+pictóricas publicadas.
 
 > Importante: prueba siempre los cambios antes de publicarlos y conserva una
 > copia del archivo que vayas a editar.
