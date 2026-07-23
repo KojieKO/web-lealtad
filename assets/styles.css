@@ -153,6 +153,8 @@ body.reader-open{overflow:hidden}
   box-shadow:inset 0 0 3rem rgba(0,0,0,.32);
 }
 .reader-book{width:100%;height:100%;display:grid;place-items:center}
+.reader-stage.is-zoomed{display:block;overflow:auto;overscroll-behavior:contain}
+.reader-stage.is-zoomed .reader-book{height:auto;min-height:100%;margin:0}
 .reader-book canvas{
   max-width:100%;
   max-height:100%;
@@ -162,9 +164,25 @@ body.reader-open{overflow:hidden}
 .reader-message{position:absolute;inset:0;display:none;place-items:center;max-width:42rem;margin:auto;padding:2rem;text-align:center;color:#eef1ec}
 .reader-message.is-visible{display:grid}
 .reader-toolbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;padding:.75rem 1.25rem;background:var(--green-dark);border-top:1px solid rgba(255,255,255,.18)}
+.reader-toolbar__center{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
 .reader-counter{margin:0;text-align:center;font-size:.78rem}
 .reader-counter strong{color:#d8c25d}
 .reader-page-button:disabled{opacity:.4;cursor:not-allowed}
+.reader-zoom{display:flex;align-items:center;gap:.35rem}
+.reader-zoom button{
+  min-width:2rem;
+  height:2rem;
+  padding:0 .5rem;
+  border:1px solid rgba(255,255,255,.4);
+  background:transparent;
+  color:var(--white);
+  font:700 .75rem var(--body);
+  cursor:pointer;
+}
+.reader-zoom button:hover,.reader-zoom button:focus-visible{border-color:#d8c25d;color:#fff4bd}
+.reader-zoom button:disabled{opacity:.35;cursor:not-allowed}
+.reader-zoom output{min-width:3.25rem;color:#d8c25d;font-size:.72rem;text-align:center}
+.reader-zoom .reader-zoom__reset{width:auto;padding:0 .7rem;text-transform:uppercase;font-size:.58rem;letter-spacing:.06em}
 .reader-dialog:fullscreen{width:100vw;height:100vh;max-width:none;border:0}
 
 @media(max-width:720px){
@@ -177,8 +195,12 @@ body.reader-open{overflow:hidden}
   .reader-stage{padding:.55rem}
   .reader-help{font-size:.65rem}
   .reader-toolbar{gap:.4rem;padding:.6rem}
+  .reader-toolbar__center{gap:.45rem}
   .reader-page-button{padding:.58rem .65rem;font-size:.58rem}
   .reader-counter{font-size:.7rem}
+  .reader-zoom{gap:.25rem}
+  .reader-zoom button{min-width:1.8rem;height:1.8rem}
+  .reader-zoom .reader-zoom__reset{padding:0 .5rem}
 }
 
 @media(max-width:480px){

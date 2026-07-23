@@ -577,9 +577,25 @@
           <button class="reader-page-button" type="button" data-reader-prev aria-label="Página anterior">
             Anterior
           </button>
-          <p class="reader-counter" aria-live="polite">
-            Página <strong data-reader-current>0</strong> de <strong data-reader-total>0</strong>
-          </p>
+          <div class="reader-toolbar__center">
+            <p class="reader-counter" aria-live="polite">
+              Página <strong data-reader-current>0</strong> de <strong data-reader-total>0</strong>
+            </p>
+            <div class="reader-zoom" role="group" aria-label="Zoom de la revista">
+              <button type="button" data-reader-zoom-out aria-label="Alejar">
+                −
+              </button>
+              <output data-reader-zoom-value aria-live="polite">
+                100%
+              </output>
+              <button type="button" data-reader-zoom-in aria-label="Acercar">
+                +
+              </button>
+              <button class="reader-zoom__reset" type="button" data-reader-zoom-reset>
+                Ajustar
+              </button>
+            </div>
+          </div>
           <button class="reader-page-button" type="button" data-reader-next aria-label="Página siguiente">
             Siguiente
           </button>

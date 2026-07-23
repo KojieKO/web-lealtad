@@ -4,6 +4,7 @@
   var modal = document.getElementById("reader-modal");
   var dialog = modal && modal.querySelector(".reader-dialog");
   var body = modal && modal.querySelector(".reader-dialog__body");
+  var stage = modal && modal.querySelector(".reader-stage");
   var book = document.getElementById("reader-book");
   var title = document.getElementById("reader-title");
   var message = modal && modal.querySelector(".reader-message");
@@ -13,14 +14,19 @@
   var previousButton = modal && modal.querySelector("[data-reader-prev]");
   var nextButton = modal && modal.querySelector("[data-reader-next]");
   var fullscreenButton = modal && modal.querySelector("[data-reader-fullscreen]");
+  var zoomOutButton = modal && modal.querySelector("[data-reader-zoom-out]");
+  var zoomInButton = modal && modal.querySelector("[data-reader-zoom-in]");
+  var zoomResetButton = modal && modal.querySelector("[data-reader-zoom-reset]");
+  var zoomValue = modal && modal.querySelector("[data-reader-zoom-value]");
 
   var pageFlip = null;
   var opener = null;
   var requestController = null;
   var openingId = 0;
   var libraryPromise = null;
+  var zoom = 1;
 
-  if (!modal || !dialog || !body || !book) {
+  if (!modal || !dialog || !body || !stage || !book) {
     return;
   }
 
@@ -36,8 +42,39 @@
     nextButton.disabled = !total || index >= total - 1;
   }
 
+  function updateZoomControls() {
+    var readerReady = Boolean(pageFlip);
+
+    zoomValue.textContent = String(Math.round(zoom * 100)) + "%";
+    zoomOutButton.disabled = !readerReady || zoom <= 1;
+    zoomInButton.disabled = !readerReady || zoom >= 2.5;
+    zoomResetButton.disabled = !readerReady || zoom === 1;
+  }
+
+  function setZoom(nextZoom) {
+    if (!pageFlip) {
+      return;
+    }
+
+    zoom = Math.min(2.5, Math.max(1, nextZoom));
+    stage.classList.toggle("is-zoomed", zoom > 1);
+    book.style.width = String(zoom * 100) + "%";
+    book.style.maxWidth = zoom > 1
+      ? "none"
+      : String(2 * pageFlip.getSettings().maxWidth) + "px";
+
+    pageFlip.getUI().update();
+    pageFlip.update();
+    updateZoomControls();
+
+    window.requestAnimationFrame(function centerZoomedReader() {
+      stage.scrollLeft = Math.max(0, (stage.scrollWidth - stage.clientWidth) / 2);
+      stage.scrollTop = 0;
+    });
+  }
+
   function destroyReader() {
-    var stage = book.parentElement || modal.querySelector(".reader-stage");
+    var bookStage = book.parentElement || modal.querySelector(".reader-stage");
 
     if (requestController) {
       requestController.abort();
@@ -51,13 +88,18 @@
       book.className = "reader-book";
       book.id = "reader-book";
       book.setAttribute("aria-label", "Lector de la revista");
-      stage.prepend(book);
+      bookStage.prepend(book);
     } else {
       book.replaceChildren();
     }
 
+    zoom = 1;
+    stage.classList.remove("is-zoomed");
+    stage.scrollLeft = 0;
+    stage.scrollTop = 0;
     setMessage("");
     updateCounter(0, 0);
+    updateZoomControls();
     body.setAttribute("aria-busy", "false");
     pdfLink.hidden = true;
     pdfLink.removeAttribute("href");
@@ -245,6 +287,7 @@
         setMessage("");
         body.setAttribute("aria-busy", "false");
         updateCounter(event.data.page, pageFlip.getPageCount());
+        updateZoomControls();
       });
 
       pageFlip.on("flip", function onPageFlip(event) {
@@ -349,6 +392,18 @@
     }
   });
 
+  zoomOutButton.addEventListener("click", function zoomOut() {
+    setZoom(zoom - 0.25);
+  });
+
+  zoomInButton.addEventListener("click", function zoomIn() {
+    setZoom(zoom + 0.25);
+  });
+
+  zoomResetButton.addEventListener("click", function resetZoom() {
+    setZoom(1);
+  });
+
   fullscreenButton.addEventListener("click", function toggleFullscreen() {
     if (document.fullscreenElement === dialog) {
       document.exitFullscreen();
@@ -365,4 +420,6 @@
       active ? "Salir de pantalla completa" : "Ver el lector a pantalla completa"
     );
   });
+
+  updateZoomControls();
 }(window, document));
