@@ -341,6 +341,9 @@
                   <th>
                     Año
                   </th>
+                  <th>
+                    Lectura
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -351,6 +354,16 @@
                   <td>
                     2024
                   </td>
+                  <td>
+                    <button class="fides-read-button" type="button"
+                      data-revista-config="revistas/fides-1-2024/revista.json"
+                      data-revista-page-count="36"
+                      data-revista-width="1240"
+                      data-revista-height="1759"
+                      data-revista-pdf="fides-1-2024.pdf">
+                      Leer
+                    </button>
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -359,11 +372,21 @@
                   <td>
                     2025
                   </td>
+                  <td>
+                    <button class="fides-read-button" type="button"
+                      data-revista-config="revistas/fides-2-2025/revista.json"
+                      data-revista-page-count="48"
+                      data-revista-width="1240"
+                      data-revista-height="1759"
+                      data-revista-pdf="fides-2-2025.pdf">
+                      Leer
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>
             <p class="archive-status">
-              Archivo en preparación.
+              Los números de 2024 y 2025 ya están disponibles.
             </p>
           </article>
         </div>
@@ -515,11 +538,67 @@
     </main>
     <site-footer>
     </site-footer>
+    <!--
+      LECTOR DE REVISTAS
+      Hay un único modal para todos los números de Fides.
+      Cada botón "Leer" indica qué archivo revista.json debe cargar.
+    -->
+    <div class="reader-modal" id="reader-modal" hidden>
+      <div class="reader-modal__backdrop" data-reader-close>
+      </div>
+      <section class="reader-dialog" role="dialog" aria-modal="true" aria-labelledby="reader-title" aria-describedby="reader-help" tabindex="-1">
+        <header class="reader-dialog__header">
+          <div>
+            <p class="reader-dialog__eyebrow">
+              Hemeroteca · Revista Fides
+            </p>
+            <h2 id="reader-title">
+              Revista Fides
+            </h2>
+          </div>
+          <div class="reader-dialog__actions">
+            <a class="reader-action reader-pdf" href="#" target="_blank" rel="noopener" hidden>
+              Abrir PDF
+            </a>
+            <button class="reader-action" type="button" data-reader-fullscreen aria-label="Ver el lector a pantalla completa">
+              Pantalla completa
+            </button>
+            <button class="reader-action reader-close" type="button" data-reader-close aria-label="Cerrar el lector">
+              Cerrar
+            </button>
+          </div>
+        </header>
+        <div class="reader-dialog__body" aria-busy="false">
+          <p class="reader-help" id="reader-help">
+            Arrastre o pulse una esquina de la revista para pasar de página.
+          </p>
+          <div class="reader-stage">
+            <div class="reader-book" id="reader-book" aria-label="Lector de la revista">
+            </div>
+            <p class="reader-message" role="status" aria-live="polite">
+            </p>
+          </div>
+        </div>
+        <footer class="reader-toolbar">
+          <button class="reader-page-button" type="button" data-reader-prev aria-label="Página anterior">
+            Anterior
+          </button>
+          <p class="reader-counter" aria-live="polite">
+            Página <strong data-reader-current>0</strong> de <strong data-reader-total>0</strong>
+          </p>
+          <button class="reader-page-button" type="button" data-reader-next aria-label="Página siguiente">
+            Siguiente
+          </button>
+        </footer>
+      </section>
+    </div>
     <script src="assets/obras-pictoricas-datos.js">
     </script>
     <script src="assets/obras-pictoricas.js">
     </script>
     <script src="assets/script.js">
+    </script>
+    <script src="assets/js/revistas.js">
     </script>
   </body>
 </html>
