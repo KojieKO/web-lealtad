@@ -1,0 +1,66 @@
+
+/* Escudo institucional aprobado */
+.brand img{width:64px;height:72px}
+.home-crest{display:block;width:clamp(110px,12vw,170px);height:auto;margin:0 0 2.2rem;filter:drop-shadow(0 12px 18px rgba(34,55,32,.12))}
+@media(max-width:720px){.brand img{width:48px;height:58px}.home-crest{width:120px;margin-bottom:1.8rem}}
+
+/* Menús desplegables de la navegación principal */
+.nav-group{position:relative;align-self:stretch;display:flex;align-items:center}
+.nav-parent{display:flex;align-items:center}
+.nav-parent>a{white-space:nowrap}
+.submenu-toggle{width:1.4rem;height:2.5rem;padding:0;border:0;background:transparent;display:grid;place-items:center;cursor:pointer;color:var(--green)}
+.submenu-toggle:focus{outline:none}
+.submenu-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.submenu-toggle span{width:.42rem;height:.42rem;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+.nav-section-toggle{width:auto;height:auto;margin:0;padding:.55rem 0;border:0;display:flex;align-items:center;gap:.55rem;color:var(--ink);font:700 .69rem/1.65 var(--body);letter-spacing:.08em;text-align:left;text-transform:uppercase;white-space:nowrap;appearance:none}
+.nav-section-toggle:focus-visible{outline:0;background:var(--paper);box-shadow:inset 3px 0 0 var(--gold);color:var(--green)}
+.nav-section-toggle span{color:var(--green)}
+.nav-group.active>.nav-parent>.nav-section-toggle{color:var(--green)}
+@media(hover:hover) and (pointer:fine){.nav-section-toggle:hover{color:var(--green)}}
+.nav-group.active>.nav-parent>a{border-color:transparent;color:var(--green)}
+.submenu{position:absolute;top:calc(100% + 1px);left:-1.5rem;width:max-content;min-width:240px;padding:.65rem 0;background:var(--paper);border:0;box-shadow:0 18px 36px rgba(16,19,16,.16);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:30}
+.submenu a{display:block;padding:.75rem 1.5rem;border:0;text-transform:none;font-size:.78rem;font-weight:600;letter-spacing:.01em;color:var(--green)}
+.submenu a:hover,.submenu a:focus{border:0;background:var(--white);color:var(--gold)}
+.nav-group:hover .submenu,.nav-group.submenu-open .submenu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-group:hover .submenu-toggle span,.nav-group.submenu-open .submenu-toggle span{transform:translateY(2px) rotate(225deg)}
+@media(max-width:1050px){
+  .nav-group{display:block;width:100%}
+  .nav-parent{justify-content:space-between}
+  .nav-parent>a{flex:1}
+  .submenu-toggle{width:2.75rem}
+  .nav-section-toggle{width:100%;justify-content:space-between;padding-right:calc((2.75rem - .42rem)/2);background:var(--white)}
+  .nav-section-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px;background:var(--white);box-shadow:none}
+  .submenu{position:static;width:auto;min-width:0;margin-top:.2rem;padding:0 0 0 .9rem;border:0;box-shadow:none;display:none;opacity:1;visibility:visible;transform:none;transition:none}
+  .submenu a{padding:.65rem 1rem}
+  .nav-group:hover .submenu:not(:focus-within){display:none}
+  .nav-group.submenu-open .submenu,.nav-group:focus-within.submenu-open .submenu{display:block}
+}
+
+/* Página enmarcada sobre el fondo corporativo. La fotografía vive en una capa
+   independiente para poder variar su opacidad según el zoom del navegador. */
+html{background:#ebeae4}
+body{
+  background:transparent;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:linear-gradient(rgba(235,234,228,.4),rgba(235,234,228,.4)),url("../images/fondo-procesion.webp");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:var(--background-opacity,.65);
+  pointer-events:none;
+  z-index:0;
+}
+site-header,body>main,site-footer{position:relative;z-index:1;width:min(100%,1320px);margin-inline:auto}
+site-header,body>main,site-footer{
+  box-shadow:0 0 38px 12px rgba(0,0,0,.68);
+}
+site-header{position:relative;z-index:20}
+body>main{background:var(--white)}
+site-footer{display:block}
+@media(max-width:1320px){
+  site-header,body>main,site-footer{box-shadow:none}
+}

@@ -1,0 +1,7 @@
+/* Conserva el aspecto original de los campos del formulario de alta. */
+.join input,.join textarea{background:revert;font:400 1rem var(--body);text-transform:none}
+@media(max-width:720px){.timeline li{grid-template-columns:1fr;gap:.25rem}.fact-grid,.collection-grid{grid-template-columns:1fr}.subnav{display:flex}}
+@media(max-width:1050px){.itinerary-section{grid-template-columns:1fr}.itinerary-times{grid-template-columns:1fr}.itinerary-times span{min-height:0}.itinerary-section .route{grid-column:auto}}
+@media(max-width:900px){.procession-intro__copy{top:2rem;left:2rem;width:min(44%,400px)}.procession-intro__copy h2{font-size:clamp(2.7rem,6.5vw,4.2rem)}.procession-intro__copy .lead{font-size:.92rem}.procession-intro__copy p:not(.eyebrow):not(.lead){font-size:.72rem}}
+@media(max-width:720px){.procession-page .content-section{padding-top:4rem;padding-bottom:4rem}.itinerary-section .route{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:600px){.procession-intro__photo{display:flex;flex-direction:column}.procession-intro__photo::after{display:none}.procession-intro__copy{position:static;order:-1;width:auto;max-width:none;padding:3.5rem 1.3rem;background:#a8b7ca}.procession-intro__copy h2{font-size:3.2rem}.procession-intro__copy .lead{font-size:1.08rem}.procession-intro__copy p:not(.eyebrow):not(.lead){font-size:.9rem}.procession-intro__photo figcaption{right:.8rem;bottom:.7rem;left:.8rem;text-align:center}}

@@ -1,0 +1,46 @@
+
+/* Alinea la fecha y la información de cada acto desde el borde superior. */
+.calendar-list article{align-items:start}
+.calendar-list time{align-content:start;padding-top:1.4rem}
+.calendar-list .tag{margin:0 0 .35rem}
+.event-details-list{display:grid;gap:1rem}
+.event-details+.event-details{border-top:1px solid var(--line);padding-top:1rem}
+.event-details h2:last-child{margin-bottom:0}
+
+@media(min-width:721px){
+  .calendar-list time{
+    padding-top:0;
+  }
+  .calendar-list time b{
+    font-size:3.25rem;
+    line-height:1;
+  }
+  .calendar-list time span{
+    margin-top:.45rem;
+    color:var(--gold);
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .calendar-list article>div>p:not(.tag){
+    margin:.15rem 0 0;
+  }
+}
+
+@media(max-width:720px){
+  .calendar-list time{
+    display:flex;
+    align-items:baseline;
+    gap:.45rem;
+    padding-top:0;
+    white-space:nowrap;
+  }
+  .calendar-list time span{
+    font:400 2rem var(--display);
+    color:var(--green);
+  }
+  .calendar-list time span::before{
+    content:"de ";
+  }
+}

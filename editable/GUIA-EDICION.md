@@ -126,7 +126,8 @@ que la imagen sea puramente decorativa.
 
 ## Cambiar colores (opcional)
 
-Abre `assets/styles.css` y busca `:root`. Ahí están los colores principales:
+Abre `assets/css/01-base.css` y busca `:root`. Ahí están los colores
+principales:
 
 - `--green`: verde principal.
 - `--green-dark`: verde oscuro del pie.
@@ -135,6 +136,24 @@ Abre `assets/styles.css` y busca `:root`. Ahí están los colores principales:
 
 Los colores usan códigos como `#2e482b`. Cambia solo el código, manteniendo el
 signo `#` y el punto y coma final.
+
+## Encontrar otros estilos (edición avanzada)
+
+`assets/styles.css` es ahora un índice corto. No contiene todos los estilos:
+los carga en el orden correcto desde la carpeta `assets/css/`.
+
+- `01-base.css`: colores, tipografías y estilos básicos.
+- `02-brand-footer.css`: marca y pie de página.
+- `03-page-layout.css`: estructura compartida de las páginas.
+- `04-content-elements.css`: tablas, cronologías y contenido compartido.
+- `05-responsive-content.css`: ajustes para pantallas estrechas.
+- `06-navigation-frame.css`: navegación y marco exterior.
+- `07-layout-refinements.css`: medidas y espaciado finales.
+- `pages/`: estilos propios de cada apartado.
+
+No cambies el orden de las líneas `@import` de `assets/styles.css`. Si buscas
+un estilo de una página concreta, empieza por el archivo con su nombre dentro
+de `assets/css/pages/`.
 
 ## Comprobar el resultado
 

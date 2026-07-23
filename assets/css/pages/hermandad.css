@@ -1,0 +1,61 @@
+/* Hábito nazareno: lámina y descripción editorial */
+#habito{
+  grid-template-columns:minmax(320px,.9fr) minmax(0,1.1fr);
+  align-items:center;
+  gap:clamp(3rem,6vw,6rem);
+  background:linear-gradient(100deg,
+    #eee9da 0%,
+    #f6f2e8 42%,
+    #fbfaf6 52%,
+    #ffffff 64%,
+    #ffffff 100%);
+}
+.habit-figure{
+  margin:0;
+  min-height:700px;
+  display:grid;
+  place-items:end center;
+  overflow:visible;
+  background:radial-gradient(ellipse at 50% 52%,rgba(255,255,255,.72) 0,rgba(255,255,255,.28) 48%,rgba(255,255,255,0) 72%);
+}
+.habit-figure img{
+  display:block;
+  width:100%;
+  height:700px;
+  object-fit:contain;
+  object-position:center bottom;
+  transform:scale(1.07);
+  transform-origin:center bottom;
+  filter:drop-shadow(0 18px 20px rgba(8,20,8,.16));
+}
+.habit-copy{max-width:680px}
+.habit-copy>p:last-child{
+  margin:0;
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1.85;
+}
+@media(max-width:900px){
+  #habito{
+    grid-template-columns:1fr;
+    gap:3rem;
+    background:linear-gradient(180deg,#eee9da 0,#f7f3e9 48%,#fff 64%,#fff 100%);
+  }
+  .habit-figure{min-height:600px}
+  .habit-figure img{height:600px;transform:scale(1.04)}
+  .habit-copy{max-width:none}
+}
+@media(max-width:520px){
+  .habit-figure{min-height:500px}
+  .habit-figure img{height:500px;transform:none}
+  .habit-copy>p:last-child{font-size:.95rem;line-height:1.75}
+}
+
+/* Junta de Gobierno sobre verde corporativo */
+#junta .eyebrow::after{color:#d8c25d}
+#junta h2::after{color:var(--white)}
+#junta .government-list{border-color:rgba(255,255,255,.28)}
+#junta .government-list article{border-color:rgba(255,255,255,.22);background:transparent}
+#junta .government-list article:hover{background:rgba(255,255,255,.06)}
+#junta .government-list h3{color:var(--white)}
+#junta .government-list p{color:#e2e7df}

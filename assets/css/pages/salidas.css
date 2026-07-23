@@ -1,0 +1,155 @@
+
+/* SALIDAS · VIACRUCIS
+   La fecha se toma automáticamente de la entrada "Vía Crucis por la feligresía"
+   de editable/agenda.md. */
+.devotional-outing{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  align-items:stretch;
+  padding:0;
+  background:#000;
+  color:var(--white);
+}
+.content-section.devotional-outing{padding:0}
+.devotional-outing__copy{
+  align-self:center;
+  padding:clamp(4rem,6vw,6rem) 1.5rem;
+}
+.devotional-outing__heading h2,
+.devotional-outing__intro .lead{color:var(--white)}
+.devotional-outing__intro p:not(.lead){max-width:38rem;color:#e2e2e2}
+.outing-date{
+  display:grid;
+  gap:.2rem;
+  margin-top:2rem;
+  padding-top:1.2rem;
+  border-top:1px solid rgba(255,255,255,.25);
+}
+.outing-date span{
+  color:var(--gold);
+  font-size:.62rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+.outing-date time{font:400 1.4rem var(--display);color:var(--white)}
+.devotional-outing__photo{
+  position:relative;
+  margin:0;
+  min-height:960px;
+  overflow:hidden;
+  background:#000;
+}
+.devotional-outing__photo::after{
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:clamp(50px,7vw,105px);
+  background:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.82) 75%,#000 100%);
+  pointer-events:none;
+}
+.devotional-outing__photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  object-fit:cover;
+  object-position:center;
+}
+.devotional-outing__route{
+  margin-top:1.5rem;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,.25);
+}
+.devotional-outing__route .route-text{
+  margin:0;
+  padding:0;
+  color:#ececec;
+  font:400 clamp(.92rem,1.05vw,1rem)/1.9 Arial,sans-serif;
+}
+.devotional-outing__route .route-text strong{
+  color:#d8c25d;
+  font-weight:700;
+}
+@media(max-width:900px){
+  .devotional-outing{grid-template-columns:1fr;gap:3rem}
+  .devotional-outing__photo{width:100%;min-height:760px}
+  .devotional-outing__photo::after{display:none}
+  .devotional-outing__copy{padding:5rem 1.5rem}
+}
+@media(max-width:720px){
+  .devotional-outing{gap:0}
+  .devotional-outing__photo{min-height:620px}
+  .devotional-outing__copy{padding:4rem 1.5rem 5rem}
+  .devotional-outing__route .route-text{font-size:.95rem}
+}
+
+/* SALIDAS · ROSARIO MATUTINO */
+.content-section.rosary-outing{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+  gap:0;
+  height:800px;
+  padding:0;
+  background:var(--white);
+  color:var(--ink);
+}
+.rosary-outing__copy{
+  padding:2.5rem 1.5rem;
+  padding-left:2rem;
+}
+.rosary-outing__heading h2,
+.rosary-outing__heading .lead{color:var(--green)}
+.rosary-outing__heading .lead{max-width:34rem}
+.rosary-outing__details{
+  margin-top:1.5rem;
+}
+.rosary-outing__details>p:first-child{max-width:38rem;color:var(--muted)}
+.rosary-date{border-color:var(--line)}
+.rosary-date time{color:var(--green)}
+.rosary-outing__route{
+  margin-top:1.5rem;
+  padding-top:1.25rem;
+  border-top:1px solid var(--line);
+}
+.rosary-outing__route .route-text{
+  max-width:38rem;
+  margin:0;
+  color:var(--ink);
+  font:400 clamp(.95rem,1.2vw,1.08rem)/1.9 Arial,sans-serif;
+}
+.rosary-outing__photo{
+  position:relative;
+  width:calc(100% + 1px);
+  height:800px;
+  margin:0;
+  margin-right:-1px;
+  overflow:hidden;
+  background:var(--paper);
+}
+.rosary-outing__photo::after{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:clamp(50px,7vw,100px);
+  background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.88) 20%,rgba(255,255,255,0) 100%);
+  pointer-events:none;
+}
+.rosary-outing__photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+@media(max-width:900px){
+  .content-section.rosary-outing{grid-template-columns:1fr;height:auto}
+  .rosary-outing__copy{padding:4rem 1.5rem 4rem 2rem}
+  .rosary-outing__photo{width:100%;height:620px;margin-right:0;border-top:1px solid var(--line)}
+  .rosary-outing__photo::after{display:none}
+}
+@media(max-width:600px){
+  .rosary-outing__route{padding-bottom:2.5rem}
+}
+

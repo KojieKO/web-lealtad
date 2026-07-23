@@ -1,0 +1,138 @@
+/* Retrato principal del Despojado */
+.titular-detail#despojado{
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  align-items:stretch;
+  padding:0;
+  background:#000000;
+  color:var(--white);
+}
+.titular-detail#despojado .photo{
+  min-height:760px;
+  overflow:hidden;
+  background:#000;
+}
+.titular-detail#despojado .photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  object-fit:cover;
+  object-position:center top;
+}
+.titular-detail#despojado>div:last-child{
+  align-self:center;
+  padding:clamp(4rem,7vw,7rem) clamp(2.5rem,5vw,5rem);
+}
+.titular-detail#despojado h2,
+.titular-detail#despojado .lead{color:var(--white)}
+.titular-detail#despojado .eyebrow{color:#d8c25d}
+.titular-detail#despojado dl{border-color:rgba(255,255,255,.28)}
+.titular-detail#despojado dl div{border-color:rgba(255,255,255,.2)}
+.titular-detail#despojado dt{color:#d8c25d}
+.titular-detail#despojado dd{color:#e2e7df}
+.titular-detail#despojado>div:last-child>p:last-child{color:#eef1ec}
+@media(max-width:900px){
+  .titular-detail#despojado{grid-template-columns:1fr}
+  .titular-detail#despojado .photo{width:100%;min-height:720px}
+  .titular-detail#despojado>div:last-child{padding:5rem max(1.3rem,8vw)}
+}
+@media(max-width:720px){
+  .titular-detail#despojado .photo{min-height:620px}
+  .titular-detail#despojado>div:last-child{padding:4rem 1.3rem 5rem}
+}
+
+/* Retrato principal de María Santísima de la Pureza */
+.titular-detail#pureza{
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  align-items:stretch;
+  padding:0;
+  background:#fefefe;
+}
+.titular-detail#pureza .photo{
+  position:relative;
+  min-height:760px;
+  overflow:hidden;
+  background:#fefefe;
+}
+.titular-detail#pureza .photo::after{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:clamp(28px,4vw,58px);
+  background:linear-gradient(90deg,#fefefe 0%,rgba(254,254,254,.82) 22%,rgba(254,254,254,0) 100%);
+  pointer-events:none;
+}
+.titular-detail#pureza .photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:inherit;
+  object-fit:cover;
+  object-position:center;
+}
+.titular-detail#pureza>div:last-child{
+  align-self:center;
+  padding:clamp(4rem,7vw,7rem) clamp(2.5rem,5vw,5rem);
+}
+@media(max-width:900px){
+  .titular-detail#pureza{grid-template-columns:1fr}
+  .titular-detail#pureza .photo{width:100%;min-height:720px}
+  .titular-detail#pureza .photo::after{display:none}
+  .titular-detail#pureza>div:last-child{padding:5rem max(1.3rem,8vw)}
+}
+@media(max-width:720px){
+  .titular-detail#pureza .photo{min-height:620px}
+  .titular-detail#pureza>div:last-child{padding:4rem 1.3rem 5rem}
+}
+
+/* Retrato principal de Nuestra Señora del Rosario de Fátima */
+.titular-detail#fatima{
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  align-items:stretch;
+  height:clamp(720px,68vw,900px);
+  max-height:900px;
+  padding:0;
+  background:#000000;
+  color:var(--white);
+}
+.titular-detail#fatima .photo{
+  height:100%;
+  min-height:0;
+  overflow:hidden;
+  background:#000000;
+}
+.titular-detail#fatima .photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  object-fit:contain;
+  object-position:center;
+}
+.titular-detail#fatima>div:last-child{
+  align-self:center;
+  padding:clamp(3rem,5vw,5rem) clamp(2.5rem,5vw,5rem);
+}
+.titular-detail#fatima h2,
+.titular-detail#fatima .lead{color:var(--white)}
+.titular-detail#fatima .eyebrow{color:#d8c25d}
+.titular-detail#fatima dl{border-color:rgba(255,255,255,.28)}
+.titular-detail#fatima dl div{border-color:rgba(255,255,255,.2)}
+.titular-detail#fatima dt{color:#d8c25d}
+.titular-detail#fatima dd{color:#e2e7df}
+.titular-detail#fatima>div:last-child>p:last-child{color:#eef1ec}
+@media(max-width:900px){
+  .titular-detail#fatima{grid-template-columns:1fr;height:auto;max-height:none}
+  .titular-detail#fatima .photo{width:100%;min-height:600px}
+  .titular-detail#fatima .photo img{height:600px}
+  .titular-detail#fatima>div:last-child{padding:4rem max(1.3rem,8vw)}
+}
+@media(max-width:720px){
+  .titular-detail#fatima .photo{min-height:520px}
+  .titular-detail#fatima .photo img{height:520px}
+  .titular-detail#fatima>div:last-child{padding:4rem 1.3rem 5rem}
+}
+

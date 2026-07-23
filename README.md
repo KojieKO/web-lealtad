@@ -28,7 +28,10 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `agenda.html` | Presentación automática de la agenda |
 | `contacto.html` | Datos, formulario y mapa |
 | `assets/images/` | Imágenes, escudo e iconos de la web |
-| `assets/styles.css` | Colores y aspecto visual (edición avanzada) |
+| `assets/styles.css` | Índice que carga las hojas de estilo en el orden correcto |
+| `assets/css/01-base.css` | Colores, tipografías y estilos básicos |
+| `assets/css/` | Estilos comunes organizados por función |
+| `assets/css/pages/` | Estilos agrupados por página o apartado |
 | `assets/script.js` | Menú para móviles; normalmente no hay que tocarlo |
 | `assets/header.js` | Cabecera y menú compartidos por todas las páginas |
 | `editable/SEO-AUDIT.md` | Auditoría, códigos de cambio y estrategia de contenidos |

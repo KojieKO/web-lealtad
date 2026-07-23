@@ -1,0 +1,243 @@
+/* Cabeceras interiores: escala compacta */
+.page-hero{
+  padding:4rem max(1.3rem,8vw) 3.5rem;
+}
+.page-hero h1{
+  margin:.35rem 0 1rem;
+  font-size:clamp(2.8rem,4.2vw,4.8rem);
+  line-height:.92;
+}
+.page-hero>p:last-child{
+  font-size:1rem;
+}
+.page-hero.contact-hero{
+  padding-top:3.5rem;
+  padding-bottom:3rem;
+}
+.page-hero.contact-hero h1{
+  font-size:clamp(2.8rem,3.8vw,4rem);
+}
+@media(min-width:721px){
+  .hero h1,
+  .page-hero h1,
+  .page-hero.contact-hero h1{
+    font-size:5.5814rem;
+  }
+}
+@media(max-width:720px){
+  .page-hero,
+  .page-hero.contact-hero{
+    padding:3.25rem 1.3rem 2.75rem;
+  }
+  .page-hero h1,
+  .page-hero.contact-hero h1{
+    font-size:2.6rem;
+  }
+}
+
+/* El título debe ajustarse a la columna estrecha de datos de contacto. */
+.contact-details h2{
+  max-width:100%;
+  font-size:clamp(1.65rem,1.8vw,1.8rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+  overflow-wrap:normal;
+}
+
+.contact-heading h2{
+  font-size:clamp(2rem,2.5vw,2.8rem);
+  line-height:.95;
+  max-width:none;
+  white-space:nowrap;
+}
+@media(max-width:600px){
+  .contact-details h2{
+    font-size:2.15rem;
+  }
+}
+
+/* Contacto: aprovechar el ancho y equilibrar ambas columnas. */
+@media(min-width:901px){
+  .contact-page{
+    grid-template-columns:minmax(0,1fr) minmax(320px,.55fr);
+    gap:clamp(2.5rem,4vw,4rem);
+    padding-right:max(1.3rem,5vw);
+    padding-left:max(1.3rem,5vw);
+    align-items:start;
+  }
+  .contact-details{
+    display:block;
+    height:auto;
+  }
+  .contact-details address{
+    display:block;
+  }
+}
+
+@media(max-width:600px){
+  .contact-heading h2{
+    font-size:2.35rem;
+    white-space:normal;
+  }
+}
+
+/* Localización: el mapa es el elemento principal. */
+@media(min-width:901px){
+  .contact-map{
+    grid-template-columns:minmax(240px,.38fr) minmax(0,1fr);
+    min-height:520px;
+  }
+  .contact-map-copy{
+    padding:4rem clamp(2.5rem,4vw,4.5rem);
+  }
+  .contact-map h2{
+    font-size:clamp(2.4rem,3vw,3.3rem);
+    line-height:.92;
+    margin-top:0;
+  }
+  .contact-map iframe{
+    min-height:520px;
+  }
+}
+
+@media(max-width:900px){
+  .contact-map-copy{
+    padding:2.5rem 1.3rem;
+  }
+  .contact-map h2{
+    margin:0;
+    font-size:2.2rem;
+    line-height:1;
+  }
+}
+
+@media(max-width:600px){
+  .contact-map-copy{
+    padding:2rem 1.3rem;
+  }
+  .contact-map h2{
+    font-size:2rem;
+  }
+}
+
+/* Cabecera compacta sobre el mapa. */
+.contact-map{
+  display:block;
+  min-height:0;
+}
+.contact-map-copy{
+  padding:1.5rem max(1.3rem,5vw);
+}
+.contact-map h2{
+  margin:0;
+  font-size:2.2rem;
+  line-height:1;
+}
+.contact-map iframe{
+  display:block;
+  height:520px;
+  min-height:0;
+}
+@media(max-width:600px){
+  .contact-map-copy{
+    padding:1.25rem 1.3rem;
+  }
+  .contact-map h2{
+    font-size:1.8rem;
+  }
+  .contact-map iframe{
+    height:400px;
+  }
+}
+
+/* Ritmo interior adaptado al ancho enmarcado de la web. */
+@media(min-width:721px){
+  :root{
+    --section-inline:clamp(2rem,4vw,3.75rem);
+    --section-block:clamp(4.5rem,6vw,5.5rem);
+  }
+
+  .top,
+  .next-event,
+  .page-hero,
+  .page-hero.contact-hero,
+  .source-note,
+  .simple-footer{
+    padding-right:var(--section-inline);
+    padding-left:var(--section-inline);
+  }
+
+  .identity,
+  .titulares,
+  .agenda,
+  .patrimonio,
+  .news,
+  .join,
+  .home-intro,
+  .content-section,
+  .titular-detail,
+  .membership,
+  .contact-layout,
+  .map-section,
+  .contact-page{
+    padding:var(--section-block) var(--section-inline);
+  }
+
+  .procession-page .content-section{
+    padding:var(--section-block) var(--section-inline);
+  }
+
+  .content-section.split,
+  .titular-detail,
+  .membership,
+  .contact-layout,
+  .map-section,
+  .join,
+  .home-intro{
+    gap:clamp(2.5rem,4vw,4rem);
+  }
+
+  #habito{
+    gap:clamp(2.5rem,4vw,4rem);
+  }
+}
+
+/* Martes Santo: la fotografía llega a los cuatro bordes del bloque. */
+.procession-page .content-section.procession-intro{
+  padding:0;
+}
+
+/* Cabecera siempre visible y espaciado vertical compacto en títulos interiores. */
+site-header{
+  position:fixed;
+  top:0;
+  left:50%;
+  width:min(100%,1320px);
+  transform:translateX(-50%);
+  z-index:20;
+}
+body>main{
+  margin-top:96px;
+}
+.page-hero,
+.page-hero.contact-hero{
+  padding-top:10mm;
+  padding-bottom:1mm;
+}
+.content-section:has(> .section-head){
+  padding-top:5mm;
+}
+.section-head{
+  margin-top:0;
+  margin-bottom:1mm;
+}
+.section-head + .calendar-list,
+.section-head + .agenda-list{
+  margin-top:1mm;
+}
+@media(max-width:720px){
+  body>main{
+    margin-top:78px;
+  }
+}
+
