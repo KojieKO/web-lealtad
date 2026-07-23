@@ -150,7 +150,7 @@ function pintarProximoEncuentro(eventos) {
   const primeraFecha = candidatos[0].fechaRelevante.getTime();
   const proximos = candidatos.filter((evento) => evento.fechaRelevante.getTime() === primeraFecha);
   const fechaRelevante = candidatos[0].fechaRelevante;
-  const mes = new Intl.DateTimeFormat("es-ES", { month: "short" }).format(fechaRelevante).replace(".", "").toUpperCase();
+  const mes = new Intl.DateTimeFormat("es-ES", { month: "long" }).format(fechaRelevante);
 
   bloqueFecha.dateTime = [fechaRelevante.getFullYear(), String(fechaRelevante.getMonth() + 1).padStart(2, "0"), String(fechaRelevante.getDate()).padStart(2, "0")].join("-");
   bloqueFecha.querySelector("strong").textContent = textoFechaPortada(proximos, fechaRelevante);
