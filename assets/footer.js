@@ -31,11 +31,14 @@ class PieWeb extends HTMLElement {
           </div>
           <div class="footer-nav">
             <a href="contacto.html">Contacto</a>
-            <a href="#">Privacidad</a>
+            <a href="privacidad.html">Privacidad</a>
+            <button class="footer-cookie-settings" type="button" data-cookie-settings>
+              Configurar cookies
+            </button>
           </div>
         </div>
         <small class="footer-copyright">
-          © 2026 Hermandad de Nuestra Señora del Rosario de Fátima y Penitencial Cofradía de Nazarenos de Nuestro Padre Jesús de la Lealtad Despojado, María Santísima de la Pureza y San Juan Evangelista
+          © 2026 Hermandad de Jesús de la Lealtad Despojado · NIF R1000601C · Cáceres
         </small>
       </footer>
     `;
