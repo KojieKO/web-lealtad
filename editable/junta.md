@@ -14,6 +14,7 @@ Este es el único archivo que hay que modificar para añadir, quitar o cambiar m
 | Secretario | Alejandro Vaquero Marcos |
 | Tesorero 1º | Juan Pedro Toledano Rivera |
 | Tesorero 2º | Javier Saavedra Nacarino |
+| Mayordomo | Jose Pedro Manzano Hernández |
 | Vocal | Carlos Javier García Jiménez |
 | Vocal | Francisco Mogena Pilo |
 | Vocal | Javier Martínez Caldera |
