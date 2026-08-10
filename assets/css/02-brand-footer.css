@@ -6,6 +6,11 @@
 .footer-brand{align-content:start}
 .footer-brand small{font:400 clamp(.78rem,1.15vw,1rem) var(--display);letter-spacing:.055em}
 .footer-brand strong{font-size:clamp(3.2rem,5.5vw,5.4rem);font-weight:700;margin-top:.25rem}
+.footer-institution{grid-column:1/-1;display:grid;grid-template-columns:minmax(220px,1fr) minmax(0,1.7fr) auto;gap:clamp(1rem,3vw,2.5rem);align-items:start}
+.footer-institution strong{font-size:.86rem;line-height:1.45}
+.footer-institution p{margin:0;color:#cbd3c8;line-height:1.5}
+.footer-institution a{font-size:.76rem;white-space:nowrap}
+.footer-institution a:focus-visible{outline:3px solid #d8c25d;outline-offset:4px}
 .footer-contact p{margin:0 0:.75rem}
 .footer-links{justify-self:end;padding-top:.25rem;display:grid;gap:1.15rem}
 .footer-social>span{display:block;margin-bottom:.55rem;color:#d8c25d;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
@@ -27,6 +32,7 @@
 
 @media(max-width:720px){
   site-footer footer{gap:1.5rem;padding:3rem 1.3rem 1.5rem}
+  site-footer .footer-institution{grid-template-columns:1fr;gap:.55rem}
   site-footer .footer-links{justify-self:start;padding-top:0}
   site-footer .footer-copyright{margin-top:.25rem}
 }
