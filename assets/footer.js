@@ -7,18 +7,8 @@
 
 class PieWeb extends HTMLElement {
   connectedCallback() {
-    const bloqueInstitucional = this.hasAttribute("institutional")
-      ? `
-        <div class="footer-institution" aria-label="Datos de la entidad">
-          <strong>Hermandad de Jesús de la Lealtad Despojado</strong>
-          <p>Entidad religiosa sin ánimo de lucro de Cáceres dedicada al culto público, la formación cristiana, la fraternidad y la acción caritativa. NIF R1000601C.</p>
-          <a href="contacto.html">Datos de la entidad</a>
-        </div>`
-      : "";
-
     this.innerHTML = `
       <footer>
-        ${bloqueInstitucional}
         <div class="footer-brand">
           <small>Hermandad de Jesús de la Lealtad</small>
           <strong>Despojado</strong>
@@ -48,7 +38,7 @@ class PieWeb extends HTMLElement {
           </div>
         </div>
         <small class="footer-copyright">
-          © 2026 Hermandad de Jesús de la Lealtad Despojado · NIF R1000601C · Cáceres
+          © 2026 Hermandad de Jesús de la Lealtad Despojado · Cáceres
         </small>
       </footer>
     `;
