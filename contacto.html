@@ -42,17 +42,18 @@
         "inLanguage": "es-ES"
       }
     </script>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css?v=20260902-contacto">
     <script src="assets/header.js">
     </script>
     <script src="assets/footer.js">
     </script>
     <script src="assets/cookies.js" defer>
     </script>
+    <script src="assets/contacto.js?v=20260902-1" defer></script>
   </head>
   <body>
-    <!-- ZONAS EDITABLES: datos, correo de destino y mapa.
-    Si cambias el correo visible, cambia también formsubmit.co más abajo. -->
+    <!-- ZONAS EDITABLES: datos y mapa. Configuración del envío: assets/contacto.js.
+    Guía del formulario: scripts/apps-script/README.md. -->
     <!-- SEO-A11Y-01: acceso directo al contenido con teclado. -->
     <a class="skip" href="#contenido">
       Saltar al contenido
@@ -76,33 +77,35 @@
               Completa el formulario y nos pondremos en contacto contigo.
             </p>
           </header>
-          <form action="https://formsubmit.co/contacto@lealtaddespojado.es" method="POST">
-            <input type="hidden" name="_subject" value="Contacto desde la web">
+          <form id="contact-form" action="contacto.html" method="post" aria-describedby="contact-status">
             <div class="form-row">
-              <label>
+              <label for="contact-nombre">
                 Nombre
-                <input name="nombre" autocomplete="given-name" required>
+                <input id="contact-nombre" name="nombre" autocomplete="given-name" maxlength="80" required>
               </label>
-              <label>
+              <label for="contact-apellidos">
                 Apellidos
-                <input name="apellidos" autocomplete="family-name" required>
+                <input id="contact-apellidos" name="apellidos" autocomplete="family-name" maxlength="120" required>
               </label>
             </div>
-            <label>
+            <label for="contact-email">
               Dirección de correo electrónico
-              <input type="email" name="email" autocomplete="email" required>
+              <input id="contact-email" type="email" name="email" autocomplete="email" maxlength="254" required>
             </label>
-            <label>
+            <label for="contact-asunto">
               Asunto
-              <input name="asunto" required>
+              <input id="contact-asunto" name="asunto" maxlength="150" required>
             </label>
-            <label>
+            <label for="contact-mensaje">
               Explícanos brevemente tu consulta
-              <textarea name="mensaje" rows="6" required>
-              </textarea>
+              <textarea id="contact-mensaje" name="mensaje" rows="6" maxlength="5000" required></textarea>
             </label>
+            <div class="contact-honeypot" aria-hidden="true" inert>
+              <label for="contact-website">Deja este campo vacío</label>
+              <input id="contact-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <div class="check">
-              <input id="privacidad" type="checkbox" name="privacidad" required>
+              <input id="privacidad" type="checkbox" name="privacidad" value="aceptada" required>
               <label for="privacidad">
                 He leído y acepto la
                 <a href="privacidad.html">
@@ -111,12 +114,17 @@
                 y consiento el tratamiento de mis datos para atender mi consulta.
               </label>
             </div>
-            <button type="submit">
-              Enviar consulta
+            <button type="submit" disabled>
+              <span data-submit-label>Enviar</span>
               <span aria-hidden="true">
                 →
               </span>
             </button>
+            <p id="contact-status" class="contact-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+            <noscript>
+              <p>Activa JavaScript para enviar el formulario o escríbenos a
+                <a href="mailto:contacto@lealtaddespojado.es">contacto@lealtaddespojado.es</a>.</p>
+            </noscript>
             <p class="form-privacy">
               Tus datos se utilizarán exclusivamente para responder a esta consulta y no se cederán a terceros.
             </p>

@@ -27,6 +27,8 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `editable/junta.md` | Cargos y miembros editables de la Junta de Gobierno |
 | `agenda.html` | Presentación automática de la agenda |
 | `contacto.html` | Datos, formulario y mapa |
+| `assets/contacto.js` | Configuración y estados del envío del formulario |
+| `scripts/apps-script/README.md` | Activación del formulario con Google Workspace y código del servidor |
 | `assets/images/` | Imágenes, escudo e iconos de la web |
 | `assets/styles.css` | Índice que carga las hojas de estilo en el orden correcto |
 | `assets/css/01-base.css` | Colores, tipografías y estilos básicos |

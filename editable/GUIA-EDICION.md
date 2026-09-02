@@ -96,8 +96,10 @@ también el texto y el valor que empieza por `mailto:`:
 <a href="mailto:nuevo@correo.es">nuevo@correo.es</a>
 ```
 
-El correo de destino del formulario aparece después de `formsubmit.co/` en
-`contacto.html`.
+El destinatario del formulario está fijado en `scripts/apps-script/Code.gs`.
+La URL de su aplicación web se configura en `APPS_SCRIPT_ENDPOINT`, al principio
+de `assets/contacto.js`. Sigue [la guía de configuración](../scripts/apps-script/README.md)
+para activar o actualizar el envío con Google Workspace.
 
 ### Enlaces pendientes
 

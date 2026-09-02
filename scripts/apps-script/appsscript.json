@@ -1,0 +1,8 @@
+{
+  "timeZone": "Europe/Madrid",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://mail.google.com/",
+    "https://www.googleapis.com/auth/userinfo.email"
+  ]
+}
