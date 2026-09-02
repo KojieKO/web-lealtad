@@ -17,5 +17,9 @@
 .contact-online input:focus-visible,.contact-online textarea:focus-visible,.contact-online button:focus-visible,.contact-online a:focus-visible{outline:2px solid var(--green);outline-offset:4px}
 .contact-status{margin:0;font-size:.9rem;line-height:1.6;overflow-wrap:anywhere}
 .contact-status:empty{display:none}
+#contact-captcha:empty,.contact-online .contact-captcha-cancel[hidden]{display:none}
+.contact-online,#contact-captcha{min-width:0}
+.contact-online .contact-captcha-cancel{justify-content:center;background:transparent;color:var(--green);border:1px solid var(--green);font-size:.75rem}
+@media(max-width:360px){#contact-captcha .grecaptcha-badge{transform:scale(.8);transform-origin:top left}}
 .contact-status[data-state="success"]{color:var(--green);border-left:3px solid var(--green);padding-left:1rem}
 .contact-status[data-state="error"]{color:#8b2525;border-left:3px solid #8b2525;padding-left:1rem}

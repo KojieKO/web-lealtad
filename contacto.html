@@ -42,14 +42,14 @@
         "inLanguage": "es-ES"
       }
     </script>
-    <link rel="stylesheet" href="assets/styles.css?v=20260902-contacto">
+    <link rel="stylesheet" href="assets/styles.css?v=20260902-captcha">
     <script src="assets/header.js">
     </script>
     <script src="assets/footer.js">
     </script>
     <script src="assets/cookies.js" defer>
     </script>
-    <script src="assets/contacto.js?v=20260902-1" defer></script>
+    <script src="assets/contacto.js?v=20260902-3" defer></script>
   </head>
   <body>
     <!-- ZONAS EDITABLES: datos y mapa. Configuración del envío: assets/contacto.js.
@@ -121,12 +121,19 @@
               </span>
             </button>
             <p id="contact-status" class="contact-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+            <div id="contact-captcha"></div>
+            <button id="contact-captcha-cancel" class="contact-captcha-cancel" type="button" hidden>Cancelar comprobación</button>
             <noscript>
               <p>Activa JavaScript para enviar el formulario o escríbenos a
                 <a href="mailto:contacto@lealtaddespojado.es">contacto@lealtaddespojado.es</a>.</p>
             </noscript>
             <p class="form-privacy">
               Tus datos se utilizarán exclusivamente para responder a esta consulta y no se cederán a terceros.
+            </p>
+            <p class="form-privacy">
+              Al enviar se utiliza Google reCAPTCHA para proteger el formulario del spam.
+              Consulta su <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacidad</a>
+              y sus <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Condiciones</a>.
             </p>
           </form>
         </div>

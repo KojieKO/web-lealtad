@@ -33,6 +33,7 @@ function doPost(e) {
     const asunto = field_(parameters, "asunto", 150, false);
     const mensaje = field_(parameters, "mensaje", 5000, true);
     if (!EMAIL_PATTERN.test(email)) return response_(origin, requestId, false);
+    if (!verifyCaptcha_(parameters)) return response_(origin, requestId, false);
 
     const options = senderOptions_();
     options.name = `${nombre} ${apellidos} (a través de la web)`;
@@ -45,8 +46,6 @@ function doPost(e) {
       "",
       "Mensaje:",
       mensaje,
-      "",
-      "Política de privacidad: aceptada al enviar el formulario.",
     ].join("\n");
     // Solo se usa el destinatario fijo. No hay to/cc/bcc recibidos del cliente.
     GmailApp.sendEmail(CONTACT_ADDRESS, `Formulario web - ${asunto}`, body, options);
@@ -62,6 +61,24 @@ function singleValue_(parameters, name) {
   const values = parameters[name];
   return Array.isArray(values) && values.length === 1 && typeof values[0] === "string"
     ? values[0] : null;
+}
+
+function verifyCaptcha_(parameters) {
+  const token = singleValue_(parameters, "g-recaptcha-response");
+  // La clave privada se configura en Google, nunca en este archivo público.
+  const secret = PropertiesService.getScriptProperties().getProperty("RECAPTCHA_SECRET_KEY");
+  if (!secret || !token || !token.trim() || token.length > 10000) return false;
+  const response = UrlFetchApp.fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "post",
+    payload: { secret, response: token },
+    muteHttpExceptions: true,
+    followRedirects: false,
+  });
+  if (response.getResponseCode() !== 200) return false;
+  const result = JSON.parse(response.getContentText());
+  // Google comprueba también caducidad y uso único del token.
+  return result.success === true &&
+    ALLOWED_ORIGINS.includes("https://" + result.hostname);
 }
 
 function field_(parameters, name, maxLength, multiline) {
@@ -91,6 +108,9 @@ function comprobarConfiguracion() {
   // No envía ningún correo.
   senderOptions_();
   GmailApp.getAliases();
+  if (!PropertiesService.getScriptProperties().getProperty("RECAPTCHA_SECRET_KEY")) {
+    throw new Error("Añade RECAPTCHA_SECRET_KEY en las propiedades del script.");
+  }
   console.log("Remitente autorizado: " + CONTACT_ADDRESS);
 }
 

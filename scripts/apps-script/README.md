@@ -2,8 +2,11 @@
 
 El código de la web y del servidor está preparado. **La URL del despliegue
 facilitada por la Hermandad ya está configurada en `APPS_SCRIPT_ENDPOINT`.**
-Quedan pendientes la publicación de la web y la prueba real de recepción y
-«Responder» en Gmail. Los pasos siguientes sirven también para futuras actualizaciones.
+La Hermandad ha confirmado la recepción de una consulta de prueba. La nueva
+versión añade reCAPTCHA invisible y elimina del correo la frase sobre privacidad.
+**Antes de actualizar o publicar, sigue [la guía de reCAPTCHA](RECAPTCHA.md): la clave
+pública ya está configurada; confirma la clave privada y actualiza el despliegue.** «Responder» en Gmail sigue
+pendiente de comprobar. Los pasos siguientes sirven también para futuras actualizaciones.
 
 ## Qué está preparado en el repositorio
 
@@ -12,8 +15,9 @@ Quedan pendientes la publicación de la web y la prueba real de recepción y
 - `scripts/apps-script/Code.gs`: servidor que valida y envía a `contacto@lealtaddespojado.es`.
 - `scripts/apps-script/appsscript.json`: permisos y configuración del proyecto de Google.
 
-No hay claves, contraseñas, bases de datos, bibliotecas nuevas ni correo automático
-al visitante. GitHub Pages sirve la web; el archivo `.gs` solo se ejecuta en Google.
+La clave privada de reCAPTCHA se guarda exclusivamente en las propiedades de Apps
+Script. No hay contraseñas ni secretos en el repositorio, bases de datos ni correo
+automático al visitante. GitHub Pages sirve la web; el archivo `.gs` solo se ejecuta en Google.
 
 ## Lo que debes hacer en Google
 
@@ -35,7 +39,10 @@ al visitante. GitHub Pages sirve la web; el archivo `.gs` solo se ejecuta en Goo
    funciones y pulsa **Ejecutar**. Autoriza con la cuenta indicada. GmailApp pide
    el permiso amplio de Gmail (`https://mail.google.com/`), aunque este código
    solo consulta alias y envía mensajes; también pide consultar el correo de la
-   cuenta (`userinfo.email`). No solicita Drive, Sheets ni contactos. La
+   cuenta (`userinfo.email`) y conectarse a un servicio externo
+   (`script.external_request`) para verificar reCAPTCHA en Google.
+   No solicita Drive, Sheets ni contactos. Configura primero la propiedad privada
+   indicada en [RECAPTCHA.md](RECAPTCHA.md). La
    comprobación no manda correo y debe mostrar `Remitente autorizado: contacto@lealtaddespojado.es`.
    Si aparece un error de remitente, corrige la cuenta o su alias antes de seguir.
    [Permisos y opciones de GmailApp](https://developers.google.com/apps-script/reference/gmail/gmail-app#sendemailrecipient,-subject,-body,-options).
@@ -58,7 +65,8 @@ al visitante. GitHub Pages sirve la web; el archivo `.gs` solo se ejecuta en Goo
    No copies el identificador solo, la dirección del editor ni una URL `/dev`.
 9. **Web:** abre `assets/contacto.js` y pega la URL entre las comillas de
    `APPS_SCRIPT_ENDPOINT` (el despliegue actual ya está configurado). Es una dirección pública, no una contraseña.
-   No introduzcas tokens. Publica los cambios de la web por el procedimiento
+   `RECAPTCHA_SITE_KEY` ya contiene la clave de sitio pública; la secreta
+   se configura exclusivamente en Google. Publica los cambios de la web por el procedimiento
    habitual de GitHub Pages cuando hayas revisado el conjunto.
 
 Los nombres de los botones pueden variar con el idioma. Se ha contrastado la
@@ -72,7 +80,8 @@ privada de vuestra organización.
    opcionales debe permitir seguir enviando el formulario.
 2. Introduce tu nombre y apellidos, una dirección externa que controles, un asunto
    reconocible (`Prueba del formulario`) y un mensaje. Acepta la privacidad.
-3. Pulsa **Enviar** una sola vez. Debes ver **Enviando…**, con el botón desactivado.
+3. Pulsa **Enviar** una sola vez. Debes ver **Comprobando…** y luego **Enviando…**,
+   con el botón desactivado. Completa el reto de Google si aparece.
    Al confirmarse el envío, aparece el mensaje de éxito y se limpian los campos.
    La barra de direcciones debe seguir en la web de la Hermandad.
 4. En Gmail de contacto, busca el correo (revisa también spam y todos los mensajes).
@@ -89,9 +98,9 @@ privada de vuestra organización.
 6. Prueba a dejar un campo vacío, escribir un correo incorrecto y no aceptar la
    privacidad: el navegador debe impedir el envío. Comprueba con teclado que
    puedes recorrer los campos, abrir la política y activar la casilla y el botón.
-7. Para probar un fallo real sin cambiar el despliegue, carga el formulario,
-   desconecta la red antes de enviarlo y espera hasta 60 segundos. Debe avisar de
-   que no puede confirmar el envío, conservar lo escrito y habilitar el botón.
+7. Para probar un fallo real sin cambiar el despliegue, carga el formulario y
+   desconecta la red antes de enviarlo. Debe avisar de un error de verificación
+   (o de confirmación si el envío ya había empezado), conservar lo escrito y habilitar el botón.
    Reconecta la red. No se reintenta automáticamente: un fallo de confirmación
    puede ocurrir después de que Google haya enviado el correo.
 8. En **Ejecuciones** del proyecto puedes comprobar que se ejecuta `doPost`.
@@ -138,11 +147,10 @@ esta solución usa HtmlService y no depende de leerlas mediante CORS.
   Rellenarlo, omitirlo o repetirlo impide el envío en el servidor. El cuerpo del
   correo es texto plano, sin HTML del visitante.
 - El endpoint es público. La lista de orígenes dirige la respuesta, **no autentica
-  solicitudes**: un bot puede falsificar ese parámetro y eludir el honeypot. Esta
-  protección inicial no detiene un ataque dirigido; el buzón aún puede recibir
-  spam. No se envía a direcciones arbitrarias ni se crean respuestas automáticas.
-  Si aparece abuso, revisa las ejecuciones y añade un límite de frecuencia antes
-  de valorar un CAPTCHA. Se aplican las [cuotas vigentes de Apps Script](https://developers.google.com/apps-script/guides/services/quotas).
+  solicitudes**. Además del honeypot, el servidor exige un token válido de
+  reCAPTCHA y comprueba su dominio. Si Google falla o no hay clave, no envía correo.
+  Ninguna protección elimina todo el spam. No se envía a direcciones arbitrarias
+  ni se crean respuestas automáticas. Se aplican las [cuotas vigentes de Apps Script](https://developers.google.com/apps-script/guides/services/quotas).
 - No se guardan mensajes en bases de datos, archivos ni registros del script.
   Google sí procesa el envío y el correo se conserva en los buzones según vuestra
   configuración. Los registros de error de este código no incluyen el contenido.
@@ -160,7 +168,7 @@ Ejecuta `node --test scripts/apps-script/contacto.test.mjs` si tienes Node insta
 No instala dependencias ni llama a Google. Comprueba el servidor con sustitutos de
 las APIs de Google; las pruebas locales no sustituyen la prueba real de arriba.
 
-Verificación realizada el 2 de septiembre de 2026:
+Verificación de la versión anterior, realizada el 2 de septiembre de 2026:
 
 - La URL real facilitada por la Hermandad responde sin iniciar sesión. Un POST
   incompleto con el honeypot relleno devuelve la confirmación de error prevista,
@@ -174,5 +182,10 @@ Verificación realizada el 2 de septiembre de 2026:
   tras éxito, validación y recorrido por teclado sin entrar en el honeypot.
 - Aspecto revisado en escritorio (1440 px) y móvil (412 px), sin desbordamiento
   horizontal ni errores de consola en la prueba móvil.
-- Pendiente: publicación de la web, prueba anónima en el dominio publicado,
-  recepción del correo y comprobación de «Responder» en vuestro Gmail.
+- La captura facilitada por la Hermandad confirma posteriormente la recepción
+  real de una consulta. No muestra el destinatario de «Responder».
+
+Actualización de reCAPTCHA: 63 pruebas del servidor superadas, incluidas clave
+ausente, token caducado/repetido, dominio incorrecto y fallo de Google. Pendientes
+confirmar la clave privada, el despliegue manual y la prueba del reto real, según
+[RECAPTCHA.md](RECAPTCHA.md). La clave pública ya está configurada.

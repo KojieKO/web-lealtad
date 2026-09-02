@@ -1,6 +1,8 @@
 /* Configuración pública: pega aquí la URL /exec del despliegue de Apps Script.
- * Instrucciones: scripts/apps-script/README.md. No se necesitan claves. */
+ * Instrucciones: scripts/apps-script/README.md y RECAPTCHA.md. */
 const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1flTHMdbv1-vO6VEq7VWefM6L9Cw8HtdkMoL7tcMS_vxRh4doHkuojDtwG8t/exec";
+// Solo la clave de sitio PÚBLICA de reCAPTCHA v2 invisible. Nunca la clave secreta.
+const RECAPTCHA_SITE_KEY = "6Lfq-qUtAAAAABPdOtVe8JHruaZF2fWoNAny94G3";
 
 (() => {
   const form = document.querySelector("#contact-form");
@@ -9,12 +11,83 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
   const button = form.querySelector('button[type="submit"]');
   const buttonLabel = form.querySelector("[data-submit-label]");
   const status = document.querySelector("#contact-status");
+  const cancelCaptcha = document.querySelector("#contact-captcha-cancel");
   const fields = ["nombre", "apellidos", "email", "asunto", "mensaje"];
   const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)+$/;
   const endpointPattern = /^https:\/\/script\.google\.com\/macros\/s\/[a-zA-Z0-9_-]+\/exec$/;
   const googleOriginPattern = /^https:\/\/(?:script\.google\.com|script\.googleusercontent\.com|[a-z0-9-]+-script\.googleusercontent\.com)$/;
   const errorMessage = "No se ha podido enviar tu mensaje. Conservamos tus datos para que puedas volver a intentarlo. También puedes escribir a contacto@lealtaddespojado.es.";
   let pending = null;
+  let submitting = false;
+  let captchaLoader = null;
+  let captchaWidget = null;
+  let captchaAttempt = null;
+  const captchaError = "No se ha podido completar la comprobación de seguridad. Vuelve a intentarlo o escríbenos a contacto@lealtaddespojado.es.";
+  const captchaCancelled = "Comprobación cancelada. Tus datos siguen aquí para que puedas volver a intentarlo.";
+
+  function loadCaptcha() {
+    if (window.grecaptcha?.render) return Promise.resolve();
+    if (captchaLoader) return captchaLoader;
+    captchaLoader = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      const fail = () => {
+        window.clearTimeout(timer);
+        script.remove();
+        captchaLoader = null;
+        reject(new Error(captchaError));
+      };
+      const timer = window.setTimeout(fail, 15000);
+      window.onContactCaptchaLoaded = () => {
+        window.clearTimeout(timer);
+        resolve();
+      };
+      script.src = "https://www.google.com/recaptcha/api.js?onload=onContactCaptchaLoaded&render=explicit&hl=es";
+      script.async = true;
+      script.onerror = fail;
+      // Solo se contacta con reCAPTCHA al intentar enviar un formulario válido.
+      document.head.append(script);
+    });
+    return captchaLoader;
+  }
+
+  function settleCaptcha(token, message = captchaError) {
+    if (!captchaAttempt) return;
+    const attempt = captchaAttempt;
+    captchaAttempt = null;
+    window.clearTimeout(attempt.timer);
+    cancelCaptcha.hidden = true;
+    if (typeof token === "string" && token) attempt.resolve(token);
+    else attempt.reject(new Error(message));
+  }
+
+  async function verifyCaptcha() {
+    await loadCaptcha();
+    return new Promise((resolve, reject) => {
+      captchaAttempt = { resolve, reject, timer: window.setTimeout(() => settleCaptcha(null), 180000) };
+      cancelCaptcha.hidden = false;
+      try {
+        if (captchaWidget === null) {
+          captchaWidget = window.grecaptcha.render("contact-captcha", {
+            sitekey: RECAPTCHA_SITE_KEY,
+            size: "invisible",
+            badge: "inline",
+            callback: (token) => settleCaptcha(token),
+            "error-callback": () => settleCaptcha(null),
+            "expired-callback": () => settleCaptcha(null),
+          });
+        } else {
+          window.grecaptcha.reset(captchaWidget);
+        }
+        window.grecaptcha.execute(captchaWidget);
+      } catch {
+        settleCaptcha(null);
+      }
+    });
+  }
+
+  cancelCaptcha.addEventListener("click", () => {
+    settleCaptcha(null, captchaCancelled);
+  });
 
   function showStatus(message, state) {
     status.textContent = message;
@@ -28,7 +101,12 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
       pending.frame.remove();
       pending = null;
     }
-    form.removeAttribute("aria-busy");
+    submitting = false;
+    button.removeAttribute("aria-busy");
+    cancelCaptcha.hidden = true;
+    if (captchaWidget !== null) {
+      try { window.grecaptcha.reset(captchaWidget); } catch { /* Puede fallar si se pierde la conexión. */ }
+    }
     form.querySelectorAll("input, textarea").forEach((field) => { field.disabled = false; });
     button.disabled = false;
     buttonLabel.textContent = "Enviar";
@@ -58,9 +136,9 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
     }
   });
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (pending) return;
+    if (submitting) return;
 
     fields.forEach((name) => {
       const field = form.elements.namedItem(name);
@@ -79,13 +157,22 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
       status.focus();
       return;
     }
-    if (!endpointPattern.test(APPS_SCRIPT_ENDPOINT)) {
+    if (!endpointPattern.test(APPS_SCRIPT_ENDPOINT) || !RECAPTCHA_SITE_KEY.trim()) {
       showStatus("El formulario todavía no está disponible. Escríbenos a contacto@lealtaddespojado.es.", "error");
       status.focus();
       return;
     }
 
     try {
+      const values = new FormData(form);
+      submitting = true;
+      button.disabled = true;
+      button.setAttribute("aria-busy", "true");
+      buttonLabel.textContent = "Comprobando…";
+      form.querySelectorAll("input, textarea").forEach((field) => { field.disabled = true; });
+      showStatus("Comprobando seguridad… Si Google te pide una verificación, complétala para enviar.", "loading");
+      const captchaToken = await verifyCaptcha();
+      values.set("g-recaptcha-response", captchaToken);
       const requestId = Array.from(crypto.getRandomValues(new Uint8Array(16)),
         (byte) => byte.toString(16).padStart(2, "0")).join("");
       const frame = document.createElement("iframe");
@@ -98,7 +185,6 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
       transport.action = APPS_SCRIPT_ENDPOINT;
       transport.target = frame.name;
       transport.acceptCharset = "UTF-8";
-      const values = new FormData(form);
       values.set("requestId", requestId);
       values.set("returnOrigin", window.location.origin);
       for (const [name, value] of values) {
@@ -110,11 +196,7 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
       }
       pending = { requestId, frame, transport, timer: null };
       document.body.append(frame, transport);
-      button.disabled = true;
       buttonLabel.textContent = "Enviando…";
-      // Evita que un cambio escrito durante el envío se pierda al limpiar.
-      form.querySelectorAll("input, textarea").forEach((field) => { field.disabled = true; });
-      form.setAttribute("aria-busy", "true");
       showStatus("Enviando tu mensaje…", "loading");
       pending.timer = window.setTimeout(() => {
         finish("No hemos podido confirmar el envío. Tus datos siguen aquí. Espera unos minutos antes de volver a intentarlo o escríbenos a contacto@lealtaddespojado.es.", "error");
@@ -122,8 +204,8 @@ const APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycby77lQI1fl
       // POST nativo a un marco oculto: no hay fetch, preflight ni respuesta opaca.
       // La carga del marco NO confirma el envío: solo lo hace postMessage.
       HTMLFormElement.prototype.submit.call(transport);
-    } catch {
-      finish(errorMessage, "error");
+    } catch (error) {
+      finish(error.message === captchaCancelled ? captchaCancelled : (pending ? errorMessage : captchaError), "error");
     }
   });
 
