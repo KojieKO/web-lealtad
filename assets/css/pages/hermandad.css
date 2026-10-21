@@ -59,3 +59,27 @@
 #junta .government-list article:hover{background:rgba(255,255,255,.06)}
 #junta .government-list h3{color:var(--white)}
 #junta .government-list p{color:#e2e7df}
+
+/* Normativa institucional: tabla editorial como en Producción literaria. */
+.official-documents{margin-top:2rem}
+.official-documents th:last-child{width:150px}
+.official-documents td{padding-block:1.25rem;vertical-align:top}
+.official-documents td:first-child{padding-right:1.5rem}
+.official-documents h3{
+  margin:0;
+  font:400 clamp(1.25rem,2vw,1.65rem)/1.15 var(--display);
+  text-transform:uppercase;
+  color:var(--green);
+}
+.official-documents p{margin:.4rem 0;color:var(--muted);font-size:.9rem}
+.official-documents small{color:var(--muted);font-size:.78rem}
+.official-documents td:last-child a{display:block;width:fit-content;margin-bottom:.5rem;font-size:.85rem;font-weight:700;color:var(--green)}
+.official-documents a:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+@media(max-width:720px){
+  .official-documents th:last-child{width:90px}
+}
+@media(max-width:400px){
+  #documentacion-oficial h2{font-size:clamp(2rem,10vw,2.5rem)}
+}
+
+.official-documents .fides-read-button{margin-bottom:.5rem;font-size:.85rem;letter-spacing:normal}

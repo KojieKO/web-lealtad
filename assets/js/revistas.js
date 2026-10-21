@@ -87,7 +87,7 @@
       book = document.createElement("div");
       book.className = "reader-book";
       book.id = "reader-book";
-      book.setAttribute("aria-label", "Lector de la revista");
+      book.setAttribute("aria-label", "Lector del documento");
       bookStage.prepend(book);
     } else {
       book.replaceChildren();
@@ -154,7 +154,7 @@
     });
 
     return {
-      title: "Revista Fides · Número " + number + " (" + year + ")",
+      title: button.dataset.revistaTitle || "Revista Fides · Número " + number + " (" + year + ")",
       width: Number(button.dataset.revistaWidth) || 1240,
       height: Number(button.dataset.revistaHeight) || 1754,
       pdf: button.dataset.revistaPdf || "",
@@ -226,7 +226,7 @@
     modal.hidden = false;
     document.body.classList.add("reader-open");
     body.setAttribute("aria-busy", "true");
-    title.textContent = "Cargando revista…";
+    title.textContent = "Cargando documento…";
     setMessage("Preparando el lector…");
     updateCounter(0, 0);
     dialog.focus();
@@ -245,7 +245,7 @@
         return;
       }
 
-      title.textContent = config.title || "Revista Fides";
+      title.textContent = config.title || "Documento";
 
       if (resources.pdf) {
         pdfLink.href = resources.pdf;
@@ -253,7 +253,7 @@
       }
 
       if (!resources.pages.length) {
-        setMessage("Las páginas de este número todavía no se han incorporado.");
+        setMessage("Las páginas de este documento todavía no se han incorporado.");
         body.setAttribute("aria-busy", "false");
         return;
       }
@@ -318,8 +318,8 @@
       }
 
       console.error("[Lector Fides]", error);
-      title.textContent = "Revista Fides";
-      setMessage("No ha sido posible abrir esta revista. Inténtelo de nuevo más tarde.");
+      title.textContent = button.dataset.revistaTitle || "Revista Fides";
+      setMessage("No ha sido posible abrir este documento. Inténtelo de nuevo más tarde.");
       body.setAttribute("aria-busy", "false");
     }
   }

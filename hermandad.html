@@ -74,6 +74,9 @@
         <a href="#junta">
           Junta de Gobierno
         </a>
+        <a href="#documentacion-oficial">
+          Documentación oficial
+        </a>
         <a href="#habito">
           Hábito nazareno
         </a>
@@ -308,6 +311,65 @@ Reciba un fraternal abrazo en Cristo Despojado y en su Bendita Madre de la Purez
           <!-- JUNTA-ESTATICA-FIN -->
         </div>
       </section>
+      <!-- ZONA EDITABLE: DOCUMENTACIÓN OFICIAL.
+      Añadir una fila por documento y conservar las versiones anteriores.
+      Antes de sustituir un PDF, confirmar su aprobación y vigencia; ver
+      editable/DOCUMENTACION-OFICIAL.md. -->
+      <section class="content-section" id="documentacion-oficial" aria-labelledby="documentacion-oficial-titulo">
+        <p class="eyebrow">
+          Normativa de la Hermandad
+        </p>
+        <h2 id="documentacion-oficial-titulo">
+          Documentación oficial
+        </h2>
+        <p>
+          Consulta las normas que rigen la vida y la organización de nuestra Hermandad.
+        </p>
+        <table class="literary-table official-documents">
+          <thead>
+            <tr>
+              <th scope="col">Documento</th>
+              <th scope="col">PDF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <h3>Estatutos de la Hermandad</h3>
+                <p>Identidad, fines, derechos y deberes de los hermanos y órganos de gobierno.</p>
+                <small>Edición de mayo de 2023</small>
+              </td>
+              <td>
+                <button class="fides-read-button" type="button"
+                  data-revista-config="documentos/normativa/estatutos-2023-05/documento.json"
+                  data-revista-title="Estatutos de la Hermandad"
+                  data-revista-page-count="13"
+                  data-revista-width="1241" data-revista-height="1754"
+                  data-revista-pdf="../estatutos-2023-05.pdf"
+                  aria-label="Consultar Estatutos de la Hermandad en el visor">Consultar</button>
+                <a href="documentos/normativa/estatutos-2023-05.pdf" download aria-label="Descargar los Estatutos de la Hermandad en PDF">Descargar</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h3>Reglamento de Régimen Interno</h3>
+                <p>Desarrollo de los Estatutos y normas de funcionamiento, cultos y actividades.</p>
+                <small>Actualizado el 29 de enero de 2026</small>
+              </td>
+              <td>
+                <button class="fides-read-button" type="button"
+                  data-revista-config="documentos/normativa/reglamento-2026-01-29/documento.json"
+                  data-revista-title="Reglamento de Régimen Interno"
+                  data-revista-page-count="41"
+                  data-revista-width="1241" data-revista-height="1754"
+                  data-revista-pdf="../reglamento-regimen-interno-2026-01-29.pdf"
+                  aria-label="Consultar Reglamento de Régimen Interno en el visor">Consultar</button>
+                <a href="documentos/normativa/reglamento-regimen-interno-2026-01-29.pdf" download aria-label="Descargar el Reglamento de Régimen Interno en PDF">Descargar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       <!-- ZONA EDITABLE 4: DESCRIPCIÓN Y FOTO DEL HÁBITO -->
       <section class="content-section tinted split" id="habito">
         <figure class="habit-figure">
@@ -328,6 +390,71 @@ Reciba un fraternal abrazo en Cristo Despojado y en su Bendita Madre de la Purez
     </main>
     <site-footer>
     </site-footer>
+    <div class="reader-modal" id="reader-modal" hidden>
+      <div class="reader-modal__backdrop" data-reader-close>
+      </div>
+      <section class="reader-dialog" role="dialog" aria-modal="true" aria-labelledby="reader-title" aria-describedby="reader-help" tabindex="-1">
+        <header class="reader-dialog__header">
+          <div>
+            <p class="reader-dialog__eyebrow">
+              Documentación oficial
+            </p>
+            <h2 id="reader-title">
+              Documentación oficial
+            </h2>
+          </div>
+          <div class="reader-dialog__actions">
+            <a class="reader-action reader-pdf" href="#" target="_blank" rel="noopener" hidden>
+              Abrir PDF
+            </a>
+            <button class="reader-action" type="button" data-reader-fullscreen aria-label="Ver el lector a pantalla completa">
+              Pantalla completa
+            </button>
+            <button class="reader-action reader-close" type="button" data-reader-close aria-label="Cerrar el lector">
+              Cerrar
+            </button>
+          </div>
+        </header>
+        <div class="reader-dialog__body" aria-busy="false">
+          <p class="reader-help" id="reader-help">Pasa las páginas con los controles o desliza sobre el documento.</p>
+          <div class="reader-stage">
+            <div class="reader-book" id="reader-book" aria-label="Lector del documento">
+            </div>
+            <p class="reader-message" role="status" aria-live="polite">
+            </p>
+          </div>
+        </div>
+        <footer class="reader-toolbar">
+          <button class="reader-page-button" type="button" data-reader-prev aria-label="Página anterior">
+            Anterior
+          </button>
+          <div class="reader-toolbar__center">
+            <p class="reader-counter" aria-live="polite">
+              Página <strong data-reader-current>0</strong> de <strong data-reader-total>0</strong>
+            </p>
+            <div class="reader-zoom" role="group" aria-label="Zoom del documento">
+              <button type="button" data-reader-zoom-out aria-label="Alejar">
+                −
+              </button>
+              <output data-reader-zoom-value aria-live="polite">
+                100%
+              </output>
+              <button type="button" data-reader-zoom-in aria-label="Acercar">
+                +
+              </button>
+              <button class="reader-zoom__reset" type="button" data-reader-zoom-reset>
+                Ajustar
+              </button>
+            </div>
+          </div>
+          <button class="reader-page-button" type="button" data-reader-next aria-label="Página siguiente">
+            Siguiente
+          </button>
+        </footer>
+      </section>
+    </div>
+    <script src="assets/js/revistas.js">
+    </script>
     <script src="assets/script.js">
     </script>
   </body>
