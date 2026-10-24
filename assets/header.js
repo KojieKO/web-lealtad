@@ -17,6 +17,7 @@ class CabeceraWeb extends HTMLElement {
         ["hermandad.html#saluda", "Saluda del Hno. Mayor"],
         ["hermandad.html#cronologia", "Cronología"],
         ["hermandad.html#junta", "Junta de Gobierno"],
+        ["hermandad.html#documentacion-oficial", "Documentación oficial"],
         ["hermandad.html#habito", "Hábito nazareno"],
       ]],
       ["titulares", "titulares.html", "Titulares", [
