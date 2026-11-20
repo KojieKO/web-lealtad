@@ -20,7 +20,8 @@ def validar_tabla(markdown):
         for numero, linea in enumerate(markdown.splitlines(), start=1)
         if linea.strip().startswith("|")
     ]
-    if len(filas) < 3 or "| Inicio | Fin | Fecha |" not in filas[0][1]:
+    # Se comparan celdas recortadas para admitir tablas con columnas alineadas.
+    if len(filas) < 3 or [c.strip() for c in filas[0][1].strip().strip("|").split("|")][:3] != ["Inicio", "Fin", "Fecha"]:
         raise SystemExit("editable/agenda.md no contiene la tabla de eventos esperada")
 
     for numero, fila in filas[2:]:
