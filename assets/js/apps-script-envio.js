@@ -3,7 +3,7 @@
  * Por qué así y no con fetch: scripts/apps-script/README.md. */
 window.LealtadEnvio = (() => {
   // Solo la clave de sitio PÚBLICA de reCAPTCHA v2 invisible. Nunca la clave secreta.
-  const RECAPTCHA_SITE_KEY = "6Lfq-qUtAAAAABPdOtVe8JHruaZF2fWoNAny94G3";
+  const RECAPTCHA_SITE_KEY = "6LeLJiwuAAAAAPhqFGgU35FRwvmx07OKokbRaFXz";
   const endpointPattern = /^https:\/\/script\.google\.com\/macros\/s\/[a-zA-Z0-9_-]+\/exec$/;
   const googleOriginPattern = /^https:\/\/(?:script\.google\.com|script\.googleusercontent\.com|[a-z0-9-]+-script\.googleusercontent\.com)$/;
   let loader = null;
