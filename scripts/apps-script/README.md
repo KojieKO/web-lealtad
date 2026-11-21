@@ -11,7 +11,8 @@ pendiente de comprobar. Los pasos siguientes sirven también para futuras actual
 ## Qué está preparado en el repositorio
 
 - `contacto.html`: formulario con sus campos originales, privacidad y estados accesibles.
-- `assets/contacto.js`: envío y confirmación dentro de la página; configuración pública al principio.
+- `assets/contacto.js`: validación y estados del formulario; URL del despliegue al principio.
+- `assets/js/apps-script-envio.js`: reCAPTCHA, envío y confirmación, compartido con la solicitud de ingreso.
 - `scripts/apps-script/Code.gs`: servidor que valida y envía a `contacto@lealtaddespojado.es`.
 - `scripts/apps-script/appsscript.json`: permisos y configuración del proyecto de Google.
 
@@ -65,7 +66,7 @@ automático al visitante. GitHub Pages sirve la web; el archivo `.gs` solo se ej
    No copies el identificador solo, la dirección del editor ni una URL `/dev`.
 9. **Web:** abre `assets/contacto.js` y pega la URL entre las comillas de
    `APPS_SCRIPT_ENDPOINT` (el despliegue actual ya está configurado). Es una dirección pública, no una contraseña.
-   `RECAPTCHA_SITE_KEY` ya contiene la clave de sitio pública; la secreta
+   `RECAPTCHA_SITE_KEY`, en `assets/js/apps-script-envio.js`, ya contiene la clave de sitio pública; la secreta
    se configura exclusivamente en Google. Publica los cambios de la web por el procedimiento
    habitual de GitHub Pages cuando hayas revisado el conjunto.
 

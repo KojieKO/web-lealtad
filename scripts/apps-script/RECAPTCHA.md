@@ -51,7 +51,7 @@ acceder a sus propiedades; el visitante no puede leerlas.
 
 ## 3. Completar la web y actualizar Google
 
-1. En `assets/contacto.js`, `RECAPTCHA_SITE_KEY` ya contiene la **clave de sitio
+1. En `assets/js/apps-script-envio.js`, `RECAPTCHA_SITE_KEY` ya contiene la **clave de sitio
    pública** facilitada. Conserva `APPS_SCRIPT_ENDPOINT`, cuya URL ya está configurada.
 2. En Apps Script sustituye `Código.gs` por el contenido actualizado de
    [Code.gs](Code.gs), y `appsscript.json` por [appsscript.json](appsscript.json).

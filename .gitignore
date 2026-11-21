@@ -11,3 +11,9 @@ codex-clipboard-*
 *-BOOK-CJGJ.*
 *[Cc]onflicted [Cc]opy*
 *[Cc]opia en conflicto*
+
+# Grafo local de graphify: se regenera, no se publica.
+graphify-out/
+
+# Configuración local de Google Maps.
+assets/js/maps-local-config.js

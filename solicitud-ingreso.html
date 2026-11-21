@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#223720">
+    <!-- EN PRUEBAS: quitar esta línea y enlazar «Hazte Hermano» (index.html) a esta página al lanzarla. -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Formulario local de solicitud de ingreso en la Hermandad del Despojado de Cáceres.">
+    <title>Solicitud de ingreso | Hermandad del Despojado de Cáceres</title>
+    <link rel="icon" href="assets/images/favicon.ico?v=3" sizes="any">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/solicitud-ingreso.css?v=20261121-3">
+    <script src="assets/header.js"></script>
+    <script src="assets/footer.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+    <site-header active="solicitud"></site-header>
+
+    <main id="contenido" class="application-page">
+      <header class="application-hero">
+        <h1>Solicitud de <em>ingreso</em></h1>
+      </header>
+
+      <form id="solicitud-form" class="application-form" novalidate>
+        <section class="form-section" aria-labelledby="datos-personales-title">
+          <div class="section-intro">
+            <p class="eyebrow">01 · Solicitante</p>
+            <h2 id="datos-personales-title">Datos personales</h2>
+            <p>Estos datos identificarán a la persona que solicita el ingreso.</p>
+          </div>
+          <div class="form-grid">
+            <label class="field field-wide"><span class="field-label">Nombre y apellidos <span aria-hidden="true">*</span></span>
+              <input name="solicitante.nombre" autocomplete="name" required>
+            </label>
+            <label class="field"><span class="field-label">DNI/NIE <span aria-hidden="true">*</span></span>
+              <input name="solicitante.dniNie" inputmode="text" autocomplete="off" maxlength="9" required>
+            </label>
+            <label class="field"><span class="field-label">Fecha de nacimiento <span aria-hidden="true">*</span></span>
+              <input name="solicitante.fechaNacimiento" type="date" required>
+            </label>
+            <div class="field field-wide address-field" id="calle-manual">
+              <label for="calle">Dirección</label>
+              <input id="calle" name="solicitante.domicilio" autocomplete="address-line1" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugerencias-direccion">
+              <div class="address-suggestions" id="address-suggestions" hidden>
+                <div id="sugerencias-direccion" role="listbox"></div>
+                <div class="address-attribution">Google Maps</div>
+              </div>
+              <small class="field-help" id="maps-status" role="status"></small>
+            </div>
+            <label class="field">Número
+              <input name="solicitante.numero" autocomplete="off">
+            </label>
+            <label class="field">Piso, puerta u otros datos
+              <input name="solicitante.piso" autocomplete="address-line2">
+            </label>
+            <label class="field">Código postal
+              <input name="solicitante.codigoPostal" inputmode="numeric" maxlength="5" autocomplete="postal-code">
+            </label>
+            <label class="field">Localidad
+              <input name="solicitante.localidad" autocomplete="address-level2">
+            </label>
+            <div class="solicitud-contacto field-wide">
+              <label class="field"><span class="field-label">Teléfono <span aria-hidden="true">*</span></span>
+                <input name="solicitante.telefono" type="tel" autocomplete="tel" placeholder="600 000 000" required>
+              </label>
+              <label class="field"><span class="field-label">Correo electrónico <span aria-hidden="true">*</span></span>
+                <input name="solicitante.email" type="email" autocomplete="email" required>
+              </label>
+            </div>
+            <label class="check-card whatsapp-check field-wide">
+              <input name="solicitante.whatsapp" type="checkbox">
+              <span><strong>Comunidad de WhatsApp</strong><small>Solicito mi incorporación para recibir comunicaciones e información de interés.</small></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="bautismo-title">
+          <div class="section-intro">
+            <p class="eyebrow">02 · Compromiso cristiano</p>
+            <h2 id="bautismo-title">Datos del bautismo</h2>
+          </div>
+          <div class="form-grid">
+            <label class="field">Lugar de nacimiento
+              <input name="solicitante.lugarNacimiento">
+            </label>
+            <label class="field">Provincia de nacimiento
+              <select name="solicitante.provinciaNacimiento" id="provincia-nacimiento">
+                <option value="">Selecciona una provincia</option>
+              </select>
+            </label>
+            <label class="field field-wide">Parroquia en la que fue bautizado/a
+              <input name="bautismo.parroquia">
+            </label>
+            <label class="field">Localidad
+              <input name="bautismo.localidad">
+            </label>
+            <label class="field">Fecha del bautismo
+              <input name="bautismo.fecha" type="date">
+            </label>
+            <label class="check-card field-wide required-card declaration-card">
+              <input name="bautismo.declaracionIngresoAceptada" type="checkbox" required>
+              <span><strong>Declaración de ingreso <span aria-hidden="true">*</span></strong><small>Manifiesto que, habiendo recibido el Sacramento del Bautismo y profesando, creyendo y practicando la Religión Católica, Apostólica y Romana, deseo ser recibido/a como hermano/a de esta Hermandad, queriendo vivir el espíritu de sus Sagradas Reglas y comprometiéndome a cumplirlas fielmente desde este momento. Así lo solicito a la Junta de Gobierno, suscribiendo por ello la presente.</small></span>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="cuota-title">
+          <div class="section-intro">
+            <p class="eyebrow">03 · Cuota y cuenta</p>
+            <h2 id="cuota-title">Datos bancarios</h2>
+            <p>La cuota mínima anual es de 15 €. Los menores de 8 años pueden solicitar la exención.</p>
+          </div>
+          <div class="form-grid">
+            <label class="field"><span class="field-label">Importe por pago (€) <span aria-hidden="true">*</span></span>
+              <input name="cuota.importe" type="text" inputmode="decimal" required>
+              <small class="field-help" id="cuota-help">La suma anual debe ser al menos 15 €. Los menores de 8 años pueden indicar 0 €.</small>
+            </label>
+            <label class="field">Periodicidad
+              <select name="cuota.periodicidad">
+                <option value="anual" selected>Anual</option>
+                <option value="semestral">Semestral</option>
+                <option value="trimestral">Trimestral</option>
+                <option value="mensual">Mensual</option>
+              </select>
+            </label>
+            <label class="field field-wide">Entidad bancaria
+              <input name="cuenta.entidadBancaria">
+            </label>
+            <label class="check-card whatsapp-check field-wide">
+              <input name="cuenta.titularEsSolicitante" type="checkbox">
+              <span>Soy el titular de la cuenta</span>
+            </label>
+            <label class="field field-wide"><span class="field-label">Titular de la cuenta <span aria-hidden="true">*</span></span>
+              <input name="cuenta.titular" required>
+            </label>
+            <label class="field"><span class="field-label">DNI/NIE del titular <span aria-hidden="true">*</span></span>
+              <input name="cuenta.dniTitular" maxlength="9" required>
+            </label>
+            <label class="field field-wide"><span class="field-label">IBAN de la cuenta <span aria-hidden="true">*</span></span>
+              <input name="cuenta.iban" inputmode="text" maxlength="29" placeholder="ES00 0000 0000 0000 0000 0000" required>
+              <small class="field-help" id="iban-status" aria-live="polite"></small>
+            </label>
+          </div>
+        </section>
+
+        <div class="form-navigation" id="paso-uno-nav">
+          <button type="button" class="button primary" id="siguiente-paso">Continuar</button>
+        </div>
+
+        <section class="form-section paso-dos" aria-labelledby="consentimiento-title" hidden>
+          <div class="section-intro">
+            <p class="eyebrow">04 · Consentimiento</p>
+            <h2 id="consentimiento-title">Tratamiento de datos</h2>
+          </div>
+          <div class="privacy-note">
+            <p>La Hermandad de Nuestra Señora del Rosario de Fátima y Penitencial Cofradía de Nazarenos de Nuestro Padre Jesús de la Lealtad Despojado de sus Vestiduras, María Santísima de la Pureza y San Juan Evangelista es responsable del tratamiento de los datos personales facilitados en esta solicitud. Los datos serán utilizados para tramitar el ingreso y, en caso de admisión, gestionar la relación del hermano con la Hermandad, incluyendo la administración interna, el cobro de cuotas, la organización de actos y cultos y el envío de comunicaciones relacionadas con sus fines. Para realizar estas tareas, los datos podrán ser tratados por proveedores externos de servicios informáticos y de gestión que actuarán por cuenta de la Hermandad, siguiendo sus instrucciones y con las debidas garantías de confidencialidad y seguridad.</p>
+            <p>Los datos se conservarán mientras se mantenga la condición de hermano y durante los plazos legalmente exigibles. No serán utilizados con fines comerciales ni comunicados a terceros, salvo obligación legal o cuando resulte necesario para la gestión de la Hermandad. La Hermandad podrá realizar y publicar fotografías y vídeos de sus cultos, procesiones y demás actividades en su página web, redes sociales, boletines y medios oficiales. La participación en estas actividades podrá implicar la aparición del hermano en imágenes generales, colectivas o accesorias, siempre vinculadas a los fines propios de la Hermandad.</p>
+            <p>La persona interesada podrá ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad mediante escrito dirigido a la Secretaría de la Hermandad, en calle Sanguino Michel, 7, Cáceres, o a contacto@lealtaddespojado.es. También podrá reclamar ante la Agencia Española de Protección de Datos. La firma de esta solicitud implica haber leído y aceptado esta información.</p>
+          </div>
+
+          <div id="consentimiento-mayor" class="conditional-block" hidden>
+            <h3>Consentimiento del solicitante</h3>
+            <div class="form-grid">
+              <label class="field field-wide">Nombre y apellidos
+                <input name="consentimiento.mayor.nombre">
+              </label>
+              <label class="field">DNI/NIE
+                <input name="consentimiento.mayor.dniNie" maxlength="9">
+              </label>
+              <label class="field">Lugar de firma
+                <input name="consentimiento.mayor.lugar">
+              </label>
+              <label class="field">Fecha de firma
+                <input name="consentimiento.mayor.fecha" type="date">
+              </label>
+            </div>
+          </div>
+
+          <div id="consentimiento-menor" class="conditional-block" hidden>
+            <h3>Datos del representante legal</h3>
+            <div class="form-grid">
+              <label class="field field-wide">Nombre y apellidos del representante
+                <input name="consentimiento.representante.nombre">
+              </label>
+              <label class="field">DNI/NIE
+                <input name="consentimiento.representante.dniNie" maxlength="9">
+              </label>
+              <label class="field">Calidad
+                <select name="consentimiento.representante.calidad">
+                  <option value="">Selecciona una opción</option>
+                  <option>Padre</option>
+                  <option>Madre</option>
+                  <option>Tutor legal</option>
+                </select>
+              </label>
+              <label class="field field-wide">Nombre y apellidos del menor
+                <input name="consentimiento.representante.menorNombre">
+              </label>
+              <label class="field">Lugar de firma
+                <input name="consentimiento.representante.lugar">
+              </label>
+              <label class="field">Fecha de firma
+                <input name="consentimiento.representante.fecha" type="date">
+              </label>
+            </div>
+          </div>
+          <label class="check-card consent-check">
+            <input name="consentimiento.aceptado" type="checkbox" required>
+            <span><strong>Consiento expresamente el tratamiento por la Hermandad para las finalidades indicadas. <span aria-hidden="true">*</span></strong><small id="consentimiento-ayuda" hidden>Completa primero los datos del representante legal.</small></span>
+          </label>
+        </section>
+
+        <section class="form-section final-section paso-dos" aria-labelledby="firma-title" hidden>
+          <div class="section-intro">
+            <h2 id="firma-title">Firma</h2>
+            <p>Puedes dibujar la firma con el dedo, un lápiz digital o el ratón.</p>
+          </div>
+          <div class="signature-field" id="firma-mayor" hidden>
+            <span>Firma del solicitante</span>
+            <canvas class="signature-pad" width="900" height="220" aria-label="Área para dibujar la firma del solicitante"></canvas>
+            <button type="button" class="signature-clear">Borrar firma</button>
+          </div>
+          <div class="signature-field" id="firma-menor" hidden>
+            <span>Firma del representante</span>
+            <canvas class="signature-pad" width="900" height="220" aria-label="Área para dibujar la firma del representante"></canvas>
+            <button type="button" class="signature-clear">Borrar firma</button>
+          </div>
+          <div class="form-submit form-actions">
+            <button type="button" class="back-button" id="paso-anterior">Volver</button>
+            <button class="button primary" type="button" id="descargar-pdf">Descargar PDF</button>
+            <button class="button primary" type="button" id="enviar-solicitud" hidden>Enviar a la Hermandad</button>
+          </div>
+          <div class="solicitud-honeypot" aria-hidden="true" inert>
+            <label for="solicitud-website">Deja este campo vacío</label>
+            <input id="solicitud-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+          <div id="solicitud-captcha" class="solicitud-captcha"></div>
+          <button type="button" class="back-button solicitud-captcha" id="solicitud-captcha-cancel" hidden>Cancelar comprobación</button>
+        </section>
+      </form>
+    </main>
+
+    <site-footer></site-footer>
+    <script src="assets/js/maps-local-config.js"></script>
+    <script src="assets/js/pdf-lib.min.js"></script>
+    <script src="assets/js/apps-script-envio.js?v=20261121-1"></script>
+    <script src="assets/js/solicitud-ingreso.js?v=20261121-4"></script>
+    <script src="assets/js/solicitud-pdf.js?v=20261121-6"></script>
+  </body>
+</html>

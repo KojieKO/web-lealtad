@@ -29,6 +29,9 @@ datos de contacto y miembros de la Junta de Gobierno.
 | `contacto.html` | Datos, formulario y mapa |
 | `assets/contacto.js` | Configuración y estados del envío del formulario |
 | `scripts/apps-script/README.md` | Activación del formulario con Google Workspace y código del servidor |
+| `solicitud-ingreso.html` | Solicitud de ingreso: firma, PDF y envío a la Hermandad |
+| `scripts/apps-script/README-solicitud.md` | Activación del envío de solicitudes desde notificaciones@ |
+| `assets/js/apps-script-envio.js` | Envío común a Apps Script (contacto y solicitud) y clave pública de reCAPTCHA |
 | `assets/images/` | Imágenes, escudo e iconos de la web |
 | `assets/styles.css` | Índice que carga las hojas de estilo en el orden correcto |
 | `assets/css/01-base.css` | Colores, tipografías y estilos básicos |
