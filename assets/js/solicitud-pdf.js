@@ -93,6 +93,17 @@ const SOLICITUD_ENDPOINT = "https://script.google.com/macros/s/AKfycbw0nbhQ2mqcf
         if (width > 250) throw new Error("El nombre del representante es demasiado largo para el espacio de firma.");
         draw(p1, representative, (p1.getWidth() - width) / 2, 568, 250, size);
       }
+      // Copia de los datos para que Corregidor importe la solicitud sin leer el texto dibujado.
+      // Solo campos con prefijo: deja fuera «website» y el reCAPTCHA; la firma no es un campo.
+      const data = { formato: "solicitud-ingreso", version: 1, generado: new Date().toISOString() };
+      const otherSigner = rep ? "consentimiento.mayor." : "consentimiento.representante.";
+      for (const element of form.elements) {
+        if (!/^(solicitante|bautismo|cuota|cuenta|consentimiento)\./.test(element.name) || element.name.startsWith(otherSigner)) continue;
+        data[element.name] = element.type === "checkbox" ? element.checked : element.value.trim();
+      }
+      await pdf.attach(new TextEncoder().encode(JSON.stringify(data)), "solicitud.json", {
+        mimeType: "application/json", description: "Datos de la solicitud para Corregidor",
+      });
       return { pdf, signed: Boolean(canvas.dataset.signed) };
   }
 
