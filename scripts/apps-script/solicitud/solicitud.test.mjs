@@ -61,9 +61,10 @@ test("envía el PDF a contacto@ con asunto, Reply-To y destinatario fijos", () =
   assert.equal(server.sent.length, 1);
   const [to, subject, body, options] = server.sent[0];
   assert.equal(to, "contacto@lealtaddespojado.es");
-  assert.equal(subject, "Inscripción de María José Fernández");
+  assert.equal(subject, "Solicitud de María José Fernández");
   assert.equal(options.replyTo, applicant.email);
-  assert.deepEqual([...Object.keys(options)].sort(), ["attachments", "name", "replyTo"]);
+  assert.deepEqual([...Object.keys(options)].sort(), ["attachments", "htmlBody", "name", "replyTo"]);
+  assert.match(options.htmlBody, /<b>Solicitante:<\/b> María José Fernández<br><b>Correo electrónico:<\/b> maria@example\.com/);
   assert.equal(options.attachments[0].type, "application/pdf");
   assert.equal(options.attachments[0].name, "Solicitud de ingreso - María José Fernández.pdf");
   assert.equal(Buffer.from(options.attachments[0].bytes.map((b) => b & 255)).toString(), "%PDF-1.7\nprueba");
@@ -78,6 +79,14 @@ test("limpia del nombre de archivo los caracteres no válidos", () => {
   const server = backend();
   server.post({ nombre: 'Ana / "Test" <x>' });
   assert.equal(server.sent[0][3].attachments[0].name, "Solicitud de ingreso - Ana  Test x.pdf");
+});
+
+test("escapa los datos del solicitante en la versión HTML", () => {
+  const server = backend();
+  server.post({ nombre: '<img src=x onerror="alert(1)"> & Ana' });
+  const { htmlBody } = server.sent[0][3];
+  assert.ok(!htmlBody.includes("<img"));
+  assert.match(htmlBody, /<b>Solicitante:<\/b> &lt;img src=x onerror=&quot;alert\(1\)&quot;&gt; &amp; Ana/);
 });
 
 for (const values of [

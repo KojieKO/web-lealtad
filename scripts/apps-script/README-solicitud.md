@@ -2,7 +2,7 @@
 
 El botón **Enviar a la Hermandad** de `solicitud-ingreso.html` manda el PDF de la
 solicitud desde `notificaciones@lealtaddespojado.es` a `contacto@lealtaddespojado.es`,
-con el asunto `Inscripción de {Nombre}` y la dirección del solicitante en «Responder a».
+con el asunto `Solicitud de {Nombre}` y la dirección del solicitante en «Responder a».
 
 Es un **proyecto de Apps Script distinto** del formulario de contacto
 ([README.md](README.md)): se ejecuta con la cuenta `notificaciones@`, tiene su
@@ -55,7 +55,7 @@ Para actualizar el código más adelante: **Implementar → Gestionar implementa
 
 1. En la web publicada, rellena una solicitud con tu correo externo, dibuja la
    firma y pulsa **Enviar a la Hermandad**.
-2. En contacto@ debe llegar `Inscripción de {Nombre}` **de** notificaciones@,
+2. En contacto@ debe llegar `Solicitud de {Nombre}` **de** notificaciones@,
    con el PDF adjunto. Pulsa **Responder**: el destinatario debe ser tu correo.
 3. Abre el PDF adjunto y comprueba datos y firma.
 

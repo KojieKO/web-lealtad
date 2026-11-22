@@ -39,18 +39,27 @@
       if (!verifyCaptcha_(parameters)) return response_(origin, requestId, false);
       checkSender_();
   
-      const body = [
-        "Nueva solicitud de ingreso recibida desde la web.",
-        "",
-        `Solicitante: ${nombre}`,
-        `Correo electrónico: ${email}`,
-        "",
-        "Se adjunta el PDF generado y firmado por el solicitante.",
-      ].join("\n");
-      // Destinatario fijo y texto plano; el solicitante solo aparece como Reply-To.
-      MailApp.sendEmail(DESTINATION_ADDRESS, `Inscripción de ${nombre}`, body, {
+      // Texto del correo. Cada línea es [etiqueta en negrita, valor]; una etiqueta
+      // sin valor es una línea normal y ["", ""] deja una línea en blanco.
+      const lines = [
+        ["Nueva solicitud de ingreso recibida desde la web.", ""],
+        ["", ""],
+        ["Solicitante:", nombre],
+        ["Correo electrónico:", email],
+        ["", ""],
+        ["Se adjunta el PDF generado y firmado por el solicitante.", ""],
+      ];
+      // Texto plano para lectores sin HTML.
+      const body = lines.map(([label, value]) => value ? `${label} ${value}` : label).join("\n");
+      // Los datos del solicitante se escapan: no pueden inyectar HTML en el correo.
+      const htmlBody = lines.map(([label, value]) => value
+        ? `<b>${escapeHtml_(label)}</b> ${escapeHtml_(value)}`
+        : escapeHtml_(label)).join("<br>");
+      // Destinatario fijo; el solicitante solo aparece como Reply-To.
+      MailApp.sendEmail(DESTINATION_ADDRESS, `Solicitud de ${nombre}`, body, {
         name: "Solicitudes web - Hermandad del Despojado",
         replyTo: email,
+        htmlBody,
         attachments: [pdf],
       });
       return response_(origin, requestId, true);
@@ -61,6 +70,10 @@
     }
   }
   
+  function escapeHtml_(text) {
+    return text.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+  }
+
   function singleValue_(parameters, name) {
     const values = parameters[name];
     return Array.isArray(values) && values.length === 1 && typeof values[0] === "string"
