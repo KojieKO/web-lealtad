@@ -10,7 +10,7 @@
     <title>Solicitud de ingreso | Hermandad del Despojado de Cáceres</title>
     <link rel="icon" href="assets/images/favicon.ico?v=3" sizes="any">
     <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/css/pages/solicitud-ingreso.css?v=20261121-3">
+    <link rel="stylesheet" href="assets/css/pages/solicitud-ingreso.css?v=20261122-2">
     <script src="assets/header.js"></script>
     <script src="assets/footer.js"></script>
   </head>
@@ -41,25 +41,25 @@
               <input name="solicitante.fechaNacimiento" type="date" required>
             </label>
             <div class="field field-wide address-field" id="calle-manual">
-              <label for="calle">Dirección</label>
-              <input id="calle" name="solicitante.domicilio" autocomplete="address-line1" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugerencias-direccion">
+              <label for="calle">Dirección <span aria-hidden="true">*</span></label>
+              <input id="calle" name="solicitante.domicilio" autocomplete="address-line1" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugerencias-direccion" required>
               <div class="address-suggestions" id="address-suggestions" hidden>
                 <div id="sugerencias-direccion" role="listbox"></div>
                 <div class="address-attribution">Google Maps</div>
               </div>
               <small class="field-help" id="maps-status" role="status"></small>
             </div>
-            <label class="field">Número
-              <input name="solicitante.numero" autocomplete="off">
+            <label class="field"><span class="field-label">Número <span aria-hidden="true">*</span></span>
+              <input name="solicitante.numero" autocomplete="off" required>
             </label>
             <label class="field">Piso, puerta u otros datos
               <input name="solicitante.piso" autocomplete="address-line2">
             </label>
-            <label class="field">Código postal
-              <input name="solicitante.codigoPostal" inputmode="numeric" maxlength="5" autocomplete="postal-code">
+            <label class="field"><span class="field-label">Código postal <span aria-hidden="true">*</span></span>
+              <input name="solicitante.codigoPostal" inputmode="numeric" maxlength="5" autocomplete="postal-code" required>
             </label>
-            <label class="field">Localidad
-              <input name="solicitante.localidad" autocomplete="address-level2">
+            <label class="field"><span class="field-label">Localidad <span aria-hidden="true">*</span></span>
+              <input name="solicitante.localidad" autocomplete="address-level2" required>
             </label>
             <div class="solicitud-contacto field-wide">
               <label class="field"><span class="field-label">Teléfono <span aria-hidden="true">*</span></span>
@@ -82,22 +82,22 @@
             <h2 id="bautismo-title">Datos del bautismo</h2>
           </div>
           <div class="form-grid">
-            <label class="field">Lugar de nacimiento
-              <input name="solicitante.lugarNacimiento">
+            <label class="field"><span class="field-label">Lugar de nacimiento <span aria-hidden="true">*</span></span>
+              <input name="solicitante.lugarNacimiento" required>
             </label>
-            <label class="field">Provincia de nacimiento
-              <select name="solicitante.provinciaNacimiento" id="provincia-nacimiento">
+            <label class="field"><span class="field-label">Provincia de nacimiento <span aria-hidden="true">*</span></span>
+              <select name="solicitante.provinciaNacimiento" id="provincia-nacimiento" required>
                 <option value="">Selecciona una provincia</option>
               </select>
             </label>
-            <label class="field field-wide">Parroquia en la que fue bautizado/a
-              <input name="bautismo.parroquia">
+            <label class="field field-wide"><span class="field-label">Parroquia en la que fue bautizado/a <span aria-hidden="true">*</span></span>
+              <input name="bautismo.parroquia" required>
             </label>
-            <label class="field">Localidad
-              <input name="bautismo.localidad">
+            <label class="field"><span class="field-label">Localidad <span aria-hidden="true">*</span></span>
+              <input name="bautismo.localidad" required>
             </label>
-            <label class="field">Fecha del bautismo
-              <input name="bautismo.fecha" type="date">
+            <label class="field"><span class="field-label">Fecha del bautismo <span aria-hidden="true">*</span></span>
+              <input name="bautismo.fecha" type="date" required>
             </label>
             <label class="check-card field-wide required-card declaration-card">
               <input name="bautismo.declaracionIngresoAceptada" type="checkbox" required>
@@ -125,8 +125,8 @@
                 <option value="mensual">Mensual</option>
               </select>
             </label>
-            <label class="field field-wide">Entidad bancaria
-              <input name="cuenta.entidadBancaria">
+            <label class="field field-wide"><span class="field-label">Entidad bancaria <span aria-hidden="true">*</span></span>
+              <input name="cuenta.entidadBancaria" required>
             </label>
             <label class="check-card whatsapp-check field-wide">
               <input name="cuenta.titularEsSolicitante" type="checkbox">
@@ -248,6 +248,6 @@
     <script src="assets/js/pdf-lib.min.js"></script>
     <script src="assets/js/apps-script-envio.js?v=20261122-1"></script>
     <script src="assets/js/solicitud-ingreso.js?v=20261121-4"></script>
-    <script src="assets/js/solicitud-pdf.js?v=20261121-6"></script>
+    <script src="assets/js/solicitud-pdf.js?v=20261122-1"></script>
   </body>
 </html>
